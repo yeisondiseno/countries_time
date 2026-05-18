@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "mcp__stitch__list_projects",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\User\\\\Documents\\\\SideProyects\\\\amortiza_calc\" -Recurse -Force)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)",
+      "WebFetch(domain:contribution.usercontent.google.com)",
+      "mcp__stitch__get_screen",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(ls:*)",
+      "mcp__stitch__get_project",
+      "Bash(curl:*)",
+      "Bash(find:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(xargs sed:*)",
+      "Bash(node --input-type=module -e \"import * as lc from 'lightweight-charts'; const chart = lc.createChart\\(document.createElement\\('div'\\), {}\\); console.log\\(typeof chart.addSeries\\);\")",
+      "WebSearch",
+      "Bash(git:*)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
