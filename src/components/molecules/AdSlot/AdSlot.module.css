@@ -1,0 +1,22 @@
+.slot {
+  margin-block: var(--sp-5);
+  min-height: var(--ad-h-mobile);
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 12px,
+    color-mix(in oklab, var(--text-faint) 8%, transparent) 12px 13px
+  );
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-align: center;
+  padding: var(--sp-3);
+}
+
+.inContent {
+  min-height: var(--ad-h-tablet);
+}

@@ -1,10 +1,18 @@
-# Catálogo (`src/components`)
+# Component catalog (`src/components`)
 
-| Ruta                                                           | Pieza                                              |
-| -------------------------------------------------------------- | -------------------------------------------------- |
-| `atoms/LiveClock`                                              | Reloj cliente (`next-intl` + formato `Intl`)     |
-| `molecules/LocaleSwitcher`                                     | Selector idioma (`useRouter` de `next-intl`)      |
-| `organisms/AppShell`                                           | Carril/nav · textos desde `messages/*.json` (RSC)|
-| `organisms/WorldComparator`                                     | Comparador (`react-hook-form` + mensajes cliente) |
+| Path                         | Component                                             |
+| ---------------------------- | ----------------------------------------------------- |
+| `providers/ThemeProvider`    | Light/dark theme (`data-theme` + localStorage)        |
+| `molecules/ThemeToggle`      | Sun/moon toggle in the header                         |
+| `molecules/TimeDisplay`      | Time hero (mono, `aria-live`, day/night)              |
+| `molecules/MultiZoneNotice`  | Notice + IANA zone selector                           |
+| `molecules/AdSlot`           | CLS-safe ad placeholder                               |
+| `molecules/LocaleSwitcher`   | Language selector (endonyms)                          |
+| `organisms/SiteHeader`       | Sticky header, pill nav, tools                        |
+| `organisms/AppShell`         | Global shell (skip link, ads, footer)                 |
+| `organisms/CountryDirectory` | Searchable list grouped by region                     |
+| `organisms/CountryPageView`  | T-Country template (hero, FAQ, promo)                 |
+| `organisms/WorldComparator`  | Card-based comparator (2–4 countries)                 |
+| `atoms/LiveClock`            | Legacy clock (replaced by `TimeDisplay` on new pages) |
 
-Cadenas globales en `messages/{locale}.json`; routing en `src/i18n/routing.ts`; navegación en `src/i18n/navigation.ts`.
+Copy lives in `messages/{locale}.json`; routing in `src/i18n/routing.ts`.

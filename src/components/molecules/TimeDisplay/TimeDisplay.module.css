@@ -1,0 +1,82 @@
+.block {
+  display: grid;
+  gap: var(--sp-3);
+  padding-block: var(--sp-3);
+}
+
+.time {
+  font-family: var(--font-mono);
+  font-size: var(--step-mega);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.04em;
+  flex-wrap: wrap;
+}
+
+.sep {
+  color: var(--text-faint);
+  animation: blink 2s steps(1) infinite;
+}
+
+.seconds {
+  font-size: 0.35em;
+  color: var(--text-faint);
+  align-self: flex-start;
+  margin-top: 0.15em;
+  font-weight: 400;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sep {
+    animation: none;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  align-items: baseline;
+}
+
+.date {
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.zone {
+  font-size: var(--step--1);
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: var(--surface-sunk);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.dayNight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.dnIcon {
+  width: 1.1em;
+  height: 1.1em;
+  color: var(--accent);
+}

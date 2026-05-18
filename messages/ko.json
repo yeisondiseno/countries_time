@@ -9,29 +9,92 @@
     "zoneNoticeMulti": "여러 시간대가 있는 국가입니다.",
     "faqTimeTitle": "일 년 동안 표시되는 시간이 달라질 수 있는 이유가 무엇인가요?",
     "faqDstBody": "여러 지역은 일광 절약 시간제로 표준 시차가 연간 두 차례 바뀝니다. 내부에서는 하나의 UTC 순간만 유지하고 그 시점에 맞는 IANA 구역으로 변환합니다.",
-    "compareSectionTitle": "비교기"
+    "compareSectionTitle": "비교기",
+    "skipToContent": "Skip to main content"
   },
-  "LocaleSwitcher": { "label": "언어" },
-  "LiveClock": { "heading": "현지 라이브 시계", "ianaLabel": "IANA" },
+  "LocaleSwitcher": {
+    "label": "언어"
+  },
+  "Theme": {
+    "switchLight": "Switch to light mode",
+    "switchDark": "Switch to dark mode"
+  },
+  "TimeDisplay": {
+    "heading": "Live local clock",
+    "ariaLabel": "Current local time",
+    "day": "Day",
+    "night": "Night"
+  },
+  "Countries": {
+    "subtitle": "Live local time in {count} countries. Search or browse by region.",
+    "searchPlaceholder": "Search country…",
+    "noResults": "No matches—try another spelling."
+  },
   "Compare": {
     "title": "세계 시각 비교",
+    "eyebrow": "Comparator",
+    "subtitle": "Select up to four countries, set a reference date and time, and see the exact instant in each place.",
     "anchorLabel": "기준 국가 · 내부 UTC",
     "dateLabel": "기준 날짜",
     "timeLabel": "기준 현지 시간(1분 단위)",
+    "anchorHelp": "Times below update when you change the reference date and time.",
+    "anchorControls": "Reference controls",
+    "liveToggle": "Live time",
+    "liveOn": "● Live · now",
+    "liveOff": "○ Use live time",
+    "badgeRef": "Reference",
+    "setRef": "Set as reference",
+    "remove": "Remove",
+    "deltaLabel": "Difference vs. reference",
+    "addCountry": "Add country",
+    "addCountryHint": "Tap to open search",
+    "summary": "When it is {timeA} in {countryA}, in {countryB} it is {timeB}.",
+    "validationMin": "Add at least two countries to activate the comparator.",
+    "validationError": "선택한 기준 구역에서 해당 날짜·시각은 유효하지 않습니다.",
+    "searchCountry": "Search country…",
+    "noResults": "No matches.",
+    "closePicker": "Close",
     "tableCountry": "국가",
     "tableZone": "사용 중인 IANA 구역",
     "tableEquivalent": "대응 현지 시각",
-    "disclaimer": "MVP 부트스트랩: 큐레이션 4개국 세트와 내부 UTC를 IANA 행으로 변환합니다.",
-    "validationError": "선택한 기준 구역에서 해당 날짜·시각은 유효하지 않습니다."
+    "disclaimer": "MVP 부트스트랩: 큐레이션 4개국 세트와 내부 UTC를 IANA 행으로 변환합니다."
   },
   "Country": {
+    "heroEyebrow": "Current time in",
     "capitalIntro": "{country} · 서술 맥락은 수도 {capital} 기준입니다.",
+    "zoneExplain": "{country} uses the IANA zone {zone}. The offset adjusts automatically for daylight saving time when applicable.",
+    "aboutHeading": "About this time",
+    "multiZoneTitle": "This country spans multiple time zones.",
+    "chooseZone": "Choose zone",
+    "ctaCompare": "Compare with other countries",
     "faqHeading": "FAQ",
+    "faqQ2": "Why do some countries have several time zones?",
+    "faqA2": "Large countries such as the United States, Canada, Russia, or Brazil cover several offsets. We show the primary zone and let you pick others when available.",
+    "faqQ3": "How does the comparator work?",
+    "faqA3": "Pick two to four countries, set a reference country with a date and time, and the tool projects that instant to every row.",
+    "promoTitle": "Time comparator",
+    "promoBody": "Coordinate meetings across countries instantly. Set a reference and watch the results.",
+    "promoCta": "Open comparator",
     "backToDirectory": "← {title}"
   },
   "Ads": {
     "leader": "광고 슬롯 예약(CLS) · 리더보드",
-    "inContent": "광고 슬롯 예약(CLS) · 인콘텐츠"
+    "inContent": "광고 슬롯 예약(CLS) · 인콘텐츠",
+    "ariaLabel": "Advertisement placeholder"
   },
-  "Footer": { "note": "Countries Time · MVP bootstrap" }
+  "Footer": {
+    "note": "Countries Time · MVP bootstrap",
+    "disclaimer": "Times are calculated in real time with current zoneinfo rules. Brief mismatches may occur during daylight saving transitions."
+  },
+  "Home": {
+    "eyebrow": "World clock",
+    "title": "Live time, anywhere",
+    "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
+    "ctaCountries": "Browse countries",
+    "ctaCompare": "Open comparator"
+  },
+  "LiveClock": {
+    "heading": "현지 라이브 시계",
+    "ianaLabel": "IANA"
+  }
 }

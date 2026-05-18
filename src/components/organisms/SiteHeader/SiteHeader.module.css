@@ -1,0 +1,89 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: color-mix(in oklab, var(--surface) 86%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding-block: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-weight: 700;
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.mark {
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      from 0deg at 50% 50%,
+      var(--accent) 0deg 60deg,
+      transparent 60deg 360deg
+    ),
+    var(--surface-sunk);
+  position: relative;
+  border: 1.5px solid var(--text-primary);
+}
+
+.mark::after {
+  content: "";
+  position: absolute;
+  inset: 38%;
+  border-radius: 50%;
+  background: var(--text-primary);
+}
+
+.nav {
+  display: flex;
+  gap: var(--sp-1);
+  flex: 1;
+}
+
+.navBtn {
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: var(--step--1);
+  text-decoration: none;
+  transition:
+    background 120ms ease,
+    color 120ms ease;
+}
+
+.navBtn:hover {
+  background: var(--surface-sunk);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.navBtn[aria-current="page"] {
+  background: var(--text-primary);
+  color: var(--surface);
+}
+
+.tools {
+  display: inline-flex;
+  gap: var(--sp-2);
+  align-items: center;
+}

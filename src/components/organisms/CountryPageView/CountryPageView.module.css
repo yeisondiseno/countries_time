@@ -1,0 +1,239 @@
+.hero {
+  padding-block: var(--sp-6) var(--sp-5);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 60%, transparent);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 60%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px color-mix(in oklab, var(--accent) 0%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+  }
+}
+
+.h1 {
+  font-size: var(--step-3);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: var(--sp-3) 0 var(--sp-5);
+  font-weight: 700;
+  text-wrap: balance;
+  max-width: 18ch;
+}
+
+.countryName {
+  background: linear-gradient(180deg, var(--text-primary) 60%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  background: var(--text-primary);
+  color: var(--surface);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: var(--step-0);
+  margin-top: var(--sp-4);
+  text-decoration: none;
+  transition: transform 120ms ease;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.ctaArrow {
+  transition: transform 200ms ease;
+}
+
+.cta:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+.body {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: minmax(0, 1fr);
+  container-type: inline-size;
+  padding-block-end: var(--sp-6);
+}
+
+@container (min-width: 880px) {
+  .body {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    gap: var(--sp-6);
+  }
+}
+
+.main {
+  min-width: 0;
+}
+
+.aside {
+  display: grid;
+  gap: var(--sp-4);
+  align-content: start;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.prose h2 {
+  font-size: var(--step-2);
+  letter-spacing: -0.02em;
+  margin: var(--sp-6) 0 var(--sp-3);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.prose p {
+  margin: 0 0 var(--sp-3);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.faq {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.faq details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-elev);
+  overflow: hidden;
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--sp-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-weight: 600;
+  font-size: var(--step-0);
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.faqBody {
+  padding: 0 var(--sp-4) var(--sp-4);
+  color: var(--text-muted);
+}
+
+.promo {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  background: var(--surface-elev);
+  display: grid;
+  gap: var(--sp-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.promo::before {
+  content: "";
+  position: absolute;
+  inset: auto -30% -50% auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--accent) 50%, transparent),
+    transparent
+  );
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.promo h3 {
+  font-size: var(--step-1);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.promo p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+.promoBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--accent);
+  color: var(--surface);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: var(--step--1);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.promoBtn:hover {
+  text-decoration: none;
+  filter: brightness(1.05);
+}
+
+.back {
+  font-weight: 500;
+  color: var(--text-muted);
+}

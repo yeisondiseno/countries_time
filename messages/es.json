@@ -1,37 +1,90 @@
 {
   "Common": {
     "siteName": "Countries Time",
-    "navCountries": "Países",
-    "navCompare": "Comparar",
+    "navCountries": "Todos los países",
+    "navCompare": "Comparador",
     "homeIntro": "Consulta la hora actual en cualquier país soportado o compara agendas respetando cambios por horario de verano.",
     "countriesTitle": "Directorio de países",
     "linkComparator": "Ir al comparador",
     "zoneNoticeMulti": "Este país tiene varios husos horarios.",
     "faqTimeTitle": "¿Por qué la hora que se muestra puede cambiar durante el año?",
     "faqDstBody": "Muchas regiones mueven el offset oficial dos veces al año por el cambio horario verano / invierno. Internamente fijamos un instante UTC y lo convertimos con la zona IANA válida para ese momento.",
-    "compareSectionTitle": "Comparador"
+    "compareSectionTitle": "Comparador",
+    "skipToContent": "Saltar al contenido"
   },
   "LocaleSwitcher": { "label": "Idioma" },
-  "LiveClock": { "heading": "Reloj local en vivo", "ianaLabel": "IANA" },
+  "Theme": {
+    "switchLight": "Cambiar a modo claro",
+    "switchDark": "Cambiar a modo oscuro"
+  },
+  "TimeDisplay": {
+    "heading": "Reloj local en vivo",
+    "ariaLabel": "Hora local actual",
+    "day": "Día",
+    "night": "Noche"
+  },
+  "Countries": {
+    "subtitle": "Hora local en directo en {count} países. Busca o navega por región.",
+    "searchPlaceholder": "Buscar país…",
+    "noResults": "Sin coincidencias. Prueba con otra ortografía."
+  },
   "Compare": {
-    "title": "Comparador de hora mundial",
-    "anchorLabel": "País anchor · núcleo UTC",
-    "dateLabel": "Fecha de referencia",
-    "timeLabel": "Hora local de referencia (pasos de 1 minuto)",
-    "tableCountry": "País",
-    "tableZone": "Zona IANA usada",
-    "tableEquivalent": "Equivalente local",
-    "disclaimer": "Bootstrap técnico: cuatro países curatoriales y un UTC interno proyectado por filas IANA.",
-    "validationError": "Esa fecha y hora no son válidas en el huso anchor elegido."
+    "title": "Comparador de horas por país",
+    "eyebrow": "Comparador",
+    "subtitle": "Selecciona hasta cuatro países, define una referencia y compara el instante exacto en cada uno.",
+    "anchorLabel": "País de referencia",
+    "dateLabel": "Fecha",
+    "timeLabel": "Hora",
+    "anchorHelp": "Las horas de abajo se actualizan al cambiar fecha y hora de la referencia.",
+    "anchorControls": "Controles de referencia",
+    "liveToggle": "Hora en vivo",
+    "liveOn": "● En vivo · ahora",
+    "liveOff": "○ Usar hora en vivo",
+    "badgeRef": "Referencia",
+    "setRef": "Fijar como referencia",
+    "remove": "Quitar",
+    "deltaLabel": "Diferencia vs. referencia",
+    "addCountry": "Añadir país",
+    "addCountryHint": "Toca para abrir el buscador",
+    "summary": "Cuando son las {timeA} en {countryA}, en {countryB} son las {timeB}.",
+    "validationMin": "Añade al menos dos países para activar el comparador.",
+    "validationError": "Esa fecha y hora no son válidas en el huso de referencia elegido.",
+    "searchCountry": "Buscar país…",
+    "noResults": "Sin coincidencias.",
+    "closePicker": "Cerrar"
   },
   "Country": {
+    "heroEyebrow": "Hora actual en",
     "capitalIntro": "{country} · El contexto editorial usa {capital} como referencia.",
-    "faqHeading": "FAQ",
+    "zoneExplain": "{country} usa la zona IANA {zone}. El offset se ajusta automáticamente al horario de verano cuando aplica.",
+    "aboutHeading": "Sobre esta hora",
+    "multiZoneTitle": "Este país abarca varias zonas horarias.",
+    "chooseZone": "Elegir zona",
+    "ctaCompare": "Comparar con otros países",
+    "faqHeading": "Preguntas frecuentes",
+    "faqQ2": "¿Por qué hay países con varias zonas horarias?",
+    "faqA2": "Países grandes como Estados Unidos, Canadá, Rusia o Brasil cubren varios husos. Mostramos la zona principal y permitimos elegir otras cuando existen.",
+    "faqQ3": "¿Cómo funciona el comparador?",
+    "faqA3": "Elige de 2 a 4 países, define referencia con fecha y hora, y la herramienta proyecta ese instante en cada fila.",
+    "promoTitle": "Comparador horario",
+    "promoBody": "Coordina reuniones en varios países al instante. Define una referencia y observa los resultados.",
+    "promoCta": "Abrir comparador",
     "backToDirectory": "← {title}"
   },
   "Ads": {
     "leader": "Espacio para anuncios (CLS) · leaderboard",
-    "inContent": "Espacio para anuncios (CLS) · in-content"
+    "inContent": "Espacio para anuncios (CLS) · in-content",
+    "ariaLabel": "Espacio publicitario"
   },
-  "Footer": { "note": "Countries Time · bootstrap MVP" }
+  "Footer": {
+    "note": "Countries Time · MVP",
+    "disclaimer": "Las horas se calculan en tiempo real con las reglas zoneinfo vigentes. Pueden existir desfases puntuales durante transiciones de horario de verano."
+  },
+  "Home": {
+    "eyebrow": "Reloj mundial",
+    "title": "Hora en vivo, en cualquier lugar",
+    "subtitle": "Consulta la hora local por país o compara hasta cuatro zonas con un único instante de referencia.",
+    "ctaCountries": "Ver países",
+    "ctaCompare": "Abrir comparador"
+  }
 }

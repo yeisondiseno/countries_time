@@ -9,29 +9,92 @@
     "zoneNoticeMulti": "Questo paese ha più fusi orari.",
     "faqTimeTitle": "Perché l’ora mostrata può cambiare nel corso dell’anno?",
     "faqDstBody": "Molte regioni spostano l’offset due volte l’anno (ora legale/solare). Memorizziamo un istante assoluto in UTC e lo convertiamo con la zona IANA valida nel momento.",
-    "compareSectionTitle": "Comparatore"
+    "compareSectionTitle": "Comparatore",
+    "skipToContent": "Skip to main content"
   },
-  "LocaleSwitcher": { "label": "Lingua" },
-  "LiveClock": { "heading": "Orologio locale live", "ianaLabel": "IANA" },
+  "LocaleSwitcher": {
+    "label": "Lingua"
+  },
+  "Theme": {
+    "switchLight": "Switch to light mode",
+    "switchDark": "Switch to dark mode"
+  },
+  "TimeDisplay": {
+    "heading": "Live local clock",
+    "ariaLabel": "Current local time",
+    "day": "Day",
+    "night": "Night"
+  },
+  "Countries": {
+    "subtitle": "Live local time in {count} countries. Search or browse by region.",
+    "searchPlaceholder": "Search country…",
+    "noResults": "No matches—try another spelling."
+  },
   "Compare": {
     "title": "Confronto orario mondiale",
+    "eyebrow": "Comparator",
+    "subtitle": "Select up to four countries, set a reference date and time, and see the exact instant in each place.",
     "anchorLabel": "Paese pilota · spina UTC",
     "dateLabel": "Data di riferimento",
     "timeLabel": "Ora locale di riferimento (incrementi di 1 min)",
+    "anchorHelp": "Times below update when you change the reference date and time.",
+    "anchorControls": "Reference controls",
+    "liveToggle": "Live time",
+    "liveOn": "● Live · now",
+    "liveOff": "○ Use live time",
+    "badgeRef": "Reference",
+    "setRef": "Set as reference",
+    "remove": "Remove",
+    "deltaLabel": "Difference vs. reference",
+    "addCountry": "Add country",
+    "addCountryHint": "Tap to open search",
+    "summary": "When it is {timeA} in {countryA}, in {countryB} it is {timeB}.",
+    "validationMin": "Add at least two countries to activate the comparator.",
+    "validationError": "Quella data/ora non è valida per la zona di ancoraggio scelta.",
+    "searchCountry": "Search country…",
+    "noResults": "No matches.",
+    "closePicker": "Close",
     "tableCountry": "Paese",
     "tableZone": "Fuso IANA usato",
     "tableEquivalent": "Equivalente locale",
-    "disclaimer": "Bootstrap MVP: quattro paesi curati e un UTC interno proiettato per ogni riga IANA.",
-    "validationError": "Quella data/ora non è valida per la zona di ancoraggio scelta."
+    "disclaimer": "Bootstrap MVP: quattro paesi curati e un UTC interno proiettato per ogni riga IANA."
   },
   "Country": {
+    "heroEyebrow": "Current time in",
     "capitalIntro": "{country} · Contesto editoriale usando {capital}.",
+    "zoneExplain": "{country} uses the IANA zone {zone}. The offset adjusts automatically for daylight saving time when applicable.",
+    "aboutHeading": "About this time",
+    "multiZoneTitle": "This country spans multiple time zones.",
+    "chooseZone": "Choose zone",
+    "ctaCompare": "Compare with other countries",
     "faqHeading": "FAQ",
+    "faqQ2": "Why do some countries have several time zones?",
+    "faqA2": "Large countries such as the United States, Canada, Russia, or Brazil cover several offsets. We show the primary zone and let you pick others when available.",
+    "faqQ3": "How does the comparator work?",
+    "faqA3": "Pick two to four countries, set a reference country with a date and time, and the tool projects that instant to every row.",
+    "promoTitle": "Time comparator",
+    "promoBody": "Coordinate meetings across countries instantly. Set a reference and watch the results.",
+    "promoCta": "Open comparator",
     "backToDirectory": "← {title}"
   },
   "Ads": {
     "leader": "Spazio annunci (CLS) · leaderboard",
-    "inContent": "Spazio annunci (CLS) · in‑content"
+    "inContent": "Spazio annunci (CLS) · in‑content",
+    "ariaLabel": "Advertisement placeholder"
   },
-  "Footer": { "note": "Countries Time · bootstrap MVP" }
+  "Footer": {
+    "note": "Countries Time · bootstrap MVP",
+    "disclaimer": "Times are calculated in real time with current zoneinfo rules. Brief mismatches may occur during daylight saving transitions."
+  },
+  "Home": {
+    "eyebrow": "World clock",
+    "title": "Live time, anywhere",
+    "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
+    "ctaCountries": "Browse countries",
+    "ctaCompare": "Open comparator"
+  },
+  "LiveClock": {
+    "heading": "Orologio locale live",
+    "ianaLabel": "IANA"
+  }
 }

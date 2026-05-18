@@ -1,0 +1,151 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding-block-start: var(--sp-5);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.title {
+  font-size: var(--step-3);
+  letter-spacing: -0.025em;
+  margin: var(--sp-3) 0;
+  font-weight: 700;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.sub {
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin: 0 0 var(--sp-4);
+}
+
+.searchWrap {
+  position: relative;
+  margin-block: var(--sp-4);
+}
+
+.search {
+  width: 100%;
+  font: inherit;
+  font-size: var(--step-1);
+  padding: var(--sp-3) var(--sp-4) var(--sp-3) calc(var(--sp-5) + 4px);
+  border: 1px solid var(--border);
+  background: var(--surface-elev);
+  border-radius: 999px;
+  color: var(--text-primary);
+  min-height: 56px;
+}
+
+.search:focus {
+  outline: 2px solid color-mix(in oklab, var(--accent) 40%, transparent);
+  outline-offset: 0;
+  border-color: var(--accent);
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--sp-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.empty {
+  color: var(--text-muted);
+  padding: var(--sp-5);
+  text-align: center;
+}
+
+.section {
+  margin-block: var(--sp-5);
+}
+
+.sectionTitle {
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin: 0 0 var(--sp-3);
+}
+
+.count {
+  font-size: 0.85em;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  gap: var(--sp-1);
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  min-height: 60px;
+  text-decoration: none;
+  transition:
+    background 100ms ease,
+    border-color 100ms ease;
+}
+
+.row:hover {
+  background: var(--surface-elev);
+  border-color: var(--border);
+  text-decoration: none;
+}
+
+.flag {
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subRow {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.time {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--text-primary);
+}

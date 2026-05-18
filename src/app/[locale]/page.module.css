@@ -1,0 +1,77 @@
+.hero {
+  padding-block: var(--sp-7) var(--sp-6);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.title {
+  font-size: var(--step-4);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: var(--sp-3) 0;
+  font-weight: 800;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.sub {
+  color: var(--text-muted);
+  max-width: 55ch;
+  margin: 0 0 var(--sp-5);
+  font-size: var(--step-1);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  background: var(--text-primary);
+  color: var(--surface);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ctaPrimary:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.ctaGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.ctaGhost:hover {
+  background: var(--surface-sunk);
+  text-decoration: none;
+}
