@@ -1,0 +1,44 @@
+{
+  "Common": {
+    "siteName": "Countries Time",
+    "navCountries": "Countries",
+    "navCompare": "Compare",
+    "homeIntro": "Check the current time in any supported country or compare schedules across zones with DST-aware conversion.",
+    "countriesTitle": "Country directory",
+    "linkComparator": "Open comparator",
+    "zoneNoticeMulti": "This country has multiple time zones.",
+    "faqTimeTitle": "Why can the displayed time shift during the year?",
+    "faqDstBody": "Many regions change their official offset twice a year for daylight savings. We hold one absolute instant internally (UTC) and convert using the curated IANA zone for that moment.",
+    "compareSectionTitle": "Comparator"
+  },
+  "LocaleSwitcher": {
+    "label": "Language"
+  },
+  "LiveClock": {
+    "heading": "Live local clock",
+    "ianaLabel": "IANA"
+  },
+  "Compare": {
+    "title": "World time comparator",
+    "anchorLabel": "Anchor country · UTC spine",
+    "dateLabel": "Reference date",
+    "timeLabel": "Reference local time (minute steps)",
+    "tableCountry": "Country",
+    "tableZone": "IANA zone used",
+    "tableEquivalent": "Local equivalent",
+    "disclaimer": "Bootstrap scaffold: curated four-country set with one internal UTC instant converted per IANA row.",
+    "validationError": "That wall date/time is not valid for the chosen anchor zone."
+  },
+  "Country": {
+    "capitalIntro": "{country} · Editorial context cites {capital} schedules.",
+    "faqHeading": "FAQ",
+    "backToDirectory": "← {title}"
+  },
+  "Ads": {
+    "leader": "Ad slot reserved (CLS) · leaderboard",
+    "inContent": "Ad slot reserved (CLS) · in-content"
+  },
+  "Footer": {
+    "note": "Countries Time · MVP bootstrap"
+  }
+}

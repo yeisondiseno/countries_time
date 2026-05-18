@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "countries": {
+    "JP": {
+      "capital": "Tokyo",
+      "defaultZone": "Asia/Tokyo",
+      "zones": ["Asia/Tokyo"]
+    },
+    "ES": {
+      "capital": "Madrid",
+      "defaultZone": "Europe/Madrid",
+      "zones": ["Europe/Madrid", "Africa/Ceuta", "Atlantic/Canary"]
+    },
+    "US": {
+      "capital": "Washington D.C.",
+      "defaultZone": "America/New_York",
+      "zones": [
+        "America/New_York",
+        "America/Chicago",
+        "America/Denver",
+        "America/Los_Angeles",
+        "America/Anchorage",
+        "Pacific/Honolulu"
+      ]
+    },
+    "DE": {
+      "capital": "Berlin",
+      "defaultZone": "Europe/Berlin",
+      "zones": ["Europe/Berlin"]
+    }
+  }
+}

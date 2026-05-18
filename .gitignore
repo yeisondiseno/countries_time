@@ -1,0 +1,25 @@
+# Dependencies
+/node_modules
+
+# Next.js
+/.next/
+/out/
+
+# Logs & env
+npm-debug.log*
+*.log
+.env*.local
+
+# Bun
+/.bun/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+*.swp
+
+# Typescript / tooling
+*.tsbuildinfo
+
+# Testing
+/coverage/

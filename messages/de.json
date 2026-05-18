@@ -1,0 +1,37 @@
+{
+  "Common": {
+    "siteName": "Countries Time",
+    "navCountries": "Länder",
+    "navCompare": "Vergleichen",
+    "homeIntro": "Aktuelle Uhrzeit in unterstützten Ländern prüfen oder Zeiten DST‑korrekt vergleichen.",
+    "countriesTitle": "Länderverzeichnis",
+    "linkComparator": "Komparator öffnen",
+    "zoneNoticeMulti": "Dieses Land hat mehrere Zeitzonen.",
+    "faqTimeTitle": "Warum kann die angezeigte Uhrzeit im Jahr variieren?",
+    "faqDstBody": "Regionen verschieben den offiziellen Offset oft zweimal jährlich. Wir halten einen absoluten UTC‑Zeitpunkt und wandeln mit der jeweils gültigen IANA‑Zone.",
+    "compareSectionTitle": "Komparator"
+  },
+  "LocaleSwitcher": { "label": "Sprache" },
+  "LiveClock": { "heading": "Live‑Standortzeit", "ianaLabel": "IANA" },
+  "Compare": {
+    "title": "Weltzeit‑Vergleich",
+    "anchorLabel": "Ankerland · UTC‑Rückgrat",
+    "dateLabel": "Referenzdatum",
+    "timeLabel": "Referenz‑Ortszeit (1‑Minuten‑Raster)",
+    "tableCountry": "Land",
+    "tableZone": "Genutzte IANA‑Zone",
+    "tableEquivalent": "Lokales Äquivalent",
+    "disclaimer": "MVP‑Bootstrap: vier kuratierte Länder und ein interner UTC‑Moment je IANA‑Zeile.",
+    "validationError": "Diese lokale Datum/Uhrzeit ist in der gewählten Ankerzone ungültig."
+  },
+  "Country": {
+    "capitalIntro": "{country} · Redaktioneller Kontext bezieht sich auf {capital}.",
+    "faqHeading": "FAQ",
+    "backToDirectory": "← {title}"
+  },
+  "Ads": {
+    "leader": "Werbefläche reserviert (CLS) · Leaderboard",
+    "inContent": "Werbefläche reserviert (CLS) · In‑Content"
+  },
+  "Footer": { "note": "Countries Time · MVP‑Bootstrap" }
+}

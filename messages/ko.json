@@ -1,0 +1,37 @@
+{
+  "Common": {
+    "siteName": "Countries Time",
+    "navCountries": "국가",
+    "navCompare": "비교",
+    "homeIntro": "지원 국가의 현재 시간을 확인하거나 일광절약시간을 고려해 여러 나라 시간을 비교합니다.",
+    "countriesTitle": "국가 디렉터리",
+    "linkComparator": "비교기 열기",
+    "zoneNoticeMulti": "여러 시간대가 있는 국가입니다.",
+    "faqTimeTitle": "일 년 동안 표시되는 시간이 달라질 수 있는 이유가 무엇인가요?",
+    "faqDstBody": "여러 지역은 일광 절약 시간제로 표준 시차가 연간 두 차례 바뀝니다. 내부에서는 하나의 UTC 순간만 유지하고 그 시점에 맞는 IANA 구역으로 변환합니다.",
+    "compareSectionTitle": "비교기"
+  },
+  "LocaleSwitcher": { "label": "언어" },
+  "LiveClock": { "heading": "현지 라이브 시계", "ianaLabel": "IANA" },
+  "Compare": {
+    "title": "세계 시각 비교",
+    "anchorLabel": "기준 국가 · 내부 UTC",
+    "dateLabel": "기준 날짜",
+    "timeLabel": "기준 현지 시간(1분 단위)",
+    "tableCountry": "국가",
+    "tableZone": "사용 중인 IANA 구역",
+    "tableEquivalent": "대응 현지 시각",
+    "disclaimer": "MVP 부트스트랩: 큐레이션 4개국 세트와 내부 UTC를 IANA 행으로 변환합니다.",
+    "validationError": "선택한 기준 구역에서 해당 날짜·시각은 유효하지 않습니다."
+  },
+  "Country": {
+    "capitalIntro": "{country} · 서술 맥락은 수도 {capital} 기준입니다.",
+    "faqHeading": "FAQ",
+    "backToDirectory": "← {title}"
+  },
+  "Ads": {
+    "leader": "광고 슬롯 예약(CLS) · 리더보드",
+    "inContent": "광고 슬롯 예약(CLS) · 인콘텐츠"
+  },
+  "Footer": { "note": "Countries Time · MVP bootstrap" }
+}

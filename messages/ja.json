@@ -1,0 +1,37 @@
+{
+  "Common": {
+    "siteName": "Countries Time",
+    "navCountries": "国一覧",
+    "navCompare": "比較",
+    "homeIntro": "対応国の現在時刻を確認したり、夏時間を考慮して各国の対応時刻を比較できます。",
+    "countriesTitle": "国の一覧",
+    "linkComparator": "コンパレーターを開く",
+    "zoneNoticeMulti": "この国には複数のタイムゾーンがあります。",
+    "faqTimeTitle": "表示される時刻が年のうちで変わるのはなぜですか？",
+    "faqDstBody": "多くの地域は夏時間の導入・解除で公式オフセットが年に二度変わります。サイト内部では絶対時刻を UTC で保持し、その瞬間に有効な IANA で変換しています。",
+    "compareSectionTitle": "比較"
+  },
+  "LocaleSwitcher": { "label": "言語" },
+  "LiveClock": { "heading": "現地ライブクロック", "ianaLabel": "IANA" },
+  "Compare": {
+    "title": "世界時計コンパレーター",
+    "anchorLabel": "基準国 · 内部UTC",
+    "dateLabel": "基準日",
+    "timeLabel": "基準の現地時刻（1分刻み）",
+    "tableCountry": "国",
+    "tableZone": "使用するIANAタイムゾーン",
+    "tableEquivalent": "現地の対応時刻",
+    "disclaimer": "Bootstrap: キュレーション4か国セットと内部UTCをIANAごとに写像します。",
+    "validationError": "選択した基準ゾーンではその日時は存在しません。"
+  },
+  "Country": {
+    "capitalIntro": "{country} · コンテキストとして首都 {capital} を参照しています。",
+    "faqHeading": "FAQ",
+    "backToDirectory": "← {title}"
+  },
+  "Ads": {
+    "leader": "広告枠（CLS）・リーダーボード",
+    "inContent": "広告枠（CLS）・インフィード"
+  },
+  "Footer": { "note": "Countries Time · MVP bootstrap" }
+}

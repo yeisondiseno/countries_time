@@ -1,0 +1,37 @@
+{
+  "Common": {
+    "siteName": "Countries Time",
+    "navCountries": "Países",
+    "navCompare": "Comparar",
+    "homeIntro": "Veja o horário atual em qualquer país suportado ou compare agendas com DST considerado.",
+    "countriesTitle": "Lista de países",
+    "linkComparator": "Abrir comparador",
+    "zoneNoticeMulti": "Este país tem vários fusos horários.",
+    "faqTimeTitle": "Por que o horário exibido pode mudar durante o ano?",
+    "faqDstBody": "Muitas regiões ajustam o deslocamento duas vezes por ano pelo horário de verão/inverno. Guardamos um instante UTC único e convertemos com o fuso IANA correto.",
+    "compareSectionTitle": "Comparador"
+  },
+  "LocaleSwitcher": { "label": "Idioma" },
+  "LiveClock": { "heading": "Relógio local ao vivo", "ianaLabel": "IANA" },
+  "Compare": {
+    "title": "Comparador de horário mundial",
+    "anchorLabel": "País âncora · coluna UTC",
+    "dateLabel": "Data de referência",
+    "timeLabel": "Hora local de referência (passos de 1 minuto)",
+    "tableCountry": "País",
+    "tableZone": "Fuso IANA usado",
+    "tableEquivalent": "Equivalente local",
+    "disclaimer": "Esqueleto MVP: quatro países curados e um UTC interno convertido nas linhas IANA.",
+    "validationError": "Essa data/hora não é válida no fuso âncora selecionado."
+  },
+  "Country": {
+    "capitalIntro": "{country} · Contexto editorial com base em {capital}.",
+    "faqHeading": "FAQ",
+    "backToDirectory": "← {title}"
+  },
+  "Ads": {
+    "leader": "Espaço reservado para anúncios (CLS) · leaderboard",
+    "inContent": "Espaço reservado para anúncios (CLS) · in‑content"
+  },
+  "Footer": { "note": "Countries Time · bootstrap MVP" }
+}

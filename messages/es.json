@@ -1,0 +1,37 @@
+{
+  "Common": {
+    "siteName": "Countries Time",
+    "navCountries": "Países",
+    "navCompare": "Comparar",
+    "homeIntro": "Consulta la hora actual en cualquier país soportado o compara agendas respetando cambios por horario de verano.",
+    "countriesTitle": "Directorio de países",
+    "linkComparator": "Ir al comparador",
+    "zoneNoticeMulti": "Este país tiene varios husos horarios.",
+    "faqTimeTitle": "¿Por qué la hora que se muestra puede cambiar durante el año?",
+    "faqDstBody": "Muchas regiones mueven el offset oficial dos veces al año por el cambio horario verano / invierno. Internamente fijamos un instante UTC y lo convertimos con la zona IANA válida para ese momento.",
+    "compareSectionTitle": "Comparador"
+  },
+  "LocaleSwitcher": { "label": "Idioma" },
+  "LiveClock": { "heading": "Reloj local en vivo", "ianaLabel": "IANA" },
+  "Compare": {
+    "title": "Comparador de hora mundial",
+    "anchorLabel": "País anchor · núcleo UTC",
+    "dateLabel": "Fecha de referencia",
+    "timeLabel": "Hora local de referencia (pasos de 1 minuto)",
+    "tableCountry": "País",
+    "tableZone": "Zona IANA usada",
+    "tableEquivalent": "Equivalente local",
+    "disclaimer": "Bootstrap técnico: cuatro países curatoriales y un UTC interno proyectado por filas IANA.",
+    "validationError": "Esa fecha y hora no son válidas en el huso anchor elegido."
+  },
+  "Country": {
+    "capitalIntro": "{country} · El contexto editorial usa {capital} como referencia.",
+    "faqHeading": "FAQ",
+    "backToDirectory": "← {title}"
+  },
+  "Ads": {
+    "leader": "Espacio para anuncios (CLS) · leaderboard",
+    "inContent": "Espacio para anuncios (CLS) · in-content"
+  },
+  "Footer": { "note": "Countries Time · bootstrap MVP" }
+}

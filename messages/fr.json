@@ -1,0 +1,37 @@
+{
+  "Common": {
+    "siteName": "Countries Time",
+    "navCountries": "Pays",
+    "navCompare": "Comparer",
+    "homeIntro": "Consultez l’heure actuelle dans tout pays couvert ou comparez vos horaires en tenant compte de l’heure d’été.",
+    "countriesTitle": "Liste des pays",
+    "linkComparator": "Ouvrir le comparateur",
+    "zoneNoticeMulti": "Ce pays a plusieurs fuseaux horaires.",
+    "faqTimeTitle": "Pourquoi l’heure affichée peut‑elle changer au cours de l’année ?",
+    "faqDstBody": "Nombreuses régions ajustent l’offset officiel deux fois par an (heure d’été/hiver). Nous conservons un instant absolu UTC et la conversion utilise la zone IANA valide.",
+    "compareSectionTitle": "Comparateur"
+  },
+  "LocaleSwitcher": { "label": "Langue" },
+  "LiveClock": { "heading": "Horloge locale en direct", "ianaLabel": "IANA" },
+  "Compare": {
+    "title": "Comparateur d’heure mondiale",
+    "anchorLabel": "Pays pivot · axe UTC interne",
+    "dateLabel": "Date de référence",
+    "timeLabel": "Heure locale de référence (minute par minute)",
+    "tableCountry": "Pays",
+    "tableZone": "Zone IANA utilisée",
+    "tableEquivalent": "Équivalence locale",
+    "disclaimer": "Socle MVP : jeu de quatre pays curatoriaux avec un UTC interne projeté ligne par ligne IANA.",
+    "validationError": "Cette date/heure n’existe pas pour la zone d’ancrage choisie."
+  },
+  "Country": {
+    "capitalIntro": "{country} · Pour le fond éditorial, point de repère {capital}.",
+    "faqHeading": "FAQ",
+    "backToDirectory": "← {title}"
+  },
+  "Ads": {
+    "leader": "Zone publicitaire (CLS) · bandeau",
+    "inContent": "Zone publicitaire (CLS) · in‑content"
+  },
+  "Footer": { "note": "Countries Time · bootstrap MVP" }
+}
