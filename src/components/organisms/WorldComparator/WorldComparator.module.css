@@ -69,7 +69,8 @@
 }
 
 .anchorField input,
-.anchorField select {
+.anchorField select,
+.anchorPickerBtn {
   appearance: none;
   width: 100%;
   font: inherit;
@@ -82,8 +83,30 @@
   min-height: 44px;
 }
 
+.anchorPickerBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  cursor: pointer;
+  text-align: left;
+}
+
+.anchorPickerBtn:hover {
+  background: var(--surface-elev);
+  border-color: var(--border-strong);
+}
+
+.anchorPickerIcon {
+  margin-left: auto;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
 .anchorField input:focus,
-.anchorField select:focus {
+.anchorField select:focus,
+.anchorPickerBtn:focus {
   background: var(--surface-elev);
   border-color: var(--accent);
   outline: 2px solid color-mix(in oklab, var(--accent) 40%, transparent);

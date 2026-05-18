@@ -88,5 +88,10 @@
     "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
     "ctaCountries": "Browse countries",
     "ctaCompare": "Open comparator"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "Return to the home page or check that the language prefix in the URL is valid.",
+    "homeLink": "Go to home"
   }
 }

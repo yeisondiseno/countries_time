@@ -96,5 +96,10 @@
   "LiveClock": {
     "heading": "Live‑Standortzeit",
     "ianaLabel": "IANA"
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Zur Startseite zurückkehren oder prüfen, ob das Sprachpräfix in der URL gültig ist.",
+    "homeLink": "Zur Startseite"
   }
 }

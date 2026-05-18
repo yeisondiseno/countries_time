@@ -96,5 +96,10 @@
   "LiveClock": {
     "heading": "Relógio local ao vivo",
     "ianaLabel": "IANA"
+  },
+  "NotFound": {
+    "title": "Página não encontrada",
+    "description": "Volte à página inicial ou verifique se o prefixo de idioma na URL é válido.",
+    "homeLink": "Ir para o início"
   }
 }

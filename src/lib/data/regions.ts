@@ -1,10 +1,6 @@
-/** Agrupación editorial por región (handoff design). */
-const REGION_BY_CODE: Record<string, string> = {
-  US: "Americas",
-  DE: "Europe",
-  ES: "Europe",
-  JP: "Asia",
-};
+import raw from "@/data/country-regions.json";
+
+const REGION_BY_CODE = raw as Record<string, string>;
 
 const REGION_ORDER = ["Americas", "Europe", "Asia", "Oceania", "Africa"] as const;
 

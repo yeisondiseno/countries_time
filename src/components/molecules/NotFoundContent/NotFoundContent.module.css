@@ -1,0 +1,21 @@
+.wrap {
+  padding-block: var(--sp-6);
+}
+
+.title {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin: 0 0 var(--sp-4);
+  color: var(--text-muted);
+  max-width: var(--measure);
+}
+
+.link {
+  color: var(--accent-ink);
+  font-weight: 600;
+}

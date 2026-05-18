@@ -86,5 +86,10 @@
     "subtitle": "Consulta la hora local por país o compara hasta cuatro zonas con un único instante de referencia.",
     "ctaCountries": "Ver países",
     "ctaCompare": "Abrir comparador"
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "description": "Vuelve al inicio o comprueba que el prefijo de idioma en la URL sea válido.",
+    "homeLink": "Ir al inicio"
   }
 }

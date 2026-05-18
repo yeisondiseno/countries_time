@@ -96,5 +96,10 @@
   "LiveClock": {
     "heading": "現地ライブクロック",
     "ianaLabel": "IANA"
+  },
+  "NotFound": {
+    "title": "ページが見つかりません",
+    "description": "ホームに戻るか、URLの言語プレフィックスが正しいか確認してください。",
+    "homeLink": "ホームへ"
   }
 }

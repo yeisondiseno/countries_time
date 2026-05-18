@@ -7,7 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { FiInfo, FiSearch, FiX } from "react-icons/fi";
 
-import { countriesZones } from "@/lib/data/countries";
+import { countriesZones, listCountryCodesSorted } from "@/lib/data/countries";
 import { flagEmoji } from "@/lib/display/flags";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion, formatTimeZoneLabel } from "@/lib/time/display";
@@ -16,7 +16,10 @@ import shared from "@/styles/shared.module.css";
 
 import styles from "./WorldComparator.module.css";
 
-const ALL_CODES = ["DE", "ES", "JP", "US"] as const;
+const DEFAULT_SLOT_CODES = ["DE", "ES", "JP", "US"] as const;
+
+type PickerTarget = { kind: "slot"; idx: number } | { kind: "anchor" };
+
 type CmpForm = {
   anchorCountry: string;
   anchorZone: string;
@@ -24,7 +27,9 @@ type CmpForm = {
   time: string;
 };
 
-function utcMillisFromWall(values: CmpForm): { ok: true; utcMillis: number } | { ok: false } {
+function utcMillisFromWall(
+  values: CmpForm,
+): { ok: true; utcMillis: number } | { ok: false } {
   const wall = DateTime.fromISO(`${values.date}T${values.time}`, {
     zone: values.anchorZone,
   });
@@ -59,12 +64,16 @@ function fmtDelta(minutes: number): string {
 export function WorldComparator() {
   const locale = useLocale() as Locale;
   const t = useTranslations("Compare");
-  const [slots, setSlots] = useState<(string | null)[]>(["DE", "ES", "JP", "US"]);
+  const [slots, setSlots] = useState<(string | null)[]>([
+    ...DEFAULT_SLOT_CODES,
+  ]);
   const [anchorIdx, setAnchorIdx] = useState(0);
-  const [manualForm, setManualForm] = useState<CmpForm>(() => buildDefaults("DE"));
+  const [manualForm, setManualForm] = useState<CmpForm>(() =>
+    buildDefaults("DE"),
+  );
   const [followNow, setFollowNow] = useState(true);
   const [liveMinute, setLiveMinute] = useState(() => Date.now());
-  const [pickerOpen, setPickerOpen] = useState<number | null>(null);
+  const [pickerTarget, setPickerTarget] = useState<PickerTarget | null>(null);
   const [search, setSearch] = useState("");
 
   const filled = slots.filter((c): c is string => Boolean(c));
@@ -97,10 +106,13 @@ export function WorldComparator() {
 
   const utcResult = useMemo(() => utcMillisFromWall(form), [form]);
 
-  const setField = useCallback(<K extends keyof CmpForm>(key: K, value: CmpForm[K]) => {
-    setManualForm((prev) => ({ ...prev, [key]: value }));
-    setFollowNow(false);
-  }, []);
+  const setField = useCallback(
+    <K extends keyof CmpForm>(key: K, value: CmpForm[K]) => {
+      setManualForm((prev) => ({ ...prev, [key]: value }));
+      setFollowNow(false);
+    },
+    [],
+  );
 
   const summaryText = useMemo(() => {
     if (!utcResult.ok || filled.length < 2) {
@@ -115,8 +127,14 @@ export function WorldComparator() {
       return null;
     }
     const instant = DateTime.fromMillis(utcResult.utcMillis);
-    const fmtA = instant.setZone(form.anchorZone).setLocale(locale).toFormat("HH:mm");
-    const fmtB = instant.setZone(otherEntry.defaultZone).setLocale(locale).toFormat("HH:mm");
+    const fmtA = instant
+      .setZone(form.anchorZone)
+      .setLocale(locale)
+      .toFormat("HH:mm");
+    const fmtB = instant
+      .setZone(otherEntry.defaultZone)
+      .setLocale(locale)
+      .toFormat("HH:mm");
     return t("summary", {
       timeA: fmtA,
       countryA: formatCountryRegion(anchorCode, locale),
@@ -127,7 +145,20 @@ export function WorldComparator() {
 
   const setSlot = (idx: number, code: string) => {
     setSlots((prev) => prev.map((c, i) => (i === idx ? code : c)));
-    setPickerOpen(null);
+    setPickerTarget(null);
+  };
+
+  const setAnchorCountry = (code: string) => {
+    const idx = slots.indexOf(code);
+    if (idx >= 0) {
+      setAsAnchor(idx);
+    } else {
+      setSlots((prev) => prev.map((c, i) => (i === anchorIdx ? code : c)));
+      setFollowNow(true);
+      setManualForm(buildDefaults(code));
+      setLiveMinute(Date.now());
+    }
+    setPickerTarget(null);
   };
 
   const removeSlot = (idx: number) => {
@@ -152,9 +183,28 @@ export function WorldComparator() {
     }
   };
 
-  const filteredPicker = ALL_CODES.filter(
-    (code) => !slots.includes(code) && formatCountryRegion(code, locale).toLowerCase().includes(search.toLowerCase()),
-  );
+  const allCodes = useMemo(() => listCountryCodesSorted(), []);
+
+  const filteredPicker = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    const matchesSearch = (code: string) =>
+      !q ||
+      formatCountryRegion(code, locale).toLowerCase().includes(q) ||
+      code.toLowerCase().includes(q);
+
+    if (pickerTarget?.kind === "anchor") {
+      return allCodes.filter(matchesSearch);
+    }
+
+    return allCodes.filter(
+      (code) => !slots.includes(code) && matchesSearch(code),
+    );
+  }, [allCodes, locale, pickerTarget, search, slots]);
+
+  const pickerTitle =
+    pickerTarget?.kind === "anchor" ? t("anchorLabel") : t("addCountry");
+  const pickerAriaLabel =
+    pickerTarget?.kind === "anchor" ? t("anchorControls") : t("addCountry");
 
   return (
     <section className={shared.container}>
@@ -173,25 +223,27 @@ export function WorldComparator() {
         </p>
       ) : null}
 
-      <div className={styles.anchor} role="group" aria-label={t("anchorControls")}>
+      <div
+        className={styles.anchor}
+        role="group"
+        aria-label={t("anchorControls")}
+      >
         <div className={styles.anchorField}>
           <label htmlFor="anchor-country">{t("anchorLabel")}</label>
-          <select
+          <button
+            type="button"
             id="anchor-country"
-            value={anchorCode}
-            onChange={(e) => {
-              const idx = slots.indexOf(e.target.value);
-              if (idx >= 0) {
-                setAsAnchor(idx);
-              }
+            className={styles.anchorPickerBtn}
+            onClick={() => {
+              setPickerTarget({ kind: "anchor" });
+              setSearch("");
             }}
+            aria-haspopup="dialog"
           >
-            {ALL_CODES.map((code) => (
-              <option key={code} value={code}>
-                {flagEmoji(code)} {formatCountryRegion(code, locale)}
-              </option>
-            ))}
-          </select>
+            <span>{flagEmoji(anchorCode)}</span>
+            <span>{formatCountryRegion(anchorCode, locale)}</span>
+            <FiSearch className={styles.anchorPickerIcon} aria-hidden />
+          </button>
         </div>
         <div className={styles.anchorField}>
           <label htmlFor="anchor-date">{t("dateLabel")}</label>
@@ -254,7 +306,7 @@ export function WorldComparator() {
                 type="button"
                 className={`${styles.card} ${styles.cardEmpty}`}
                 onClick={() => {
-                  setPickerOpen(idx);
+                  setPickerTarget({ kind: "slot", idx });
                   setSearch("");
                 }}
               >
@@ -297,12 +349,18 @@ export function WorldComparator() {
                     <span aria-hidden>{flagEmoji(code)}</span>{" "}
                     {formatCountryRegion(code, locale)}
                   </h2>
-                  <p className={styles.cardZone}>{formatTimeZoneLabel(zoneForRow)}</p>
+                  <p className={styles.cardZone}>
+                    {formatTimeZoneLabel(zoneForRow)}
+                  </p>
                 </div>
-                {isAnchor ? <span className={styles.badge}>{t("badgeRef")}</span> : null}
+                {isAnchor ? (
+                  <span className={styles.badge}>{t("badgeRef")}</span>
+                ) : null}
               </header>
               <p className={styles.cardTime}>{instant.toFormat("HH:mm")}</p>
-              <p className={styles.cardDate}>{instant.toFormat("ccc, d MMM")}</p>
+              <p className={styles.cardDate}>
+                {instant.toFormat("ccc, d MMM")}
+              </p>
               <div className={styles.cardDelta}>
                 <span>{isAnchor ? "—" : t("deltaLabel")}</span>
                 <span className={styles.deltaValue}>
@@ -335,16 +393,16 @@ export function WorldComparator() {
         })}
       </div>
 
-      {pickerOpen !== null ? (
+      {pickerTarget !== null ? (
         <div
           className={styles.modalBackdrop}
           role="dialog"
           aria-modal
-          aria-label={t("addCountry")}
-          onClick={() => setPickerOpen(null)}
+          aria-label={pickerAriaLabel}
+          onClick={() => setPickerTarget(null)}
           onKeyDown={(e) => {
             if (e.key === "Escape") {
-              setPickerOpen(null);
+              setPickerTarget(null);
             }
           }}
         >
@@ -354,11 +412,11 @@ export function WorldComparator() {
             role="document"
           >
             <div className={styles.modalHead}>
-              <h3>{t("addCountry")}</h3>
+              <h3>{pickerTitle}</h3>
               <button
                 type="button"
                 className={styles.iconBtn}
-                onClick={() => setPickerOpen(null)}
+                onClick={() => setPickerTarget(null)}
                 aria-label={t("closePicker")}
               >
                 <FiX size={14} aria-hidden />
@@ -383,7 +441,11 @@ export function WorldComparator() {
                     key={code}
                     type="button"
                     className={styles.pickerRow}
-                    onClick={() => setSlot(pickerOpen, code)}
+                    onClick={() =>
+                      pickerTarget.kind === "anchor"
+                        ? setAnchorCountry(code)
+                        : setSlot(pickerTarget.idx, code)
+                    }
                   >
                     <span>{flagEmoji(code)}</span>
                     <span>{formatCountryRegion(code, locale)}</span>
