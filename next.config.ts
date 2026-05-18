@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import million from "million/compiler";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
@@ -9,12 +8,8 @@ const nextConfig: NextConfig = {
 };
 
 /**
- * Million + App Router bajo `src/app`: usar `auto.rsc` según docs de Million.
- * Si el build falla con detección de `app/` en `src/`, revisar workaround en:
- * https://github.com/aidenybai/million/issues/958
+ * Million quedó desactivado: con `next-intl` + RSC el build fallaba
+ * (`compiledBlock` cliente/servidor). Reactivar sólo si hay pin/flags
+ * compatibles documentados.
  */
-const millionConfig = {
-  auto: { rsc: true },
-};
-
-export default withNextIntl(million.next(nextConfig, millionConfig));
+export default withNextIntl(nextConfig);

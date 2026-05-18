@@ -9,7 +9,7 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = Object.freeze({
   allowedSchemesByTag: {},
   disallowEmpty: false,
   transformTags: {
-    a: (_tagName, attribs) => ({
+    a: (_tagName: string, attribs: Record<string, string>) => ({
       tagName: "a",
       attribs: {
         ...attribs,

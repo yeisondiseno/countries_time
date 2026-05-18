@@ -6,6 +6,13 @@ Bootstrap alineado con `spects/reporte-arquitectura-bootstrap-micrositio-hora-mu
 
 Se usa **Bun** (`bun.lock`) para instalación y scripts (`bun install`, `bun run …`).
 
+
+
+## Million (desactivado)
+
+En esta rama **`million` está quitado del `next.config`** porque rompía el build con **next-intl** en React Server Components. Las dependencias `million` pueden seguir instaladas hasta que revises compatibilidad; el binario ya no intercepta webpack.
+
+
 ## Scripts
 
 ```bash
@@ -26,9 +33,8 @@ bun test
 
 ```
 
-## Million + `src/app`
 
-`next.config.ts` envuelve la configuración con `million.next`. Si aparece algún problema con directorios `src/app`, documentar pin o flags en ese archivo.
+
 
 ## next-intl
 
