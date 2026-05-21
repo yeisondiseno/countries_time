@@ -2,6 +2,8 @@ import type { useTranslations } from "next-intl";
 
 import { FiInfo, FiSearch } from "react-icons/fi";
 
+import { Input } from "@/components/atoms/Input";
+
 import { flagEmoji } from "@/lib/display/flags";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion } from "@/lib/time/display";
@@ -55,7 +57,7 @@ export function ComparatorAnchorPanel({
       </div>
       <div className={styles.anchorField}>
         <label htmlFor="anchor-date">{t("dateLabel")}</label>
-        <input
+        <Input
           id="anchor-date"
           type="date"
           value={form.date}
@@ -64,7 +66,7 @@ export function ComparatorAnchorPanel({
       </div>
       <div className={styles.anchorField}>
         <label htmlFor="anchor-time">{t("timeLabel")}</label>
-        <input
+        <Input
           id="anchor-time"
           type="time"
           step={60}

@@ -2,6 +2,8 @@ import type { useTranslations } from "next-intl";
 
 import { FiSearch, FiX } from "react-icons/fi";
 
+import { Input } from "@/components/atoms/Input";
+
 import { flagEmoji } from "@/lib/display/flags";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion } from "@/lib/time/display";
@@ -62,7 +64,7 @@ export function ComparatorCountryPicker({
         </div>
         <div className={styles.modalSearch}>
           <FiSearch className={styles.searchIcon} aria-hidden />
-          <input
+          <Input
             type="search"
             placeholder={t("searchCountry")}
             value={search}

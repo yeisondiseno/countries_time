@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-
+// Libraries
 import { useLocale, useTranslations } from "next-intl";
-
 import { FiSearch } from "react-icons/fi";
-
 import { Link } from "@/i18n/navigation";
+// Components
+import { Input } from "@/components/atoms/Input";
 
 import {
   countryRegion,
@@ -69,7 +69,7 @@ export function CountryDirectory() {
 
       <div className={styles.searchWrap}>
         <FiSearch className={styles.searchIcon} aria-hidden />
-        <input
+        <Input
           type="search"
           className={styles.search}
           placeholder={t("searchPlaceholder")}
