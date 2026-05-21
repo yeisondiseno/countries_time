@@ -23,12 +23,21 @@
     "heading": "Live local clock",
     "ariaLabel": "Current local time",
     "day": "Day",
-    "night": "Night"
+    "night": "Night",
+    "ianaTitle": "IANA timezone"
   },
   "Countries": {
     "subtitle": "Live local time in {count} countries. Search or browse by region.",
     "searchPlaceholder": "Search country…",
-    "noResults": "No matches—try another spelling."
+    "noResults": "No matches—try another spelling.",
+    "regions": {
+      "Americas": "Americas",
+      "Europe": "Europe",
+      "Asia": "Asia",
+      "Oceania": "Oceania",
+      "Africa": "Africa",
+      "Other": "Other"
+    }
   },
   "Compare": {
     "title": "World time comparator",

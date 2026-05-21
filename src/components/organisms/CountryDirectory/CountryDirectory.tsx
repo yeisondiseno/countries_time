@@ -8,7 +8,11 @@ import { FiSearch } from "react-icons/fi";
 
 import { Link } from "@/i18n/navigation";
 
-import { countryRegion, regionSortIndex } from "@/lib/data/regions";
+import {
+  countryRegion,
+  regionSortIndex,
+  type CountryRegion,
+} from "@/lib/data/regions";
 import { flagEmoji } from "@/lib/display/flags";
 import { listCountryCodesSorted } from "@/lib/data/countries";
 import { countriesZones } from "@/lib/data/countries";
@@ -18,15 +22,6 @@ import { formatCountryRegion, formatTimeZoneLabel } from "@/lib/time/display";
 import shared from "@/styles/shared.module.css";
 
 import styles from "./CountryDirectory.module.css";
-
-const REGION_LABELS: Record<string, string> = {
-  Americas: "Americas",
-  Europe: "Europe",
-  Asia: "Asia",
-  Oceania: "Oceania",
-  Africa: "Africa",
-  Other: "Other",
-};
 
 export function CountryDirectory() {
   const locale = useLocale() as Locale;
@@ -51,16 +46,15 @@ export function CountryDirectory() {
   }, [codes, locale, search]);
 
   const grouped = useMemo(() => {
-    const map = new Map<string, string[]>();
+    const map = new Map<CountryRegion, string[]>();
     for (const code of filtered) {
       const region = countryRegion(code);
-      const key = REGION_LABELS[region] ?? region;
-      const list = map.get(key) ?? [];
+      const list = map.get(region) ?? [];
       list.push(code);
-      map.set(key, list);
+      map.set(region, list);
     }
     return [...map.entries()].sort(
-      (a, b) => regionSortIndex(a[0] as never) - regionSortIndex(b[0] as never),
+      (a, b) => regionSortIndex(a[0]) - regionSortIndex(b[0]),
     );
   }, [filtered]);
 
@@ -91,7 +85,7 @@ export function CountryDirectory() {
         grouped.map(([region, regionCodes]) => (
           <section key={region} className={styles.section}>
             <h2 className={styles.sectionTitle}>
-              {region}{" "}
+              {t(`regions.${region}` as "regions.Americas")}{" "}
               <span className={styles.count}>· {regionCodes.length}</span>
             </h2>
             <div className={styles.grid}>

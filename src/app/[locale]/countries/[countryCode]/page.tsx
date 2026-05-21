@@ -42,7 +42,7 @@ export async function generateMetadata(props: Props) {
   });
 }
 
-export default async function CountryDetail(props: Props) {
+export default async function CountryDetail(props: Readonly<Props>) {
   const { locale, countryCode } = await props.params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();

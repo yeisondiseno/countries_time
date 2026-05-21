@@ -21,12 +21,21 @@
     "heading": "Reloj local en vivo",
     "ariaLabel": "Hora local actual",
     "day": "Día",
-    "night": "Noche"
+    "night": "Noche",
+    "ianaTitle": "Zona horaria IANA"
   },
   "Countries": {
     "subtitle": "Hora local en directo en {count} países. Busca o navega por región.",
     "searchPlaceholder": "Buscar país…",
-    "noResults": "Sin coincidencias. Prueba con otra ortografía."
+    "noResults": "Sin coincidencias. Prueba con otra ortografía.",
+    "regions": {
+      "Americas": "Américas",
+      "Europe": "Europa",
+      "Asia": "Asia",
+      "Oceania": "Oceanía",
+      "Africa": "África",
+      "Other": "Otros"
+    }
   },
   "Compare": {
     "title": "Comparador de horas por país",

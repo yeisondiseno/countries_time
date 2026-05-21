@@ -6,11 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { FiMoon, FiSun } from "react-icons/fi";
 
-import {
-  clockPartsFor,
-  isDaytime,
-  offsetLabel,
-} from "@/lib/time/clock-parts";
+import { clockPartsFor, isDaytime, offsetLabel } from "@/lib/time/clock-parts";
 import { formatTimeZoneLabel } from "@/lib/time/display";
 
 import shared from "@/styles/shared.module.css";
@@ -69,11 +65,18 @@ export function TimeDisplay({ timeZone, showSeconds = true }: Props) {
       </div>
       <div className={styles.meta}>
         <span className={styles.date}>{dateStr}</span>
-        <span className={styles.zone} title="IANA timezone">
+        <span className={styles.zone} title={t("ianaTitle")}>
           {formatTimeZoneLabel(timeZone)} · {offset}
         </span>
-        <span className={styles.dayNight} aria-label={day ? t("day") : t("night")}>
-          {day ? <FiSun className={styles.dnIcon} aria-hidden /> : <FiMoon className={styles.dnIcon} aria-hidden />}
+        <span
+          className={styles.dayNight}
+          aria-label={day ? t("day") : t("night")}
+        >
+          {day ? (
+            <FiSun className={styles.dnIcon} aria-hidden />
+          ) : (
+            <FiMoon className={styles.dnIcon} aria-hidden />
+          )}
           {day ? t("day") : t("night")}
         </span>
       </div>
