@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { FiSearch } from "react-icons/fi";
 
 import { Input } from "@/components/atoms";
+import { useTimeFormat } from "@/components";
 import { Toggle } from "@/components/molecules";
 import { Link } from "@/i18n/navigation";
 
@@ -19,6 +20,7 @@ import { listCountryCodesSorted } from "@/lib/data/countries";
 import { countriesZones } from "@/lib/data/countries";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion, formatTimeZoneLabel } from "@/lib/time/display";
+import { formatClockTime } from "@/lib/time/format-clock";
 
 import shared from "@/styles/shared.module.css";
 
@@ -26,6 +28,7 @@ import styles from "./CountryDirectory.module.css";
 
 export function CountryDirectory() {
   const locale = useLocale() as Locale;
+  const { hour12 } = useTimeFormat();
   const t = useTranslations("Countries");
   const tCommon = useTranslations("Common");
   const [search, setSearch] = useState("");
@@ -140,12 +143,7 @@ export function CountryDirectory() {
                         </span>
                       </span>
                       <span className={styles.time}>
-                        {new Intl.DateTimeFormat(locale, {
-                          timeZone: zone,
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: false,
-                        }).format(now)}
+                        {formatClockTime(now, zone, locale, hour12)}
                       </span>
                     </Link>
                   );

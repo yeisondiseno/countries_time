@@ -17,6 +17,12 @@
     "switchLight": "Cambiar a modo claro",
     "switchDark": "Cambiar a modo oscuro"
   },
+  "TimeFormat": {
+    "switch12h": "Cambiar a hora de 12 horas",
+    "switch24h": "Cambiar a hora de 24 horas",
+    "label12h": "12",
+    "label24h": "24"
+  },
   "TimeDisplay": {
     "heading": "Reloj local en vivo",
     "ariaLabel": "Hora local actual",

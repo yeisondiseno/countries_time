@@ -1,12 +1,16 @@
+"use client";
+
 import { DateTime } from "luxon";
 import type { useTranslations } from "next-intl";
 
 import { FiX } from "react-icons/fi";
 
+import { useTimeFormat } from "@/components";
 import { countriesZones } from "@/lib/data/countries";
 import { flagEmoji } from "@/lib/display/flags";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion, formatTimeZoneLabel } from "@/lib/time/display";
+import { formatLuxonClock } from "@/lib/time/format-clock";
 
 import type { CmpForm } from "./WorldComparator.types";
 import { fmtDelta } from "./WorldComparator.utils";
@@ -38,6 +42,7 @@ export function ComparatorCountryCard({
   onSetAnchor,
   onRemove,
 }: Props) {
+  const { hour12 } = useTimeFormat();
   const entry = countriesZones.countries[code];
   if (!entry) {
     return null;
@@ -68,7 +73,7 @@ export function ComparatorCountryCard({
           <span className={styles.badge}>{t("badgeRef")}</span>
         ) : null}
       </header>
-      <p className={styles.cardTime}>{instant.toFormat("HH:mm")}</p>
+      <p className={styles.cardTime}>{formatLuxonClock(instant, hour12)}</p>
       <p className={styles.cardDate}>{instant.toFormat("ccc, d MMM")}</p>
       <div className={styles.cardDelta}>
         <span>{isAnchor ? "—" : t("deltaLabel")}</span>

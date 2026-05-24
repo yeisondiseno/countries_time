@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { JetBrains_Mono, Manrope } from "next/font/google";
 import { headers } from "next/headers";
 
-import { ThemeProvider } from "@/components";
+import { ThemeProvider, TimeFormatProvider } from "@/components";
 
 import "@/styles/globals.css";
 
@@ -34,12 +34,14 @@ export default async function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("countries-time-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("countries-time-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var h=localStorage.getItem("countries-time-hour-format");if(h==="12h"||h==="24h")document.documentElement.dataset.hourFormat=h;}catch(e){}})();`,
           }}
         />
       </head>
       <body className={`${manrope.variable} ${jetbrains.variable}`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <TimeFormatProvider>{children}</TimeFormatProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

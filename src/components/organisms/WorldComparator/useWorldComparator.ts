@@ -6,10 +6,12 @@ import { DateTime } from "luxon";
 import { useLocale, useTranslations } from "next-intl";
 import type { UseFormReturn } from "react-hook-form";
 
+import { useTimeFormat } from "@/components";
 import { listCountryCodesSorted } from "@/lib/data/countries";
 import { countriesZones } from "@/lib/data/countries";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion } from "@/lib/time/display";
+import { formatLuxonClock } from "@/lib/time/format-clock";
 
 import {
   LIVE_TICK_MS,
@@ -27,6 +29,7 @@ export function useWorldComparator(
   formMethods: UseFormReturn<WorldComparatorFormValues>,
 ) {
   const locale = useLocale() as Locale;
+  const { hour12 } = useTimeFormat();
   const t = useTranslations("Compare");
   const { watch, setValue, getValues } = formMethods;
 
@@ -101,21 +104,30 @@ export function useWorldComparator(
       return null;
     }
     const instant = DateTime.fromMillis(utcResult.utcMillis);
-    const fmtA = instant
-      .setZone(form.anchorZone)
-      .setLocale(locale)
-      .toFormat("HH:mm");
-    const fmtB = instant
-      .setZone(otherEntry.defaultZone)
-      .setLocale(locale)
-      .toFormat("HH:mm");
+    const fmtA = formatLuxonClock(
+      instant.setZone(form.anchorZone).setLocale(locale),
+      hour12,
+    );
+    const fmtB = formatLuxonClock(
+      instant.setZone(otherEntry.defaultZone).setLocale(locale),
+      hour12,
+    );
     return t("summary", {
       timeA: fmtA,
       countryA: formatCountryRegion(anchorCode, locale),
       timeB: fmtB,
       countryB: formatCountryRegion(other, locale),
     });
-  }, [utcResult, filled, anchorCode, anchorEntry, form.anchorZone, locale, t]);
+  }, [
+    utcResult,
+    filled,
+    anchorCode,
+    anchorEntry,
+    form.anchorZone,
+    locale,
+    hour12,
+    t,
+  ]);
 
   const allCodes = useMemo(() => listCountryCodesSorted(), []);
 
