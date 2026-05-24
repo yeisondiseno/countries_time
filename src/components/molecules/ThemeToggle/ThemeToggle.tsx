@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 
 import { FiMoon, FiSun } from "react-icons/fi";
 
-import { useTheme } from "@/components/providers/ThemeProvider/ThemeProvider";
+import { useTheme } from "@/components";
 
 import styles from "./ThemeToggle.module.css";
 

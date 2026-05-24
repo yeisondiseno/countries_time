@@ -1,4 +1,4 @@
-import { NotFoundContent } from "@/components/molecules/NotFoundContent/NotFoundContent";
+import { NotFoundContent } from "@/components";
 import { defaultLocale } from "@/lib/i18n/config";
 
 export default function NotFound() {

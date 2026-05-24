@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { JetBrains_Mono, Manrope } from "next/font/google";
 import { headers } from "next/headers";
 
-import { ThemeProvider } from "@/components/providers/ThemeProvider/ThemeProvider";
+import { ThemeProvider } from "@/components";
 
 import "@/styles/globals.css";
 

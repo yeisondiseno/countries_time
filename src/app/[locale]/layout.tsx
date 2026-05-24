@@ -4,7 +4,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { AppShell } from "@/components/organisms/AppShell/AppShell";
+import { AppShell } from "@/components";
 import { getSiteOrigin } from "@/lib/seo/site-origin";
 
 type Props = Readonly<{

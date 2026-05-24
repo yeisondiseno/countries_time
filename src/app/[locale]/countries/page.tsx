@@ -2,7 +2,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import { CountryDirectory } from "@/components/organisms/CountryDirectory/CountryDirectory";
+import { CountryDirectory } from "@/components";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/lib/i18n/config";
 import { buildPageMetadata } from "@/lib/seo/metadata";

@@ -6,9 +6,7 @@ import { useTranslations } from "next-intl";
 
 import { FiArrowRight } from "react-icons/fi";
 
-import { AdSlot } from "@/components/molecules/AdSlot/AdSlot";
-import { MultiZoneNotice } from "@/components/molecules/MultiZoneNotice/MultiZoneNotice";
-import { TimeDisplay } from "@/components/molecules/TimeDisplay/TimeDisplay";
+import { AdSlot, MultiZoneNotice, TimeDisplay } from "@/components";
 import { Link } from "@/i18n/navigation";
 
 import { flagEmoji } from "@/lib/display/flags";

@@ -2,8 +2,7 @@ import type { ReactNode } from "react";
 
 import { getTranslations } from "next-intl/server";
 
-import { AdSlot } from "@/components/molecules/AdSlot/AdSlot";
-import { SiteHeader } from "@/components/organisms/SiteHeader/SiteHeader";
+import { AdSlot, SiteHeader } from "@/components";
 
 import shared from "@/styles/shared.module.css";
 

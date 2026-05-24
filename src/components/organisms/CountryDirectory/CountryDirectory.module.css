@@ -72,25 +72,6 @@
   text-align: center;
 }
 
-.section {
-  margin-block: var(--sp-5);
-}
-
-.sectionTitle {
-  font-size: var(--step--1);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  font-weight: 700;
-  margin: 0 0 var(--sp-3);
-}
-
-.count {
-  font-size: 0.85em;
-  color: var(--text-faint);
-  font-weight: 500;
-}
-
 .grid {
   display: grid;
   gap: var(--sp-1);
