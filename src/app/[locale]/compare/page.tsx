@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { WorldComparator } from "@/components";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/lib/i18n/config";
+import { JsonLd } from "@/lib/seo/JsonLd";
+import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/json-ld";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -30,5 +32,27 @@ export default async function ComparatorPage(props: Props) {
     notFound();
   }
   setRequestLocale(locale);
-  return <WorldComparator />;
+
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tc = await getTranslations({ locale, namespace: "Compare" });
+  const metaTitle = `${tc("title")} · ${tCommon("siteName")}`;
+
+  const webPageJsonLd = buildWebPageJsonLd({
+    locale: locale as Locale,
+    pathWithoutLocale: "/compare",
+    name: metaTitle,
+    description: tc("subtitle"),
+  });
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd(locale as Locale, [
+    { name: tCommon("siteName"), path: "/" },
+    { name: tc("title"), path: "/compare" },
+  ]);
+
+  return (
+    <>
+      <JsonLd data={[webPageJsonLd, breadcrumbJsonLd]} />
+      <WorldComparator />
+    </>
+  );
 }

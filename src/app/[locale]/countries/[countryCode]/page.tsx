@@ -6,7 +6,14 @@ import { CountryPageView } from "@/components";
 import { routing } from "@/i18n/routing";
 import { findCountry, listCountryCodesSorted } from "@/lib/data/countries";
 import type { Locale } from "@/lib/i18n/config";
+import { JsonLd } from "@/lib/seo/JsonLd";
+import {
+  buildBreadcrumbJsonLd,
+  buildFaqPageJsonLd,
+  buildWebPageJsonLd,
+} from "@/lib/seo/json-ld";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { countryPath } from "@/lib/seo/paths";
 import { formatCountryRegion } from "@/lib/time/display";
 
 type Props = {
@@ -28,17 +35,19 @@ export async function generateMetadata(props: Props) {
   if (!hit) {
     return { title: "Countries Time" };
   }
-  const tCommon = await getTranslations({ locale, namespace: "Common" });
   const tc = await getTranslations({ locale, namespace: "Country" });
   const pretty = formatCountryRegion(hit.code, locale as Locale);
+  const path = countryPath(hit.code);
+
   return buildPageMetadata({
     locale: locale as Locale,
-    title: `${pretty} (${hit.code}) · ${tCommon("siteName")}`,
-    description: tc("capitalIntro", {
+    title: tc("metaTitle", { country: pretty }),
+    description: tc("metaDescription", {
       country: pretty,
       capital: hit.capital,
+      zone: hit.defaultZone,
     }),
-    pathWithoutLocale: `/countries/${hit.code}`,
+    pathWithoutLocale: path,
   });
 }
 
@@ -53,13 +62,46 @@ export default async function CountryDetail(props: Readonly<Props>) {
     notFound();
   }
 
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
+  const tc = await getTranslations({ locale, namespace: "Country" });
+  const pretty = formatCountryRegion(hit.code, locale as Locale);
+  const path = countryPath(hit.code);
+  const metaTitle = tc("metaTitle", { country: pretty });
+  const metaDescription = tc("metaDescription", {
+    country: pretty,
+    capital: hit.capital,
+    zone: hit.defaultZone,
+  });
+
+  const faqJsonLd = buildFaqPageJsonLd([
+    { question: tCommon("faqTimeTitle"), answer: tCommon("faqDstBody") },
+    { question: tc("faqQ2"), answer: tc("faqA2") },
+    { question: tc("faqQ3"), answer: tc("faqA3") },
+  ]);
+
+  const webPageJsonLd = buildWebPageJsonLd({
+    locale: locale as Locale,
+    pathWithoutLocale: path,
+    name: metaTitle,
+    description: metaDescription,
+  });
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd(locale as Locale, [
+    { name: tCommon("siteName"), path: "/" },
+    { name: tCommon("countriesTitle"), path: "/countries" },
+    { name: pretty, path },
+  ]);
+
   return (
-    <CountryPageView
-      locale={locale as Locale}
-      code={hit.code}
-      capital={hit.capital}
-      defaultZone={hit.defaultZone}
-      zones={hit.zones}
-    />
+    <>
+      <JsonLd data={[webPageJsonLd, breadcrumbJsonLd, faqJsonLd]} />
+      <CountryPageView
+        locale={locale as Locale}
+        code={hit.code}
+        capital={hit.capital}
+        defaultZone={hit.defaultZone}
+        zones={hit.zones}
+      />
+    </>
   );
 }

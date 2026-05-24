@@ -34,6 +34,7 @@
   },
   "Countries": {
     "subtitle": "Live local time in {count} countries. Search or browse by region.",
+    "metaDescription": "World time zone directory for {count} countries. Find any country and check live local time with daylight saving time.",
     "searchPlaceholder": "Search country…",
     "noResults": "No matches—try another spelling.",
     "regions": {
@@ -72,6 +73,8 @@
   },
   "Country": {
     "heroEyebrow": "Current time in",
+    "metaTitle": "What time is it in {country} now? Live clock",
+    "metaDescription": "Current local time in {country} ({capital}). Live clock with DST ({zone}). Compare time zones instantly.",
     "capitalIntro": "{country} · Editorial context cites {capital} schedules.",
     "zoneExplain": "{country} uses the IANA zone {zone}. The offset adjusts automatically for daylight saving time when applicable.",
     "aboutHeading": "About this time",
@@ -94,11 +97,17 @@
     "ariaLabel": "Advertisement placeholder"
   },
   "Footer": {
-    "note": "Countries Time · MVP",
+    "legalNavLabel": "Legal links",
+    "privacyLink": "Privacy",
+    "termsLink": "Terms",
+    "contactLink": "Contact",
+    "note": "World clock with real-time time zone data.",
     "disclaimer": "Times are calculated in real time with current zoneinfo rules. Brief mismatches may occur during daylight saving transitions."
   },
   "Home": {
     "eyebrow": "World clock",
+    "metaTitle": "World Clock & Time Zone Comparator | Countries Time",
+    "metaDescription": "Check the current time in any country or compare time zones with daylight saving time. Live clock for 250+ countries.",
     "title": "Live time, anywhere",
     "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
     "ctaCountries": "Browse countries",
@@ -108,5 +117,29 @@
     "title": "Page not found",
     "description": "Return to the home page or check that the language prefix in the URL is valid.",
     "homeLink": "Go to home"
+  },
+  "Legal": {
+    "privacyTitle": "Privacy policy",
+    "privacyIntro": "Countries Time respects your privacy. This policy explains what data we collect, how we use cookies, and your choices.",
+    "privacyDataTitle": "Data we collect",
+    "privacyDataBody": "No account is required. We may collect aggregated technical data (browser type, pages visited, language) to operate and measure the site. Theme and hour-format preferences are stored locally on your device.",
+    "privacyCookiesTitle": "Cookies and advertising",
+    "privacyCookiesBody": "We use essential cookies for site operation. If we enable ads (e.g. Google AdSense), partners may use cookies to serve relevant ads. In the EU/UK we will show a consent banner before non-essential cookies.",
+    "privacyThirdPartyTitle": "Third-party services",
+    "privacyThirdPartyBody": "Analytics or advertising providers may process data under their own policies. Use your browser cookie settings to limit tracking.",
+    "privacyRightsTitle": "Your rights",
+    "privacyRightsBody": "You may request information about your data or ask for deletion via the contact address. You may also object to processing for advertising where the law allows.",
+    "termsTitle": "Terms of use",
+    "termsIntro": "By using Countries Time you accept these terms. The service is provided as-is for informational purposes.",
+    "termsUseTitle": "Use of the service",
+    "termsUseBody": "You may check time by country and compare time zones for personal or professional use. Automated bulk use that degrades the service or republishing content without permission is not allowed.",
+    "termsAccuracyTitle": "Accuracy of information",
+    "termsAccuracyBody": "Times are computed from up-to-date IANA/zoneinfo data. Brief discrepancies may occur during daylight saving transitions. Always verify critical appointments with official sources.",
+    "termsLiabilityTitle": "Limitation of liability",
+    "termsLiabilityBody": "Countries Time is not liable for decisions based on displayed times or indirect damages from use of the site.",
+    "contactTitle": "Contact",
+    "contactIntro": "For privacy, terms, or time data corrections, reach out by email.",
+    "contactEmailLabel": "Email",
+    "contactEmail": "hello@countries-time.com"
   }
 }

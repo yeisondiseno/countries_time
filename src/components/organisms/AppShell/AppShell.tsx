@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 import { AdSlot } from "@/components/molecules";
 import { SiteHeader } from "@/components/organisms";
+import { Link } from "@/i18n/navigation";
 
 import shared from "@/styles/shared.module.css";
 
@@ -33,6 +34,13 @@ export async function AppShell({ children }: Props) {
           <p className={styles.disclaimer}>
             <strong>{t("siteName")}</strong> · {tFooter("disclaimer")}
           </p>
+          <nav
+            className={styles.legalNav}
+            aria-label={tFooter("legalNavLabel")}
+          >
+            <Link href="/privacy">{tFooter("privacyLink")}</Link>
+            <Link href="/terms">{tFooter("termsLink")}</Link>
+          </nav>
           <p className={styles.note}>{tFooter("note")}</p>
         </div>
       </footer>

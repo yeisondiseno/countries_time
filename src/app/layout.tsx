@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { JetBrains_Mono, Manrope } from "next/font/google";
@@ -8,6 +9,11 @@ import { ThemeProvider, TimeFormatProvider } from "@/components";
 import "@/styles/globals.css";
 
 import { routing } from "@/i18n/routing";
+import { getSiteOrigin } from "@/lib/seo/site-origin";
+
+export const metadata: Metadata = {
+  metadataBase: getSiteOrigin(),
+};
 
 const manrope = Manrope({
   subsets: ["latin"],

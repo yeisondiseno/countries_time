@@ -32,6 +32,7 @@
   },
   "Countries": {
     "subtitle": "Hora local en directo en {count} países. Busca o navega por región.",
+    "metaDescription": "Directorio de husos horarios en {count} países. Busca cualquier país y consulta la hora local en directo con horario de verano.",
     "searchPlaceholder": "Buscar país…",
     "noResults": "Sin coincidencias. Prueba con otra ortografía.",
     "regions": {
@@ -70,6 +71,8 @@
   },
   "Country": {
     "heroEyebrow": "Hora actual en",
+    "metaTitle": "¿Qué hora es en {country} ahora? Reloj en vivo",
+    "metaDescription": "Hora actual en {country} ({capital}). Reloj en directo con horario de verano ({zone}). Compara husos horarios al instante.",
     "capitalIntro": "{country} · El contexto editorial usa {capital} como referencia.",
     "zoneExplain": "{country} usa la zona IANA {zone}. El offset se ajusta automáticamente al horario de verano cuando aplica.",
     "aboutHeading": "Sobre esta hora",
@@ -92,11 +95,17 @@
     "ariaLabel": "Espacio publicitario"
   },
   "Footer": {
-    "note": "Countries Time · MVP",
+    "legalNavLabel": "Enlaces legales",
+    "privacyLink": "Privacidad",
+    "termsLink": "Términos",
+    "contactLink": "Contacto",
+    "note": "Reloj mundial con datos horarios en tiempo real.",
     "disclaimer": "Las horas se calculan en tiempo real con las reglas zoneinfo vigentes. Pueden existir desfases puntuales durante transiciones de horario de verano."
   },
   "Home": {
     "eyebrow": "Reloj mundial",
+    "metaTitle": "Reloj mundial y comparador horario | Countries Time",
+    "metaDescription": "Consulta la hora actual en cualquier país o compara husos horarios con horario de verano. Reloj en vivo para más de 250 países.",
     "title": "Hora en vivo, en cualquier lugar",
     "subtitle": "Consulta la hora local por país o compara hasta cuatro zonas con un único instante de referencia.",
     "ctaCountries": "Ver países",
@@ -106,5 +115,29 @@
     "title": "Página no encontrada",
     "description": "Vuelve al inicio o comprueba que el prefijo de idioma en la URL sea válido.",
     "homeLink": "Ir al inicio"
+  },
+  "Legal": {
+    "privacyTitle": "Política de privacidad",
+    "privacyIntro": "Countries Time respeta tu privacidad. Esta política explica qué datos recopilamos, cómo usamos cookies y qué opciones tienes.",
+    "privacyDataTitle": "Datos que recopilamos",
+    "privacyDataBody": "El servicio no requiere registro. Podemos registrar datos técnicos agregados (tipo de navegador, páginas visitadas, idioma) para mantener el sitio y medir rendimiento. Las preferencias de tema y formato horario se guardan localmente en tu dispositivo.",
+    "privacyCookiesTitle": "Cookies y publicidad",
+    "privacyCookiesBody": "Usamos cookies esenciales para el funcionamiento del sitio. Si activamos publicidad (p. ej. Google AdSense), los partners pueden usar cookies para mostrar anuncios relevantes. En la UE/UK mostraremos un banner de consentimiento antes de cookies no esenciales.",
+    "privacyThirdPartyTitle": "Servicios de terceros",
+    "privacyThirdPartyBody": "Los proveedores de analítica o publicidad pueden procesar datos según sus propias políticas. Consulta la configuración de cookies de tu navegador para limitar el seguimiento.",
+    "privacyRightsTitle": "Tus derechos",
+    "privacyRightsBody": "Puedes solicitar información sobre tus datos o pedir su eliminación escribiendo a la dirección de contacto. También puedes oponerte al tratamiento con fines publicitarios cuando la ley lo permita.",
+    "termsTitle": "Términos de uso",
+    "termsIntro": "Al usar Countries Time aceptas estos términos. El servicio se ofrece tal cual, con fines informativos.",
+    "termsUseTitle": "Uso del servicio",
+    "termsUseBody": "Puedes consultar la hora por país y comparar husos horarios para uso personal o profesional. No está permitido el uso automatizado masivo que degrade el servicio ni la reproducción del contenido sin autorización.",
+    "termsAccuracyTitle": "Precisión de la información",
+    "termsAccuracyBody": "Las horas se calculan con bases de datos IANA/zoneinfo actualizadas. Durante cambios de horario de verano pueden existir desfases breves. Verifica siempre citas críticas con fuentes oficiales.",
+    "termsLiabilityTitle": "Limitación de responsabilidad",
+    "termsLiabilityBody": "Countries Time no se hace responsable de decisiones tomadas en base a la hora mostrada ni de daños indirectos derivados del uso del sitio.",
+    "contactTitle": "Contacto",
+    "contactIntro": "Para consultas sobre privacidad, términos o correcciones de datos horarios, escríbenos.",
+    "contactEmailLabel": "Correo electrónico",
+    "contactEmail": "hello@countries-time.com"
   }
 }

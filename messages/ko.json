@@ -34,6 +34,7 @@
   },
   "Countries": {
     "subtitle": "{count}개 국가의 현지 시간을 실시간으로 확인하세요. 검색하거나 지역별로 둘러보세요.",
+    "metaDescription": "{count}개 국가의 시간대 디렉터리. 국가를 검색하고 서머타임을 반영한 실시간 현지 시간을 확인하세요.",
     "searchPlaceholder": "국가 검색…",
     "noResults": "결과 없음. 다른 철자로 시도해 보세요.",
     "regions": {
@@ -76,6 +77,8 @@
   },
   "Country": {
     "heroEyebrow": "현재 시각 ·",
+    "metaTitle": "{country} 현재 시간은? 실시간 시계",
+    "metaDescription": "{country}({capital})의 현재 현지 시간. 서머타임 반영 실시간 시계({zone}). 시간대를 즉시 비교하세요.",
     "capitalIntro": "{country} · 서술 맥락은 수도 {capital} 기준입니다.",
     "zoneExplain": "{country}는 IANA 시간대 {zone}를 사용합니다. 오프셋은 해당되는 경우 서머타임에 따라 자동으로 조정됩니다.",
     "aboutHeading": "이 시각에 대하여",
@@ -98,15 +101,21 @@
     "ariaLabel": "광고 슬롯"
   },
   "Footer": {
-    "note": "Countries Time · MVP",
+    "legalNavLabel": "법적 링크",
+    "privacyLink": "개인정보",
+    "termsLink": "이용약관",
+    "contactLink": "문의",
+    "note": "실시간 세계 시계 서비스.",
     "disclaimer": "시간은 현재 zoneinfo 규칙에 따라 실시간으로 계산됩니다. 서머타임 전환 시에는 일시적인 차이가 발생할 수 있습니다."
   },
   "Home": {
-    "eyebrow": "World clock",
-    "title": "Live time, anywhere",
-    "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
-    "ctaCountries": "Browse countries",
-    "ctaCompare": "Open comparator"
+    "eyebrow": "세계 시계",
+    "metaTitle": "세계 시계 및 시간대 비교 | Countries Time",
+    "metaDescription": "어느 나라든 현재 시간을 확인하거나 서머타임을 반영해 시간대를 비교하세요. 250개 이상 국가 실시간 시계.",
+    "title": "어디서나 실시간 현지 시간",
+    "subtitle": "국가별 현지 시간을 보거나 기준 시각으로 최대 4개 시간대를 비교할 수 있습니다.",
+    "ctaCountries": "국가 둘러보기",
+    "ctaCompare": "비교기 열기"
   },
   "LiveClock": {
     "heading": "현지 라이브 시계",
@@ -116,5 +125,29 @@
     "title": "페이지를 찾을 수 없습니다",
     "description": "홈으로 돌아가거나 URL의 언어 접두사가 올바른지 확인하세요.",
     "homeLink": "홈으로 이동"
+  },
+  "Legal": {
+    "privacyTitle": "개인정보 처리방침",
+    "privacyIntro": "Countries Time은 개인정보를 존중합니다. 수집 데이터, 쿠키, 선택 사항을 설명합니다.",
+    "privacyDataTitle": "수집하는 데이터",
+    "privacyDataBody": "계정이 필요 없습니다. 브라우저, 방문 페이지, 언어 등 집계 기술 데이터를 수집할 수 있습니다. 테마와 시간 형식 설정은 기기에 저장됩니다.",
+    "privacyCookiesTitle": "쿠키 및 광고",
+    "privacyCookiesBody": "필수 쿠키를 사용합니다. 광고(Google AdSense 등)를 활성화하면 파트너가 쿠키를 사용할 수 있습니다. EU/영국에서는 비필수 쿠키 전에 동의 배너를 표시합니다.",
+    "privacyThirdPartyTitle": "제3자 서비스",
+    "privacyThirdPartyBody": "분석·광고 제공자는 자체 정책에 따라 데이터를 처리합니다. 브라우저 쿠키 설정으로 제한할 수 있습니다.",
+    "privacyRightsTitle": "귀하의 권리",
+    "privacyRightsBody": "문의 이메일로 데이터 열람·삭제를 요청할 수 있으며, 법이 허용하는 범위에서 광고 목적 처리에 이의를 제기할 수 있습니다.",
+    "termsTitle": "이용약관",
+    "termsIntro": "Countries Time을 사용하면 본 약관에 동의한 것으로 간주됩니다. 서비스는 정보 제공 목적으로 제공됩니다.",
+    "termsUseTitle": "서비스 이용",
+    "termsUseBody": "국가별 시간 확인과 시간대 비교는 개인·업무용으로 가능합니다. 대량 자동 접근이나 무단 재배포는 금지됩니다.",
+    "termsAccuracyTitle": "정보의 정확성",
+    "termsAccuracyBody": "시간은 최신 IANA/zoneinfo 데이터를 사용합니다. 서머타임 전환 시 짧은 오차가 있을 수 있습니다. 중요한 일정은 공식 출처로 확인하세요.",
+    "termsLiabilityTitle": "책임 제한",
+    "termsLiabilityBody": "표시된 시간에 따른 결정이나 간접 손해에 대해 Countries Time은 책임지지 않습니다.",
+    "contactTitle": "문의",
+    "contactIntro": "개인정보, 약관, 시간 데이터 수정은 이메일로 연락해 주세요.",
+    "contactEmailLabel": "이메일",
+    "contactEmail": "hello@countries-time.com"
   }
 }

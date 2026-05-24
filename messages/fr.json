@@ -10,14 +10,14 @@
     "faqTimeTitle": "Pourquoi l’heure affichée peut‑elle changer au cours de l’année ?",
     "faqDstBody": "Nombreuses régions ajustent l’offset officiel deux fois par an (heure d’été/hiver). Nous conservons un instant absolu UTC et la conversion utilise la zone IANA valide.",
     "compareSectionTitle": "Comparateur",
-    "skipToContent": "Skip to main content"
+    "skipToContent": "Aller au contenu principal"
   },
   "LocaleSwitcher": {
     "label": "Langue"
   },
   "Theme": {
-    "switchLight": "Switch to light mode",
-    "switchDark": "Switch to dark mode"
+    "switchLight": "Passer au mode clair",
+    "switchDark": "Passer au mode sombre"
   },
   "TimeFormat": {
     "switch12h": "Passer au format 12 heures",
@@ -34,6 +34,7 @@
   },
   "Countries": {
     "subtitle": "Les heures locales en direct dans {count} pays. Recherchez ou parcourez par région.",
+    "metaDescription": "Annuaire des fuseaux horaires pour {count} pays. Trouvez un pays et consultez l'heure locale en direct avec heure d'été.",
     "searchPlaceholder": "Rechercher un pays…",
     "noResults": "Aucun résultat. Essayez une autre orthographe.",
     "regions": {
@@ -76,6 +77,8 @@
   },
   "Country": {
     "heroEyebrow": "Heure actuelle à",
+    "metaTitle": "Quelle heure est-il en {country} ? Horloge en direct",
+    "metaDescription": "Heure locale actuelle en {country} ({capital}). Horloge en direct avec heure d'été ({zone}). Comparez les fuseaux instantanément.",
     "capitalIntro": "{country} · Contexte éditorial avec {capital} comme référence.",
     "zoneExplain": "{country} utilise le fuseau IANA {zone}. Le décalage s’ajuste automatiquement à l’heure d’été lorsque applicable.",
     "aboutHeading": "À propos de cette heure",
@@ -98,15 +101,21 @@
     "ariaLabel": "Espace publicitaire"
   },
   "Footer": {
-    "note": "Countries Time · MVP",
+    "legalNavLabel": "Liens légaux",
+    "privacyLink": "Confidentialité",
+    "termsLink": "Conditions",
+    "contactLink": "Contact",
+    "note": "Horloge mondiale avec données horaires en temps réel.",
     "disclaimer": "Les heures sont calculées en temps réel selon les règles zoneinfo en vigueur. De brefs écarts peuvent survenir lors des passages à l'heure d'été ou d'hiver."
   },
   "Home": {
-    "eyebrow": "World clock",
-    "title": "Live time, anywhere",
-    "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
-    "ctaCountries": "Browse countries",
-    "ctaCompare": "Open comparator"
+    "eyebrow": "Horloge mondiale",
+    "metaTitle": "Horloge mondiale et comparateur horaire | Countries Time",
+    "metaDescription": "Consultez l'heure actuelle dans n'importe quel pays ou comparez les fuseaux avec l'heure d'été. Horloge en direct pour plus de 250 pays.",
+    "title": "L'heure en direct, partout",
+    "subtitle": "Consultez l'heure locale par pays ou comparez jusqu'à quatre fuseaux avec un instant de référence unique.",
+    "ctaCountries": "Parcourir les pays",
+    "ctaCompare": "Ouvrir le comparateur"
   },
   "LiveClock": {
     "heading": "Horloge locale en direct",
@@ -116,5 +125,29 @@
     "title": "Page introuvable",
     "description": "Retournez à l'accueil ou vérifiez que le préfixe de langue dans l'URL est valide.",
     "homeLink": "Aller à l'accueil"
+  },
+  "Legal": {
+    "privacyTitle": "Politique de confidentialité",
+    "privacyIntro": "Countries Time respecte votre vie privée. Cette politique explique les données collectées, l'usage des cookies et vos choix.",
+    "privacyDataTitle": "Données collectées",
+    "privacyDataBody": "Aucun compte n'est requis. Nous pouvons recueillir des données techniques agrégées (navigateur, pages visitées, langue) pour faire fonctionner le site. Les préférences de thème et de format horaire sont stockées localement.",
+    "privacyCookiesTitle": "Cookies et publicité",
+    "privacyCookiesBody": "Nous utilisons des cookies essentiels. Si la publicité est activée (p. ex. Google AdSense), des partenaires peuvent utiliser des cookies. Dans l'UE/UK, un bandeau de consentement précédera les cookies non essentiels.",
+    "privacyThirdPartyTitle": "Services tiers",
+    "privacyThirdPartyBody": "Les fournisseurs d'analytique ou de publicité traitent les données selon leurs propres politiques. Utilisez les paramètres cookies de votre navigateur.",
+    "privacyRightsTitle": "Vos droits",
+    "privacyRightsBody": "Vous pouvez demander des informations ou la suppression de vos données via l'adresse de contact. Vous pouvez vous opposer au traitement publicitaire lorsque la loi le permet.",
+    "termsTitle": "Conditions d'utilisation",
+    "termsIntro": "En utilisant Countries Time, vous acceptez ces conditions. Le service est fourni tel quel, à titre informatif.",
+    "termsUseTitle": "Utilisation du service",
+    "termsUseBody": "Vous pouvez consulter l'heure par pays et comparer les fuseaux. L'usage automatisé massif ou la republication non autorisée est interdit.",
+    "termsAccuracyTitle": "Exactitude des informations",
+    "termsAccuracyBody": "Les heures proviennent de données IANA/zoneinfo à jour. De brefs écarts peuvent survenir lors des changements d'heure d'été. Vérifiez les rendez-vous critiques avec des sources officielles.",
+    "termsLiabilityTitle": "Limitation de responsabilité",
+    "termsLiabilityBody": "Countries Time n'est pas responsable des décisions prises sur la base des heures affichées ni des dommages indirects.",
+    "contactTitle": "Contact",
+    "contactIntro": "Pour la confidentialité, les conditions ou les corrections horaires, écrivez-nous.",
+    "contactEmailLabel": "E-mail",
+    "contactEmail": "hello@countries-time.com"
   }
 }
