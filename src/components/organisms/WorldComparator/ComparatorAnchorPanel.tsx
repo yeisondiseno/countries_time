@@ -3,7 +3,7 @@ import type { useTranslations } from "next-intl";
 import { FiInfo, FiSearch } from "react-icons/fi";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { Input } from "@/components";
+import { Input } from "@/components/atoms";
 
 import { flagEmoji } from "@/lib/display/flags";
 import type { Locale } from "@/lib/i18n/config";

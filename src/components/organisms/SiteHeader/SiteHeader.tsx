@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 
-import { LocaleSwitcher, ThemeToggle } from "@/components";
+import { LocaleSwitcher, ThemeToggle } from "@/components/molecules";
 import { Link, usePathname } from "@/i18n/navigation";
 
 import shared from "@/styles/shared.module.css";

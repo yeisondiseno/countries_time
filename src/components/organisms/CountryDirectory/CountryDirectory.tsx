@@ -5,7 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { FiSearch } from "react-icons/fi";
 
-import { Input, Toggle } from "@/components";
+import { Input } from "@/components/atoms";
+import { Toggle } from "@/components/molecules";
 import { Link } from "@/i18n/navigation";
 
 import {
