@@ -1,13 +1,13 @@
 "use client";
 
-import type { ChangeEvent, ComponentPropsWithoutRef } from "react";
-// Utils
+import type { ChangeEvent, ComponentProps } from "react";
+
 import { sanitizeInputChange } from "@/lib/sanitize";
 
-export type InputProps = ComponentPropsWithoutRef<"input">;
+export type InputProps = ComponentProps<"input">;
 
 /** `<input>` con sanitización centralizada en cada cambio del usuario. */
-export function Input({ onChange, type = "text", ...props }: InputProps) {
+export function Input({ onChange, type = "text", ref, ...props }: InputProps) {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (!onChange) {
       return;
@@ -26,5 +26,5 @@ export function Input({ onChange, type = "text", ...props }: InputProps) {
     });
   };
 
-  return <input type={type} onChange={handleChange} {...props} />;
+  return <input ref={ref} type={type} onChange={handleChange} {...props} />;
 }

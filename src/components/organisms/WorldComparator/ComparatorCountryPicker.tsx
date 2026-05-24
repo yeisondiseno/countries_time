@@ -1,12 +1,15 @@
 import type { useTranslations } from "next-intl";
 
 import { FiSearch, FiX } from "react-icons/fi";
+import { Controller, useFormContext } from "react-hook-form";
 
 import { Input } from "@/components/atoms/Input";
 
 import { flagEmoji } from "@/lib/display/flags";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion } from "@/lib/time/display";
+
+import type { WorldComparatorFormValues } from "./WorldComparator.types";
 
 import styles from "./WorldComparator.module.css";
 
@@ -15,9 +18,7 @@ type Props = Readonly<{
   locale: Locale;
   title: string;
   ariaLabel: string;
-  search: string;
   codes: string[];
-  onSearchChange: (value: string) => void;
   onSelect: (code: string) => void;
   onClose: () => void;
 }>;
@@ -27,12 +28,12 @@ export function ComparatorCountryPicker({
   locale,
   title,
   ariaLabel,
-  search,
   codes,
-  onSearchChange,
   onSelect,
   onClose,
 }: Props) {
+  const { control } = useFormContext<WorldComparatorFormValues>();
+
   return (
     <div
       className={styles.modalBackdrop}
@@ -64,12 +65,21 @@ export function ComparatorCountryPicker({
         </div>
         <div className={styles.modalSearch}>
           <FiSearch className={styles.searchIcon} aria-hidden />
-          <Input
-            type="search"
-            placeholder={t("searchCountry")}
-            value={search}
-            onChange={(e) => onSearchChange(e.target.value)}
-            autoFocus
+          <Controller
+            name="pickerSearch"
+            control={control}
+            render={({ field }) => (
+              <Input
+                type="search"
+                placeholder={t("searchCountry")}
+                autoFocus
+                value={field.value}
+                onChange={(event) => field.onChange(event.target.value)}
+                onBlur={field.onBlur}
+                name={field.name}
+                ref={field.ref}
+              />
+            )}
           />
         </div>
         <div className={styles.modalList}>

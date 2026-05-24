@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { DateTime } from "luxon";
 import { useLocale, useTranslations } from "next-intl";
+import type { UseFormReturn } from "react-hook-form";
 
 import { listCountryCodesSorted } from "@/lib/data/countries";
 import { countriesZones } from "@/lib/data/countries";
@@ -13,8 +14,8 @@ import { formatCountryRegion } from "@/lib/time/display";
 import {
   DEFAULT_SLOT_CODES,
   LIVE_TICK_MS,
-  type CmpForm,
   type PickerTarget,
+  type WorldComparatorFormValues,
 } from "./WorldComparator.types";
 import {
   buildDefaults,
@@ -23,26 +24,40 @@ import {
   utcMillisFromWall,
 } from "./WorldComparator.utils";
 
-export function useWorldComparator() {
+export function useWorldComparator(
+  formMethods: UseFormReturn<WorldComparatorFormValues>,
+) {
   const locale = useLocale() as Locale;
   const t = useTranslations("Compare");
+  const { watch, setValue } = formMethods;
 
   const [slots, setSlots] = useState<(string | null)[]>([
     ...DEFAULT_SLOT_CODES,
   ]);
   const [anchorIdx, setAnchorIdx] = useState(0);
-  const [manualForm, setManualForm] = useState<CmpForm>(() =>
-    buildDefaults("DE"),
-  );
-  const [followNow, setFollowNow] = useState(true);
   const [liveMinute, setLiveMinute] = useState(currentEpochMillis);
   const [pickerTarget, setPickerTarget] = useState<PickerTarget | null>(null);
-  const [search, setSearch] = useState("");
+
+  const followNow = watch("followNow");
+  const manualForm = watch(["anchorCountry", "anchorZone", "date", "time"]);
+  const search = watch("pickerSearch");
 
   const filled = slots.filter((c): c is string => Boolean(c));
   const isActive = filled.length >= 2;
   const anchorCode = slots[anchorIdx] ?? filled[0] ?? "DE";
   const anchorEntry = countriesZones.countries[anchorCode];
+
+  const applyAnchorDefaults = useCallback(
+    (code: string) => {
+      const defaults = buildDefaults(code);
+      setValue("anchorCountry", defaults.anchorCountry);
+      setValue("anchorZone", defaults.anchorZone);
+      setValue("date", defaults.date);
+      setValue("time", defaults.time);
+      setValue("followNow", true);
+    },
+    [setValue],
+  );
 
   useEffect(() => {
     if (!followNow) {
@@ -56,12 +71,16 @@ export function useWorldComparator() {
   }, [followNow]);
 
   const form = useMemo(() => {
+    const [anchorCountry, anchorZone, date, time] = manualForm;
+
     if (!followNow || !anchorEntry) {
-      return manualForm;
+      return { anchorCountry, anchorZone, date, time };
     }
+
     const snap = DateTime.fromMillis(liveMinute)
       .setZone(anchorEntry.defaultZone)
       .startOf("minute");
+
     return {
       anchorCountry: anchorCode,
       anchorZone: anchorEntry.defaultZone,
@@ -124,38 +143,28 @@ export function useWorldComparator() {
   const pickerAriaLabel =
     pickerTarget?.kind === "anchor" ? t("anchorControls") : t("addCountry");
 
-  const openPicker = useCallback((target: PickerTarget) => {
-    setPickerTarget(target);
-    setSearch("");
-  }, []);
+  const openPicker = useCallback(
+    (target: PickerTarget) => {
+      setPickerTarget(target);
+      setValue("pickerSearch", "");
+    },
+    [setValue],
+  );
 
   const closePicker = useCallback(() => {
     setPickerTarget(null);
   }, []);
 
-  const setField = useCallback(
-    <K extends keyof CmpForm>(key: K, value: CmpForm[K]) => {
-      setManualForm((prev) => ({ ...prev, [key]: value }));
-      setFollowNow(false);
-    },
-    [],
-  );
-
-  const toggleFollowNow = useCallback(() => {
-    setFollowNow((value) => !value);
-  }, []);
-
   const setAsAnchor = useCallback(
     (idx: number) => {
       setAnchorIdx(idx);
-      setFollowNow(true);
       const code = slots[idx];
       if (code && countriesZones.countries[code]) {
-        setManualForm(buildDefaults(code));
+        applyAnchorDefaults(code);
         refreshLiveMinute(setLiveMinute);
       }
     },
-    [slots],
+    [applyAnchorDefaults, slots],
   );
 
   const setSlot = useCallback((idx: number, code: string) => {
@@ -170,13 +179,12 @@ export function useWorldComparator() {
         setAsAnchor(idx);
       } else {
         setSlots((prev) => prev.map((c, i) => (i === anchorIdx ? code : c)));
-        setFollowNow(true);
-        setManualForm(buildDefaults(code));
+        applyAnchorDefaults(code);
         refreshLiveMinute(setLiveMinute);
       }
       setPickerTarget(null);
     },
-    [anchorIdx, setAsAnchor, slots],
+    [anchorIdx, applyAnchorDefaults, setAsAnchor, slots],
   );
 
   const removeSlot = useCallback((idx: number) => {
@@ -214,8 +222,6 @@ export function useWorldComparator() {
     form,
     followNow,
     pickerTarget,
-    search,
-    setSearch,
     filled,
     isActive,
     anchorCode,
@@ -227,8 +233,6 @@ export function useWorldComparator() {
     pickerAriaLabel,
     openPicker,
     closePicker,
-    setField,
-    toggleFollowNow,
     setAsAnchor,
     removeSlot,
     selectPickerCountry,

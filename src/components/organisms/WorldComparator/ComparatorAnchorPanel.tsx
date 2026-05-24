@@ -1,6 +1,7 @@
 import type { useTranslations } from "next-intl";
 
 import { FiInfo, FiSearch } from "react-icons/fi";
+import { Controller, useFormContext } from "react-hook-form";
 
 import { Input } from "@/components/atoms/Input";
 
@@ -8,7 +9,7 @@ import { flagEmoji } from "@/lib/display/flags";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion } from "@/lib/time/display";
 
-import type { CmpForm } from "./WorldComparator.types";
+import type { CmpForm, WorldComparatorFormValues } from "./WorldComparator.types";
 
 import styles from "./WorldComparator.module.css";
 
@@ -19,9 +20,6 @@ type Props = Readonly<{
   form: CmpForm;
   followNow: boolean;
   onOpenAnchorPicker: () => void;
-  onDateChange: (value: string) => void;
-  onTimeChange: (value: string) => void;
-  onToggleFollowNow: () => void;
 }>;
 
 export function ComparatorAnchorPanel({
@@ -31,10 +29,17 @@ export function ComparatorAnchorPanel({
   form,
   followNow,
   onOpenAnchorPicker,
-  onDateChange,
-  onTimeChange,
-  onToggleFollowNow,
 }: Props) {
+  const { control, setValue } = useFormContext<WorldComparatorFormValues>();
+
+  const pauseLive = () => {
+    setValue("followNow", false);
+  };
+
+  const toggleFollowNow = () => {
+    setValue("followNow", !followNow);
+  };
+
   return (
     <div
       className={styles.anchor}
@@ -57,21 +62,45 @@ export function ComparatorAnchorPanel({
       </div>
       <div className={styles.anchorField}>
         <label htmlFor="anchor-date">{t("dateLabel")}</label>
-        <Input
-          id="anchor-date"
-          type="date"
-          value={form.date}
-          onChange={(e) => onDateChange(e.target.value)}
+        <Controller
+          name="date"
+          control={control}
+          render={({ field }) => (
+            <Input
+              id="anchor-date"
+              type="date"
+              value={form.date}
+              onChange={(event) => {
+                field.onChange(event.target.value);
+                pauseLive();
+              }}
+              onBlur={field.onBlur}
+              name={field.name}
+              ref={field.ref}
+            />
+          )}
         />
       </div>
       <div className={styles.anchorField}>
         <label htmlFor="anchor-time">{t("timeLabel")}</label>
-        <Input
-          id="anchor-time"
-          type="time"
-          step={60}
-          value={form.time}
-          onChange={(e) => onTimeChange(e.target.value)}
+        <Controller
+          name="time"
+          control={control}
+          render={({ field }) => (
+            <Input
+              id="anchor-time"
+              type="time"
+              step={60}
+              value={form.time}
+              onChange={(event) => {
+                field.onChange(event.target.value);
+                pauseLive();
+              }}
+              onBlur={field.onBlur}
+              name={field.name}
+              ref={field.ref}
+            />
+          )}
         />
       </div>
       <div className={styles.anchorField}>
@@ -82,7 +111,7 @@ export function ComparatorAnchorPanel({
           id="follow-now"
           type="button"
           className={`${styles.liveBtn} ${followNow ? styles.liveBtnOn : ""}`}
-          onClick={onToggleFollowNow}
+          onClick={toggleFollowNow}
           aria-pressed={followNow}
         >
           {followNow ? t("liveOn") : t("liveOff")}
