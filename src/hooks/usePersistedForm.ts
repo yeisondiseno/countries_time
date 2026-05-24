@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 
 import {
   useForm,
+  useWatch,
   type DefaultValues,
   type FieldValues,
   type UseFormProps,
@@ -82,28 +83,47 @@ export function usePersistedForm<T extends FieldValues>({
     ...formOptions,
   });
 
-  const { reset, watch, getValues } = formMethods;
-  const omitKeysRef = useRef(omitKeys);
-  omitKeysRef.current = omitKeys;
+  const { reset, control } = formMethods;
+
   const hydratedKeyRef = useRef<string | null>(null);
+  const readyToPersistRef = useRef(false);
+  const lastWrittenRef = useRef<string | null>(null);
+
+  const values = useWatch({ control }) as T;
 
   useEffect(() => {
     if (hydratedKeyRef.current === storageKey) {
       return;
     }
+
     hydratedKeyRef.current = storageKey;
-    reset(
-      mergeStored(storageKey, defaultValues, omitKeysRef.current, parseStored),
+    readyToPersistRef.current = false;
+
+    const restored = mergeStored(
+      storageKey,
+      defaultValues,
+      omitKeys,
+      parseStored,
     );
-  }, [storageKey, defaultValues, parseStored, reset]);
+
+    reset(restored);
+    lastWrittenRef.current = JSON.stringify(restored);
+    readyToPersistRef.current = true;
+  }, [storageKey, defaultValues, omitKeys, parseStored, reset]);
 
   useEffect(() => {
-    const subscription = watch(() => {
-      writeStored(storageKey, getValues(), omitKeysRef.current);
-    });
+    if (!readyToPersistRef.current || values === undefined) {
+      return;
+    }
 
-    return () => subscription.unsubscribe();
-  }, [watch, getValues, storageKey]);
+    const serialized = JSON.stringify(values);
+    if (serialized === lastWrittenRef.current) {
+      return;
+    }
+
+    lastWrittenRef.current = serialized;
+    writeStored(storageKey, values, omitKeys);
+  }, [values, storageKey, omitKeys]);
 
   return formMethods;
 }

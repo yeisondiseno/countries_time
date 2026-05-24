@@ -12,7 +12,6 @@ import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion } from "@/lib/time/display";
 
 import {
-  DEFAULT_SLOT_CODES,
   LIVE_TICK_MS,
   type PickerTarget,
   type WorldComparatorFormValues,
@@ -29,16 +28,14 @@ export function useWorldComparator(
 ) {
   const locale = useLocale() as Locale;
   const t = useTranslations("Compare");
-  const { watch, setValue } = formMethods;
+  const { watch, setValue, getValues } = formMethods;
 
-  const [slots, setSlots] = useState<(string | null)[]>([
-    ...DEFAULT_SLOT_CODES,
-  ]);
-  const [anchorIdx, setAnchorIdx] = useState(0);
   const [liveMinute, setLiveMinute] = useState(currentEpochMillis);
   const [pickerTarget, setPickerTarget] = useState<PickerTarget | null>(null);
 
   const followNow = watch("followNow");
+  const slots = watch("slots");
+  const anchorIdx = watch("anchorIdx");
   const manualForm = watch(["anchorCountry", "anchorZone", "date", "time"]);
   const search = watch("pickerSearch");
 
@@ -50,11 +47,11 @@ export function useWorldComparator(
   const applyAnchorDefaults = useCallback(
     (code: string) => {
       const defaults = buildDefaults(code);
-      setValue("anchorCountry", defaults.anchorCountry);
-      setValue("anchorZone", defaults.anchorZone);
-      setValue("date", defaults.date);
-      setValue("time", defaults.time);
-      setValue("followNow", true);
+      setValue("anchorCountry", defaults.anchorCountry, { shouldDirty: true });
+      setValue("anchorZone", defaults.anchorZone, { shouldDirty: true });
+      setValue("date", defaults.date, { shouldDirty: true });
+      setValue("time", defaults.time, { shouldDirty: true });
+      setValue("followNow", true, { shouldDirty: true });
     },
     [setValue],
   );
@@ -157,49 +154,64 @@ export function useWorldComparator(
 
   const setAsAnchor = useCallback(
     (idx: number) => {
-      setAnchorIdx(idx);
+      setValue("anchorIdx", idx, { shouldDirty: true });
       const code = slots[idx];
       if (code && countriesZones.countries[code]) {
         applyAnchorDefaults(code);
         refreshLiveMinute(setLiveMinute);
       }
     },
-    [applyAnchorDefaults, slots],
+    [applyAnchorDefaults, setValue, slots],
   );
 
-  const setSlot = useCallback((idx: number, code: string) => {
-    setSlots((prev) => prev.map((c, i) => (i === idx ? code : c)));
-    setPickerTarget(null);
-  }, []);
+  const setSlot = useCallback(
+    (idx: number, code: string) => {
+      const next = getValues("slots").map((c, i) => (i === idx ? code : c));
+      setValue("slots", next, { shouldDirty: true });
+      setPickerTarget(null);
+    },
+    [getValues, setValue],
+  );
 
   const setAnchorCountry = useCallback(
     (code: string) => {
-      const idx = slots.indexOf(code);
+      const currentSlots = getValues("slots");
+      const currentAnchorIdx = getValues("anchorIdx");
+      const idx = currentSlots.indexOf(code);
       if (idx >= 0) {
         setAsAnchor(idx);
       } else {
-        setSlots((prev) => prev.map((c, i) => (i === anchorIdx ? code : c)));
+        const next = currentSlots.map((c, i) =>
+          i === currentAnchorIdx ? code : c,
+        );
+        setValue("slots", next, { shouldDirty: true });
         applyAnchorDefaults(code);
         refreshLiveMinute(setLiveMinute);
       }
       setPickerTarget(null);
     },
-    [anchorIdx, applyAnchorDefaults, setAsAnchor, slots],
+    [applyAnchorDefaults, getValues, setAsAnchor, setValue],
   );
 
-  const removeSlot = useCallback((idx: number) => {
-    setSlots((prev) => {
-      const next = prev.map((c, i) => (i === idx ? null : c));
-      setAnchorIdx((current) => {
-        if (idx !== current) {
-          return current;
-        }
+  const removeSlot = useCallback(
+    (idx: number) => {
+      const currentSlots = getValues("slots");
+      const next = currentSlots.map((c, i) => (i === idx ? null : c));
+      const currentAnchorIdx = getValues("anchorIdx");
+      let nextAnchorIdx = currentAnchorIdx;
+
+      if (idx === currentAnchorIdx) {
         const fallback = next.findIndex((c) => c !== null);
-        return fallback >= 0 ? fallback : current;
-      });
-      return next;
-    });
-  }, []);
+        if (fallback >= 0) {
+          nextAnchorIdx = fallback;
+        }
+      }
+
+      setValue("slots", next, { shouldDirty: true });
+      setValue("anchorIdx", nextAnchorIdx, { shouldDirty: true });
+    },
+    [getValues, setValue],
+  );
 
   const selectPickerCountry = useCallback(
     (code: string) => {

@@ -10,6 +10,8 @@ export type CmpForm = {
 export type WorldComparatorFormValues = CmpForm & {
   followNow: boolean;
   pickerSearch: string;
+  slots: (string | null)[];
+  anchorIdx: number;
 };
 
 export type UtcResult = { ok: true; utcMillis: number } | { ok: false };

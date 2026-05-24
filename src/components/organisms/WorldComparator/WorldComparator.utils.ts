@@ -4,7 +4,12 @@ import { countriesZones } from "@/lib/data/countries";
 
 import type { DefaultValues } from "react-hook-form";
 
-import type { CmpForm, UtcResult, WorldComparatorFormValues } from "./WorldComparator.types";
+import {
+  DEFAULT_SLOT_CODES,
+  type CmpForm,
+  type UtcResult,
+  type WorldComparatorFormValues,
+} from "./WorldComparator.types";
 
 export const WORLD_COMPARATOR_FORM_STORAGE_KEY =
   "countries-time:world-comparator-form";
@@ -38,7 +43,36 @@ export function buildFormDefaults(code = "DE"): WorldComparatorFormValues {
     ...buildDefaults(code),
     followNow: true,
     pickerSearch: "",
+    slots: [...DEFAULT_SLOT_CODES],
+    anchorIdx: 0,
   };
+}
+
+function isValidSlotCode(code: unknown): code is string {
+  return typeof code === "string" && Boolean(countriesZones.countries[code]);
+}
+
+function parseStoredSlots(raw: unknown): (string | null)[] {
+  if (!Array.isArray(raw) || raw.length !== DEFAULT_SLOT_CODES.length) {
+    return [...DEFAULT_SLOT_CODES];
+  }
+
+  return raw.map((code) =>
+    code === null ? null : isValidSlotCode(code) ? code : null,
+  );
+}
+
+function parseStoredAnchorIdx(raw: unknown, slots: (string | null)[]): number {
+  if (typeof raw !== "number" || !Number.isInteger(raw)) {
+    return 0;
+  }
+
+  if (raw >= 0 && raw < slots.length && slots[raw] !== null) {
+    return raw;
+  }
+
+  const fallback = slots.findIndex((code) => code !== null);
+  return fallback >= 0 ? fallback : 0;
 }
 
 export function parseStoredWorldComparatorForm(
@@ -70,6 +104,9 @@ export function parseStoredWorldComparatorForm(
       ? stored.time
       : base.time;
 
+  const slots = parseStoredSlots(stored.slots);
+  const anchorIdx = parseStoredAnchorIdx(stored.anchorIdx, slots);
+
   return {
     anchorCountry,
     anchorZone,
@@ -78,6 +115,8 @@ export function parseStoredWorldComparatorForm(
     followNow:
       typeof stored.followNow === "boolean" ? stored.followNow : base.followNow,
     pickerSearch: base.pickerSearch,
+    slots,
+    anchorIdx,
   };
 }
 
