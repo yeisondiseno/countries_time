@@ -106,10 +106,21 @@
     "eyebrow": "Reloj mundial",
     "metaTitle": "Reloj mundial y comparador horario | Countries Time",
     "metaDescription": "Consulta la hora actual en cualquier país o compara husos horarios con horario de verano. Reloj en vivo para más de 250 países.",
-    "title": "Hora en vivo, en cualquier lugar",
+    "title": "Reloj mundial en vivo",
     "subtitle": "Consulta la hora local por país o compara hasta cuatro zonas con un único instante de referencia.",
     "ctaCountries": "Ver países",
-    "ctaCompare": "Abrir comparador"
+    "ctaCompare": "Abrir comparador",
+    "seoAboutTitle": "Hora local precisa en más de 250 países",
+    "seoAboutBody": "Countries Time calcula la hora en tiempo real con bases de datos IANA/zoneinfo. Consulta la hora en cualquier país, descubre su huso horario IANA y compara hasta cuatro zonas con un mismo instante de referencia UTC.",
+    "seoPopularTitle": "Países consultados con frecuencia",
+    "seoFaqTitle": "Preguntas frecuentes",
+    "seoFaqQ1": "¿Cómo funciona el reloj mundial?",
+    "seoFaqA1": "Fijamos un instante UTC y lo convertimos a la zona IANA vigente de cada país. Así obtienes la hora local actual, incluidos los cambios por horario de verano.",
+    "seoFaqQ2": "¿Cómo comparo husos horarios?",
+    "seoFaqA2": "Abre el comparador, elige hasta cuatro países y define una hora de referencia. Verás cómo cae ese instante en cada zona al mismo tiempo.",
+    "seoFaqQ3": "¿Por qué la hora puede cambiar durante el año?",
+    "seoFaqA3": "Muchas regiones ajustan el offset dos veces al año por el horario de verano e invierno. Usamos las reglas oficiales de zoneinfo para cada transición.",
+    "ogImageAlt": "Countries Time — reloj mundial"
   },
   "NotFound": {
     "title": "Página no encontrada",

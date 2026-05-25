@@ -5,6 +5,13 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  redirects: async () => [
+    {
+      source: "/favicon.ico",
+      destination: "/icon",
+      permanent: true,
+    },
+  ],
 };
 
 /**

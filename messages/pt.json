@@ -112,10 +112,21 @@
     "eyebrow": "Relógio mundial",
     "metaTitle": "Relógio mundial e comparador horário | Countries Time",
     "metaDescription": "Consulte a hora atual em qualquer país ou compare fusos horários com horário de verão. Relógio ao vivo para mais de 250 países.",
-    "title": "Hora ao vivo, em qualquer lugar",
+    "title": "Relógio mundial ao vivo",
     "subtitle": "Veja a hora local por país ou compare até quatro fusos com um instante de referência único.",
     "ctaCountries": "Ver países",
-    "ctaCompare": "Abrir comparador"
+    "ctaCompare": "Abrir comparador",
+    "seoAboutTitle": "Hora local precisa em mais de 250 países",
+    "seoAboutBody": "O Countries Time calcula a hora em tempo real com bases IANA/zoneinfo. Consulte a hora em qualquer país, veja o fuso IANA e compare até quatro zonas com um instante UTC de referência.",
+    "seoPopularTitle": "Países mais consultados",
+    "seoFaqTitle": "Perguntas frequentes",
+    "seoFaqQ1": "Como funciona o relógio mundial?",
+    "seoFaqA1": "Fixamos um instante UTC e convertemo-lo para a zona IANA ativa de cada país, incluindo mudanças de horário de verão.",
+    "seoFaqQ2": "Como comparo fusos horários?",
+    "seoFaqA2": "Abra o comparador, escolha até quatro países e defina uma hora de referência para ver o mesmo instante em cada zona.",
+    "seoFaqQ3": "Por que a hora exibida pode mudar ao longo do ano?",
+    "seoFaqA3": "Muitas regiões ajustam o desvio UTC duas vezes por ano. Aplicamos as regras zoneinfo oficiais em cada transição.",
+    "ogImageAlt": "Countries Time — relógio mundial"
   },
   "LiveClock": {
     "heading": "Relógio local ao vivo",

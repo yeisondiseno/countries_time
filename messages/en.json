@@ -108,10 +108,21 @@
     "eyebrow": "World clock",
     "metaTitle": "World Clock & Time Zone Comparator | Countries Time",
     "metaDescription": "Check the current time in any country or compare time zones with daylight saving time. Live clock for 250+ countries.",
-    "title": "Live time, anywhere",
+    "title": "Live world clock",
     "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
     "ctaCountries": "Browse countries",
-    "ctaCompare": "Open comparator"
+    "ctaCompare": "Open comparator",
+    "seoAboutTitle": "Accurate local time in 250+ countries",
+    "seoAboutBody": "Countries Time calculates live time from IANA/zoneinfo databases. Check the current time in any country, see its IANA time zone, and compare up to four zones against one UTC reference instant.",
+    "seoPopularTitle": "Frequently viewed countries",
+    "seoFaqTitle": "Frequently asked questions",
+    "seoFaqQ1": "How does the world clock work?",
+    "seoFaqA1": "We anchor a UTC instant and convert it to each country's active IANA zone, so you always see the current local time, including daylight saving changes.",
+    "seoFaqQ2": "How do I compare time zones?",
+    "seoFaqA2": "Open the comparator, pick up to four countries, and set a reference time. You'll see how that same instant falls in each zone.",
+    "seoFaqQ3": "Why can the displayed time change during the year?",
+    "seoFaqA3": "Many regions shift their UTC offset twice a year for daylight saving time. We apply official zoneinfo rules for every transition.",
+    "ogImageAlt": "Countries Time — world clock"
   },
   "NotFound": {
     "title": "Page not found",

@@ -112,10 +112,21 @@
     "eyebrow": "Horloge mondiale",
     "metaTitle": "Horloge mondiale et comparateur horaire | Countries Time",
     "metaDescription": "Consultez l'heure actuelle dans n'importe quel pays ou comparez les fuseaux avec l'heure d'été. Horloge en direct pour plus de 250 pays.",
-    "title": "L'heure en direct, partout",
+    "title": "Horloge mondiale en direct",
     "subtitle": "Consultez l'heure locale par pays ou comparez jusqu'à quatre fuseaux avec un instant de référence unique.",
     "ctaCountries": "Parcourir les pays",
-    "ctaCompare": "Ouvrir le comparateur"
+    "ctaCompare": "Ouvrir le comparateur",
+    "seoAboutTitle": "Heure locale précise dans plus de 250 pays",
+    "seoAboutBody": "Countries Time calcule l'heure en temps réel à partir des bases IANA/zoneinfo. Consultez l'heure dans n'importe quel pays, découvrez son fuseau IANA et comparez jusqu'à quatre zones sur un même instant UTC.",
+    "seoPopularTitle": "Pays les plus consultés",
+    "seoFaqTitle": "Questions fréquentes",
+    "seoFaqQ1": "Comment fonctionne l'horloge mondiale ?",
+    "seoFaqA1": "Nous fixons un instant UTC et le convertissons vers la zone IANA active de chaque pays, y compris les changements d'heure d'été.",
+    "seoFaqQ2": "Comment comparer les fuseaux horaires ?",
+    "seoFaqA2": "Ouvrez le comparateur, choisissez jusqu'à quatre pays et définissez une heure de référence pour voir le même instant dans chaque zone.",
+    "seoFaqQ3": "Pourquoi l'heure affichée peut-elle changer au fil de l'année ?",
+    "seoFaqA3": "De nombreuses régions modifient leur décalage UTC deux fois par an. Nous appliquons les règles zoneinfo officielles à chaque transition.",
+    "ogImageAlt": "Countries Time — horloge mondiale"
   },
   "LiveClock": {
     "heading": "Horloge locale en direct",

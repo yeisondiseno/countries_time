@@ -112,10 +112,21 @@
     "eyebrow": "세계 시계",
     "metaTitle": "세계 시계 및 시간대 비교 | Countries Time",
     "metaDescription": "어느 나라든 현재 시간을 확인하거나 서머타임을 반영해 시간대를 비교하세요. 250개 이상 국가 실시간 시계.",
-    "title": "어디서나 실시간 현지 시간",
+    "title": "실시간 세계 시계",
     "subtitle": "국가별 현지 시간을 보거나 기준 시각으로 최대 4개 시간대를 비교할 수 있습니다.",
     "ctaCountries": "국가 둘러보기",
-    "ctaCompare": "비교기 열기"
+    "ctaCompare": "비교기 열기",
+    "seoAboutTitle": "250개 이상 국가의 정확한 현지 시간",
+    "seoAboutBody": "Countries Time은 IANA/zoneinfo 데이터베이스로 실시간 시간을 계산합니다. 각국의 현재 시간과 IANA 시간대를 확인하고, 하나의 UTC 기준 시각으로 최대 4개 시간대를 비교할 수 있습니다.",
+    "seoPopularTitle": "자주 조회하는 국가",
+    "seoFaqTitle": "자주 묻는 질문",
+    "seoFaqQ1": "세계 시계는 어떻게 작동하나요?",
+    "seoFaqA1": "UTC 기준 시각을 각국의 활성 IANA 시간대로 변환해 서머타임 변경까지 반영한 현지 시간을 보여 줍니다.",
+    "seoFaqQ2": "시간대는 어떻게 비교하나요?",
+    "seoFaqA2": "비교기를 열고 최대 4개 국가를 선택한 뒤 기준 시간을 설정하면 같은 순간이 각 시간대에서 어떻게 되는지 확인할 수 있습니다.",
+    "seoFaqQ3": "표시 시간이 연중에 바뀌는 이유는 무엇인가요?",
+    "seoFaqA3": "많은 지역은 연 2회 UTC 오프셋을 조정합니다. 각 전환 시 공식 zoneinfo 규칙을 적용합니다.",
+    "ogImageAlt": "Countries Time — 세계 시계"
   },
   "LiveClock": {
     "heading": "현지 라이브 시계",

@@ -4,7 +4,6 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { renderOgImage } from "@/lib/seo/og-image";
 
-export const alt = "Countries Time — world clock";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

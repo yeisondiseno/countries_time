@@ -1,5 +1,74 @@
 .hero {
-  padding-block: var(--sp-7) var(--sp-6);
+  padding-block: var(--sp-7) var(--sp-5);
+}
+
+.page {
+  padding-bottom: var(--sp-6);
+}
+
+.seoBlock {
+  padding-block: var(--sp-5);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.seoTitle {
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--sp-3);
+}
+
+.seoBody {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+.popularList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.popularList a {
+  display: inline-flex;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.popularList a:hover {
+  background: var(--surface-sunk);
+  text-decoration: none;
+}
+
+.faqList {
+  margin: 0;
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.faqItem {
+  margin: 0;
+}
+
+.faqQuestion {
+  font-weight: 700;
+  margin: 0 0 var(--sp-2);
+}
+
+.faqAnswer {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 65ch;
 }
 
 .eyebrow {

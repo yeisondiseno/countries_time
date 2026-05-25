@@ -112,10 +112,21 @@
     "eyebrow": "世界時計",
     "metaTitle": "世界時計・タイムゾーン比較 | Countries Time",
     "metaDescription": "各国の現在時刻を確認したり、夏時間対応でタイムゾーンを比較。250か国以上のライブ時計。",
-    "title": "どこでもライブな現地時間",
+    "title": "ライブ世界時計",
     "subtitle": "国別の現地時間を確認するか、基準時刻で最大4つのタイムゾーンを比較できます。",
     "ctaCountries": "国一覧を見る",
-    "ctaCompare": "比較ツールを開く"
+    "ctaCompare": "比較ツールを開く",
+    "seoAboutTitle": "250か国以上の正確な現地時間",
+    "seoAboutBody": "Countries TimeはIANA/zoneinfoデータベースからリアルタイムで時刻を計算します。各国の現在時刻とIANAタイムゾーンを確認し、最大4ゾーンを同一UTC基準時刻で比較できます。",
+    "seoPopularTitle": "よく見られる国",
+    "seoFaqTitle": "よくある質問",
+    "seoFaqQ1": "世界時計はどのように動作しますか？",
+    "seoFaqA1": "UTCの基準時刻を各国の有効なIANAゾーンに変換するため、夏時間の変更も含め常に現地の現在時刻を表示できます。",
+    "seoFaqQ2": "タイムゾーンを比較するには？",
+    "seoFaqA2": "比較ツールを開き、最大4か国を選んで基準時刻を設定すると、同じ瞬間が各ゾーンでどうなるか確認できます。",
+    "seoFaqQ3": "表示時刻が年間を通して変わるのはなぜですか？",
+    "seoFaqA3": "多くの地域では年2回UTCオフセットが変わります。公式zoneinfoルールを各移行時に適用しています。",
+    "ogImageAlt": "Countries Time — 世界時計"
   },
   "LiveClock": {
     "heading": "現地ライブクロック",
