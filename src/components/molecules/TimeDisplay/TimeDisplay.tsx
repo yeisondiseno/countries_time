@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { FiMoon, FiSun } from "react-icons/fi";
 
+import { useTimeFormat } from "@/components";
 import { clockPartsFor, isDaytime, offsetLabel } from "@/lib/time/clock-parts";
 import { formatTimeZoneLabel } from "@/lib/time/display";
 
@@ -20,6 +21,7 @@ type Props = Readonly<{
 
 export function TimeDisplay({ timeZone, showSeconds = true }: Props) {
   const locale = useLocale();
+  const { hour12 } = useTimeFormat();
   const t = useTranslations("TimeDisplay");
   const [now, setNow] = useState(() => new Date());
 
@@ -29,8 +31,8 @@ export function TimeDisplay({ timeZone, showSeconds = true }: Props) {
   }, []);
 
   const parts = useMemo(
-    () => clockPartsFor(now, timeZone, false),
-    [now, timeZone],
+    () => clockPartsFor(now, timeZone, locale, hour12),
+    [now, timeZone, locale, hour12],
   );
 
   const dateStr = useMemo(
@@ -61,6 +63,9 @@ export function TimeDisplay({ timeZone, showSeconds = true }: Props) {
         <span>{parts.minute}</span>
         {showSeconds ? (
           <span className={styles.seconds}>:{parts.second}</span>
+        ) : null}
+        {hour12 && parts.ampm ? (
+          <span className={styles.ampm}>{parts.ampm}</span>
         ) : null}
       </div>
       <div className={styles.meta}>

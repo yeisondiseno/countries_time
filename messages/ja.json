@@ -19,6 +19,12 @@
     "switchLight": "Switch to light mode",
     "switchDark": "Switch to dark mode"
   },
+  "TimeFormat": {
+    "switch12h": "12時間表示に切り替え",
+    "switch24h": "24時間表示に切り替え",
+    "label12h": "12",
+    "label24h": "24"
+  },
   "TimeDisplay": {
     "heading": "現地ライブクロック",
     "ariaLabel": "現在の現地時刻",
@@ -28,6 +34,7 @@
   },
   "Countries": {
     "subtitle": "{count}か国の現地時間をライブ表示。検索または地域別に閲覧。",
+    "metaDescription": "{count}か国のタイムゾーン一覧。国を検索して夏時間対応の現地時間をライブで確認。",
     "searchPlaceholder": "国を検索…",
     "noResults": "該当なし。別の表記で試してください。",
     "regions": {
@@ -70,6 +77,8 @@
   },
   "Country": {
     "heroEyebrow": "現在の時刻：",
+    "metaTitle": "{country}の現在時刻は？ ライブ時計",
+    "metaDescription": "{country}（{capital}）の現在の現地時間。夏時間対応のライブ時計（{zone}）。タイムゾーンをすぐ比較。",
     "capitalIntro": "{country} · コンテキストとして首都 {capital} を参照しています。",
     "zoneExplain": "{country} は IANA タイムゾーン {zone} を使用しています。オフセットは該当する場合、夏時間に自動調整されます。",
     "aboutHeading": "この時刻について",
@@ -92,15 +101,21 @@
     "ariaLabel": "広告枠"
   },
   "Footer": {
-    "note": "Countries Time · MVP",
+    "legalNavLabel": "法的情報",
+    "privacyLink": "プライバシー",
+    "termsLink": "利用規約",
+    "contactLink": "お問い合わせ",
+    "note": "リアルタイムの世界時計サービス。",
     "disclaimer": "時刻は現行の zoneinfo ルールに基づきリアルタイムで計算されます。夏時間・冬時間の切り替え時には一時的なずれが生じる場合があります。"
   },
   "Home": {
-    "eyebrow": "World clock",
-    "title": "Live time, anywhere",
-    "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
-    "ctaCountries": "Browse countries",
-    "ctaCompare": "Open comparator"
+    "eyebrow": "世界時計",
+    "metaTitle": "世界時計・タイムゾーン比較 | Countries Time",
+    "metaDescription": "各国の現在時刻を確認したり、夏時間対応でタイムゾーンを比較。250か国以上のライブ時計。",
+    "title": "どこでもライブな現地時間",
+    "subtitle": "国別の現地時間を確認するか、基準時刻で最大4つのタイムゾーンを比較できます。",
+    "ctaCountries": "国一覧を見る",
+    "ctaCompare": "比較ツールを開く"
   },
   "LiveClock": {
     "heading": "現地ライブクロック",
@@ -110,5 +125,29 @@
     "title": "ページが見つかりません",
     "description": "ホームに戻るか、URLの言語プレフィックスが正しいか確認してください。",
     "homeLink": "ホームへ"
+  },
+  "Legal": {
+    "privacyTitle": "プライバシーポリシー",
+    "privacyIntro": "Countries Time はプライバシーを尊重します。収集データ、Cookie、選択肢について説明します。",
+    "privacyDataTitle": "収集するデータ",
+    "privacyDataBody": "アカウント登録は不要です。ブラウザ種別、閲覧ページ、言語などの集計データを取得する場合があります。テーマと時刻形式の設定は端末に保存されます。",
+    "privacyCookiesTitle": "Cookie と広告",
+    "privacyCookiesBody": "サイト運営に必要な Cookie を使用します。広告（Google AdSense 等）を有効にする場合、パートナーが Cookie を使用することがあります。EU/英国では非必須 Cookie の前に同意バナーを表示します。",
+    "privacyThirdPartyTitle": "第三者サービス",
+    "privacyThirdPartyBody": "分析・広告提供者は各自のポリシーに従ってデータを処理します。ブラウザの Cookie 設定で制限できます。",
+    "privacyRightsTitle": "お客様の権利",
+    "privacyRightsBody": "お問い合わせ先からデータの開示・削除を請求できます。法令で認められる範囲で広告目的の処理に異議を唱えられます。",
+    "termsTitle": "利用規約",
+    "termsIntro": "Countries Time を利用すると本規約に同意したものとみなします。サービスは情報提供目的で現状有姿提供されます。",
+    "termsUseTitle": "サービスの利用",
+    "termsUseBody": "各国の時刻確認とタイムゾーン比較は個人・業務利用が可能です。大量の自動アクセスや無断転載は禁止です。",
+    "termsAccuracyTitle": "情報の正確性",
+    "termsAccuracyBody": "時刻は最新の IANA/zoneinfo に基づきます。夏時間切替時に短時間のずれが生じる場合があります。重要な予定は公式情報で確認してください。",
+    "termsLiabilityTitle": "責任の制限",
+    "termsLiabilityBody": "表示時刻に基づく判断や間接的損害について、Countries Time は責任を負いません。",
+    "contactTitle": "お問い合わせ",
+    "contactIntro": "プライバシー、規約、時刻データの修正についてはメールでご連絡ください。",
+    "contactEmailLabel": "メール",
+    "contactEmail": "hello@countries-time.com"
   }
 }

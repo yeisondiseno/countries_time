@@ -2,8 +2,11 @@
 
 import { useTranslations } from "next-intl";
 
-import { LocaleSwitcher } from "@/components/molecules/LocaleSwitcher/LocaleSwitcher";
-import { ThemeToggle } from "@/components/molecules/ThemeToggle/ThemeToggle";
+import {
+  LocaleSwitcher,
+  ThemeToggle,
+  TimeFormatToggle,
+} from "@/components/molecules";
 import { Link, usePathname } from "@/i18n/navigation";
 
 import shared from "@/styles/shared.module.css";
@@ -45,6 +48,7 @@ export function SiteHeader() {
           </Link>
         </nav>
         <div className={styles.tools}>
+          <TimeFormatToggle />
           <ThemeToggle />
           <LocaleSwitcher />
         </div>

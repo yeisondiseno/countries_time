@@ -8,9 +8,10 @@ export type ClockParts = {
 export function clockPartsFor(
   instant: Date,
   timeZone: string,
+  locale: string,
   hour12: boolean,
 ): ClockParts {
-  const fmt = new Intl.DateTimeFormat("en-GB", {
+  const fmt = new Intl.DateTimeFormat(locale, {
     timeZone,
     hour: "2-digit",
     minute: "2-digit",

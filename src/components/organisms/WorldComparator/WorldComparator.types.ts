@@ -7,6 +7,13 @@ export type CmpForm = {
   time: string;
 };
 
+export type WorldComparatorFormValues = CmpForm & {
+  followNow: boolean;
+  pickerSearch: string;
+  slots: (string | null)[];
+  anchorIdx: number;
+};
+
 export type UtcResult = { ok: true; utcMillis: number } | { ok: false };
 
 export const DEFAULT_SLOT_CODES = ["DE", "ES", "JP", "US"] as const;

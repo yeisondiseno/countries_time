@@ -19,6 +19,12 @@
     "switchLight": "Switch to light mode",
     "switchDark": "Switch to dark mode"
   },
+  "TimeFormat": {
+    "switch12h": "Passa al formato 12 ore",
+    "switch24h": "Passa al formato 24 ore",
+    "label12h": "12",
+    "label24h": "24"
+  },
   "TimeDisplay": {
     "heading": "Orologio locale in diretta",
     "ariaLabel": "Ora locale attuale",
@@ -28,6 +34,7 @@
   },
   "Countries": {
     "subtitle": "Orario locale in diretta in {count} paesi. Cerca o sfoglia per regione.",
+    "metaDescription": "Elenco fusi orari per {count} paesi. Cerca un paese e consulta l'ora locale live con ora legale.",
     "searchPlaceholder": "Cerca paese…",
     "noResults": "Nessun risultato. Prova con un'altra ortografia.",
     "regions": {
@@ -70,6 +77,8 @@
   },
   "Country": {
     "heroEyebrow": "Ora attuale a",
+    "metaTitle": "Che ore sono in {country}? Orologio live",
+    "metaDescription": "Ora locale attuale in {country} ({capital}). Orologio live con ora legale ({zone}). Confronta i fusi all'istante.",
     "capitalIntro": "{country} · Contesto editoriale con riferimento a {capital}.",
     "zoneExplain": "{country} usa il fuso IANA {zone}. L’offset si adatta automaticamente all’ora legale quando applicabile.",
     "aboutHeading": "Informazioni su quest’ora",
@@ -92,15 +101,21 @@
     "ariaLabel": "Spazio pubblicitario"
   },
   "Footer": {
-    "note": "Countries Time · MVP",
+    "legalNavLabel": "Link legali",
+    "privacyLink": "Privacy",
+    "termsLink": "Termini",
+    "contactLink": "Contatti",
+    "note": "Orologio mondiale con dati orari in tempo reale.",
     "disclaimer": "Gli orari sono calcolati in tempo reale con le regole zoneinfo attuali. Possono verificarsi brevi scostamenti durante le transizioni dell'ora legale."
   },
   "Home": {
-    "eyebrow": "World clock",
-    "title": "Live time, anywhere",
-    "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
-    "ctaCountries": "Browse countries",
-    "ctaCompare": "Open comparator"
+    "eyebrow": "Orologio mondiale",
+    "metaTitle": "Orologio mondiale e comparatore fusi | Countries Time",
+    "metaDescription": "Consulta l'ora attuale in ogni paese o confronta i fusi con l'ora legale. Orologio live per oltre 250 paesi.",
+    "title": "Ora live, ovunque",
+    "subtitle": "Visualizza l'ora locale per paese o confronta fino a quattro fusi con un istante di riferimento.",
+    "ctaCountries": "Sfoglia i paesi",
+    "ctaCompare": "Apri comparatore"
   },
   "LiveClock": {
     "heading": "Orologio locale live",
@@ -110,5 +125,29 @@
     "title": "Pagina non trovata",
     "description": "Torna alla home o verifica che il prefisso della lingua nell'URL sia valido.",
     "homeLink": "Vai alla home"
+  },
+  "Legal": {
+    "privacyTitle": "Informativa sulla privacy",
+    "privacyIntro": "Countries Time rispetta la tua privacy. Questa informativa spiega dati raccolti, cookie e scelte disponibili.",
+    "privacyDataTitle": "Dati raccolti",
+    "privacyDataBody": "Non serve un account. Possiamo raccogliere dati tecnici aggregati (browser, pagine visitate, lingua). Tema e formato ora sono salvati localmente.",
+    "privacyCookiesTitle": "Cookie e pubblicità",
+    "privacyCookiesBody": "Usiamo cookie essenziali. Se abilitiamo annunci (es. Google AdSense), i partner possono usare cookie. In UE/UK mostreremo consenso prima dei cookie non essenziali.",
+    "privacyThirdPartyTitle": "Servizi di terze parti",
+    "privacyThirdPartyBody": "Fornitori di analytics o ads trattano i dati con policy proprie. Usa le impostazioni cookie del browser.",
+    "privacyRightsTitle": "I tuoi diritti",
+    "privacyRightsBody": "Puoi richiedere informazioni o cancellazione via contatto. Puoi opporti al trattamento pubblicitario dove previsto dalla legge.",
+    "termsTitle": "Termini di utilizzo",
+    "termsIntro": "Usando Countries Time accetti questi termini. Il servizio è informativo e fornito così com'è.",
+    "termsUseTitle": "Uso del servizio",
+    "termsUseBody": "Puoi consultare l'ora per paese e confrontare fusi. Uso automatizzato massivo o ripubblicazione non autorizzata è vietato.",
+    "termsAccuracyTitle": "Accuratezza delle informazioni",
+    "termsAccuracyBody": "Gli orari usano dati IANA/zoneinfo aggiornati. Possibili brevi scostamenti nei cambi ora legale. Verifica appuntamenti critici con fonti ufficiali.",
+    "termsLiabilityTitle": "Limitazione di responsabilità",
+    "termsLiabilityBody": "Countries Time non è responsabile per decisioni basate sugli orari mostrati o danni indiretti.",
+    "contactTitle": "Contatti",
+    "contactIntro": "Per privacy, termini o correzioni orarie, scrivici.",
+    "contactEmailLabel": "Email",
+    "contactEmail": "hello@countries-time.com"
   }
 }

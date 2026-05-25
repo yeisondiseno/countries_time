@@ -30,6 +30,15 @@
   font-weight: 400;
 }
 
+.ampm {
+  font-size: 0.22em;
+  color: var(--text-muted);
+  align-self: flex-end;
+  margin-left: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 @keyframes blink {
   50% {
     opacity: 0.35;

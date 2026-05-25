@@ -1,6 +1,6 @@
 import { getLocale } from "next-intl/server";
 
-import { NotFoundContent } from "@/components/molecules/NotFoundContent/NotFoundContent";
+import { NotFoundContent } from "@/components";
 import { defaultLocale, isLocale } from "@/lib/i18n/config";
 
 export default async function LocaleNotFound() {

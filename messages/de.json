@@ -19,6 +19,12 @@
     "switchLight": "Switch to light mode",
     "switchDark": "Switch to dark mode"
   },
+  "TimeFormat": {
+    "switch12h": "Auf 12-Stunden-Format wechseln",
+    "switch24h": "Auf 24-Stunden-Format wechseln",
+    "label12h": "12",
+    "label24h": "24"
+  },
   "TimeDisplay": {
     "heading": "Live‑Ortsuhr",
     "ariaLabel": "Aktuelle Ortszeit",
@@ -28,6 +34,7 @@
   },
   "Countries": {
     "subtitle": "Lokalzeit live in {count} Ländern. Suchen oder nach Region durchstöbern.",
+    "metaDescription": "Zeitzonen-Verzeichnis für {count} Länder. Finden Sie jedes Land und prüfen Sie die Live-Lokalzeit mit Sommerzeit.",
     "searchPlaceholder": "Land suchen…",
     "noResults": "Keine Treffer. Versuchen Sie eine andere Schreibweise.",
     "regions": {
@@ -70,6 +77,8 @@
   },
   "Country": {
     "heroEyebrow": "Aktuelle Uhrzeit in",
+    "metaTitle": "Wie spät ist es in {country}? Live-Uhr",
+    "metaDescription": "Aktuelle Lokalzeit in {country} ({capital}). Live-Uhr mit Sommerzeit ({zone}). Zeitzonen sofort vergleichen.",
     "capitalIntro": "{country} · Redaktioneller Kontext bezieht sich auf {capital}.",
     "zoneExplain": "{country} nutzt die IANA‑Zone {zone}. Der Offset passt sich automatisch an die Sommer-/Winterzeit an, wenn zutreffend.",
     "aboutHeading": "Über diese Uhrzeit",
@@ -92,15 +101,21 @@
     "ariaLabel": "Werbefläche"
   },
   "Footer": {
-    "note": "Countries Time · MVP",
+    "legalNavLabel": "Rechtliche Links",
+    "privacyLink": "Datenschutz",
+    "termsLink": "Nutzungsbedingungen",
+    "contactLink": "Kontakt",
+    "note": "Weltuhr mit Echtzeit-Zeitzonendaten.",
     "disclaimer": "Die Zeiten werden in Echtzeit nach den aktuellen Zoneinfo-Regeln berechnet. Kurzzeitige Abweichungen können bei Sommer-/Winterzeitumstellungen auftreten."
   },
   "Home": {
-    "eyebrow": "World clock",
-    "title": "Live time, anywhere",
-    "subtitle": "See the current local time by country or compare up to four zones with a single reference instant.",
-    "ctaCountries": "Browse countries",
-    "ctaCompare": "Open comparator"
+    "eyebrow": "Weltuhr",
+    "metaTitle": "Weltuhr & Zeitzonen-Vergleich | Countries Time",
+    "metaDescription": "Aktuelle Uhrzeit in jedem Land oder Zeitzonenvergleich mit Sommerzeit. Live-Uhr für über 250 Länder.",
+    "title": "Live-Zeit, überall",
+    "subtitle": "Sehen Sie die aktuelle Lokalzeit nach Land oder vergleichen Sie bis zu vier Zonen mit einem Referenzzeitpunkt.",
+    "ctaCountries": "Länder durchsuchen",
+    "ctaCompare": "Vergleich öffnen"
   },
   "LiveClock": {
     "heading": "Live‑Standortzeit",
@@ -110,5 +125,29 @@
     "title": "Seite nicht gefunden",
     "description": "Zur Startseite zurückkehren oder prüfen, ob das Sprachpräfix in der URL gültig ist.",
     "homeLink": "Zur Startseite"
+  },
+  "Legal": {
+    "privacyTitle": "Datenschutzerklärung",
+    "privacyIntro": "Countries Time respektiert Ihre Privatsphäre. Diese Erklärung beschreibt erhobene Daten, Cookies und Ihre Optionen.",
+    "privacyDataTitle": "Erhobene Daten",
+    "privacyDataBody": "Kein Konto erforderlich. Wir können aggregierte technische Daten (Browser, besuchte Seiten, Sprache) erheben. Theme- und Zeitformat-Einstellungen werden lokal gespeichert.",
+    "privacyCookiesTitle": "Cookies und Werbung",
+    "privacyCookiesBody": "Wir nutzen essenzielle Cookies. Bei aktivierter Werbung (z. B. Google AdSense) können Partner Cookies setzen. In der EU/UK zeigen wir vor nicht essenziellen Cookies ein Einwilligungsbanner.",
+    "privacyThirdPartyTitle": "Dienste Dritter",
+    "privacyThirdPartyBody": "Analyse- oder Werbeanbieter verarbeiten Daten nach eigenen Richtlinien. Nutzen Sie die Cookie-Einstellungen Ihres Browsers.",
+    "privacyRightsTitle": "Ihre Rechte",
+    "privacyRightsBody": "Sie können Auskunft oder Löschung über die Kontaktadresse anfragen und der werblichen Verarbeitung widersprechen, soweit gesetzlich zulässig.",
+    "termsTitle": "Nutzungsbedingungen",
+    "termsIntro": "Mit der Nutzung von Countries Time akzeptieren Sie diese Bedingungen. Der Dienst dient Informationszwecken.",
+    "termsUseTitle": "Nutzung des Dienstes",
+    "termsUseBody": "Sie dürfen Zeiten nach Land prüfen und Zeitzonen vergleichen. Massenhafte automatisierte Nutzung oder unbefugte Weiterveröffentlichung ist untersagt.",
+    "termsAccuracyTitle": "Genauigkeit der Angaben",
+    "termsAccuracyBody": "Zeiten basieren auf aktuellen IANA/zoneinfo-Daten. Bei Sommerzeitumstellungen können kurze Abweichungen entstehen. Kritische Termine bitte offiziell prüfen.",
+    "termsLiabilityTitle": "Haftungsbeschränkung",
+    "termsLiabilityBody": "Countries Time haftet nicht für Entscheidungen auf Basis der angezeigten Zeiten oder indirekte Schäden.",
+    "contactTitle": "Kontakt",
+    "contactIntro": "Bei Fragen zu Datenschutz, Bedingungen oder Zeitzonendaten schreiben Sie uns.",
+    "contactEmailLabel": "E-Mail",
+    "contactEmail": "hello@countries-time.com"
   }
 }

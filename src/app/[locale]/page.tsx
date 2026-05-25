@@ -20,11 +20,11 @@ export async function generateMetadata(props: Props) {
   if (!hasLocale(routing.locales, locale)) {
     return { title: "Countries Time" };
   }
-  const t = await getTranslations({ locale, namespace: "Common" });
+  const t = await getTranslations({ locale, namespace: "Home" });
   return buildPageMetadata({
     locale: locale as Locale,
-    title: t("siteName"),
-    description: t("homeIntro"),
+    title: t("metaTitle"),
+    description: t("metaDescription"),
     pathWithoutLocale: "/",
   });
 }

@@ -1,0 +1,73 @@
+.root {
+  margin-block: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--sp-3);
+}
+
+.root:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  width: 100%;
+  padding: var(--sp-2) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+}
+
+.trigger:hover .title {
+  color: var(--text-primary);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent) 40%, transparent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.title {
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin: 0;
+  transition: color 100ms ease;
+}
+
+.meta {
+  font-size: 0.85em;
+  color: var(--text-faint);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.chevron {
+  width: 18px;
+  height: 18px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+  transition: transform 150ms ease;
+}
+
+.trigger[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.trigger[aria-expanded="true"] {
+  margin-bottom: var(--sp-3);
+}
+
+.panel {
+  display: block;
+}

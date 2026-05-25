@@ -3,9 +3,11 @@ import type { ReactNode } from "react";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+
+import { AppShell } from "@/components";
 import { routing } from "@/i18n/routing";
-import { AppShell } from "@/components/organisms/AppShell/AppShell";
-import { getSiteOrigin } from "@/lib/seo/site-origin";
+import { JsonLd } from "@/lib/seo/JsonLd";
+import { buildWebSiteJsonLd } from "@/lib/seo/json-ld";
 
 type Props = Readonly<{
   children: ReactNode;
@@ -26,18 +28,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Countries Time",
-            url: getSiteOrigin().href,
-            inLanguage: locale,
-          }),
-        }}
-      />
+      <JsonLd data={buildWebSiteJsonLd(locale)} />
 
       <NextIntlClientProvider locale={locale} messages={messages}>
         <AppShell>{children}</AppShell>
