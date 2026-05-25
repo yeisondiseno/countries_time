@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { JetBrains_Mono, Manrope } from "next/font/google";
 import { headers } from "next/headers";
+import { Analytics } from "@vercel/analytics/next";
 
 import { ThemeProvider, TimeFormatProvider } from "@/components";
 
@@ -48,6 +49,8 @@ export default async function RootLayout({
         <ThemeProvider>
           <TimeFormatProvider>{children}</TimeFormatProvider>
         </ThemeProvider>
+
+        <Analytics />
       </body>
     </html>
   );
