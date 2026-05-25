@@ -9,17 +9,6 @@ export const contentType = "image/png";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export async function generateImageMetadata(props: Props) {
-  const { locale } = await props.params;
-  if (!hasLocale(routing.locales, locale)) {
-    return [{ id: "default", alt: "Countries Time" }];
-  }
-
-  const t = await getTranslations({ locale, namespace: "Home" });
-
-  return [{ id: locale, alt: t("ogImageAlt") }];
-}
-
 export default async function LocaleOgImage(props: Props) {
   const { locale } = await props.params;
   if (!hasLocale(routing.locales, locale)) {

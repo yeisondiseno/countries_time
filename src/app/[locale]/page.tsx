@@ -28,12 +28,25 @@ export async function generateMetadata(props: Props) {
     return { title: "Countries Time" };
   }
   const t = await getTranslations({ locale, namespace: "Home" });
-  return buildPageMetadata({
+  const ogImageAlt = t("ogImageAlt");
+  const base = buildPageMetadata({
     locale: locale as Locale,
     title: t("metaTitle"),
     description: t("metaDescription"),
     pathWithoutLocale: "/",
   });
+
+  return {
+    ...base,
+    openGraph: {
+      ...base.openGraph,
+      images: [{ alt: ogImageAlt }],
+    },
+    twitter: {
+      ...base.twitter,
+      images: [{ alt: ogImageAlt }],
+    },
+  };
 }
 
 export default async function LocaleHome(props: Props) {

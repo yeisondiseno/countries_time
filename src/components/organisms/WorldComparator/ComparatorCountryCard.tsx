@@ -55,19 +55,23 @@ export function ComparatorCountryCard({
   }).setLocale(locale);
   const refInstant = DateTime.fromMillis(utcMillis, { zone: form.anchorZone });
   const deltaMin = Math.round(instant.diff(refInstant, "minutes").minutes);
+  const countryLabel = formatCountryRegion(code, locale);
+  const zoneLabel = formatTimeZoneLabel(zoneForRow);
 
   return (
     <article
       className={`${styles.card} ${isAnchor ? styles.cardAnchor : ""}`}
-      aria-label={`${formatCountryRegion(code, locale)}${isAnchor ? ` (${t("badgeRef")})` : ""}`}
+      aria-label={`${countryLabel}${isAnchor ? ` (${t("badgeRef")})` : ""}`}
     >
       <header className={styles.cardHead}>
-        <div>
-          <h2 className={styles.cardCountry}>
+        <div className={styles.cardMeta}>
+          <h2 className={styles.cardCountry} title={countryLabel}>
             <span aria-hidden>{flagEmoji(code)}</span>{" "}
-            {formatCountryRegion(code, locale)}
+            {countryLabel}
           </h2>
-          <p className={styles.cardZone}>{formatTimeZoneLabel(zoneForRow)}</p>
+          <p className={styles.cardZone} title={zoneLabel}>
+            {zoneLabel}
+          </p>
         </div>
         {isAnchor ? (
           <span className={styles.badge}>{t("badgeRef")}</span>
@@ -97,7 +101,7 @@ export function ComparatorCountryCard({
           type="button"
           className={styles.iconBtn}
           onClick={() => onRemove(idx)}
-          aria-label={`${t("remove")} ${formatCountryRegion(code, locale)}`}
+          aria-label={`${t("remove")} ${countryLabel}`}
         >
           <FiX size={14} aria-hidden />
         </button>

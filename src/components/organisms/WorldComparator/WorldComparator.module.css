@@ -172,6 +172,8 @@
   gap: var(--sp-3);
   position: relative;
   min-height: 220px;
+  min-width: 0;
+  container-type: inline-size;
 }
 
 .cardAnchor {
@@ -191,6 +193,12 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: var(--sp-3);
+  min-width: 0;
+}
+
+.cardMeta {
+  min-width: 0;
+  flex: 1;
 }
 
 .cardCountry {
@@ -198,6 +206,9 @@
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.015em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .cardZone {
@@ -205,6 +216,9 @@
   font-size: var(--step--1);
   color: var(--text-muted);
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .badge {
@@ -219,6 +233,7 @@
   color: var(--accent-ink);
   border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badge::before {
@@ -237,6 +252,10 @@
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
   margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .cardDate {
@@ -250,10 +269,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--sp-2);
   font-size: var(--step--1);
   padding-top: var(--sp-3);
   border-top: 1px dashed var(--border);
   color: var(--text-muted);
+  min-width: 0;
+}
+
+.cardDelta > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .deltaValue {
@@ -261,6 +289,7 @@
   font-weight: 600;
   color: var(--text-primary);
   font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
 }
 
 .cardActions {
@@ -268,6 +297,7 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--sp-2);
+  min-width: 0;
 }
 
 .setRef {
@@ -280,6 +310,10 @@
   color: var(--text-muted);
   border-radius: 999px;
   cursor: pointer;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .setRef:hover {
@@ -298,6 +332,7 @@
   place-items: center;
   cursor: pointer;
   color: var(--text-muted);
+  flex-shrink: 0;
 }
 
 .iconBtn:hover {
