@@ -112,10 +112,21 @@
     "eyebrow": "Orologio mondiale",
     "metaTitle": "Orologio mondiale e comparatore fusi | Countries Time",
     "metaDescription": "Consulta l'ora attuale in ogni paese o confronta i fusi con l'ora legale. Orologio live per oltre 250 paesi.",
-    "title": "Ora live, ovunque",
+    "title": "Orologio mondiale live",
     "subtitle": "Visualizza l'ora locale per paese o confronta fino a quattro fusi con un istante di riferimento.",
     "ctaCountries": "Sfoglia i paesi",
-    "ctaCompare": "Apri comparatore"
+    "ctaCompare": "Apri comparatore",
+    "seoAboutTitle": "Ora locale precisa in oltre 250 paesi",
+    "seoAboutBody": "Countries Time calcola l'ora in tempo reale con database IANA/zoneinfo. Consulta l'ora in qualsiasi paese, scopri il fuso IANA e confronta fino a quattro zone con un istante UTC di riferimento.",
+    "seoPopularTitle": "Paesi più consultati",
+    "seoFaqTitle": "Domande frequenti",
+    "seoFaqQ1": "Come funziona l'orologio mondiale?",
+    "seoFaqA1": "Fissiamo un istante UTC e lo convertiamo nel fuso IANA attivo di ogni paese, inclusi i cambi dell'ora legale.",
+    "seoFaqQ2": "Come confronto i fusi orari?",
+    "seoFaqA2": "Apri il comparatore, scegli fino a quattro paesi e imposta un'ora di riferimento per vedere lo stesso istante in ogni zona.",
+    "seoFaqQ3": "Perché l'ora mostrata può cambiare durante l'anno?",
+    "seoFaqA3": "Molte regioni modificano l'offset UTC due volte l'anno. Applichiamo le regole zoneinfo ufficiali a ogni transizione.",
+    "ogImageAlt": "Countries Time — orologio mondiale"
   },
   "LiveClock": {
     "heading": "Orologio locale live",

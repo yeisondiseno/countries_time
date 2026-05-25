@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build --webpack",
+    "validate:site-url": "bun run scripts/validate-site-url.ts",
+    "build": "bun run validate:site-url && next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write .",

@@ -51,4 +51,13 @@ bun test
 
 ## Entorno público
 
-Exporta `NEXT_PUBLIC_SITE_URL` (p. ej. `https://tudominio.com`) para metadatos, `sitemap` y JSON-LD.
+Configura **`NEXT_PUBLIC_SITE_URL`** con el dominio canónico de producción. Lo usan metadatos, `sitemap.xml`, `robots.txt` y JSON-LD.
+
+```bash
+# .env.production.local (local) o Vercel → Environment Variables → Production
+NEXT_PUBLIC_SITE_URL=https://www.countries-time.info
+```
+
+El script `bun run validate:site-url` se ejecuta antes de `build` y **falla en despliegues de Vercel Production** si la variable falta, no usa `https://` o apunta a `*.vercel.app`.
+
+Tras cambiar la variable en Vercel, haz **redeploy** (las `NEXT_PUBLIC_*` se embeben en el build).

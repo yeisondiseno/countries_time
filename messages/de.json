@@ -112,10 +112,21 @@
     "eyebrow": "Weltuhr",
     "metaTitle": "Weltuhr & Zeitzonen-Vergleich | Countries Time",
     "metaDescription": "Aktuelle Uhrzeit in jedem Land oder Zeitzonenvergleich mit Sommerzeit. Live-Uhr für über 250 Länder.",
-    "title": "Live-Zeit, überall",
+    "title": "Live-Weltuhr",
     "subtitle": "Sehen Sie die aktuelle Lokalzeit nach Land oder vergleichen Sie bis zu vier Zonen mit einem Referenzzeitpunkt.",
     "ctaCountries": "Länder durchsuchen",
-    "ctaCompare": "Vergleich öffnen"
+    "ctaCompare": "Vergleich öffnen",
+    "seoAboutTitle": "Präzise Lokalzeit in über 250 Ländern",
+    "seoAboutBody": "Countries Time berechnet die Uhrzeit in Echtzeit aus IANA/zoneinfo-Datenbanken. Prüfen Sie die aktuelle Zeit in jedem Land, sehen Sie die IANA-Zeitzone und vergleichen Sie bis zu vier Zonen an einem UTC-Referenzzeitpunkt.",
+    "seoPopularTitle": "Häufig aufgerufene Länder",
+    "seoFaqTitle": "Häufig gestellte Fragen",
+    "seoFaqQ1": "Wie funktioniert die Weltuhr?",
+    "seoFaqA1": "Wir verankern einen UTC-Zeitpunkt und rechnen ihn in die aktive IANA-Zone jedes Landes um – einschließlich Sommerzeitwechseln.",
+    "seoFaqQ2": "Wie vergleiche ich Zeitzonen?",
+    "seoFaqA2": "Öffnen Sie den Vergleich, wählen Sie bis zu vier Länder und setzen Sie eine Referenzzeit, um denselben Moment in jeder Zone zu sehen.",
+    "seoFaqQ3": "Warum kann sich die angezeigte Zeit im Jahresverlauf ändern?",
+    "seoFaqA3": "Viele Regionen verschieben ihren UTC-Offset zweimal jährlich. Wir wenden offizielle zoneinfo-Regeln bei jeder Umstellung an.",
+    "ogImageAlt": "Countries Time — Weltuhr"
   },
   "LiveClock": {
     "heading": "Live‑Standortzeit",
