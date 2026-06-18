@@ -1,0 +1,54 @@
+.compareEditorial {
+  padding-block: var(--sp-6) var(--sp-7);
+  border-top: 1px solid var(--border-subtle, var(--border));
+}
+
+.editorialBlock {
+  padding-block: var(--sp-5);
+}
+
+.editorialBlock + .editorialBlock {
+  border-top: 1px solid var(--border);
+}
+
+.editorialTitle {
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--sp-3);
+}
+
+.editorialBody {
+  margin: 0 0 var(--sp-3);
+  color: var(--text-muted);
+  max-width: var(--measure);
+  line-height: 1.65;
+}
+
+.stepsList {
+  margin: 0;
+  padding-left: var(--sp-4);
+  display: grid;
+  gap: var(--sp-2);
+  color: var(--text-muted);
+  max-width: var(--measure);
+  line-height: 1.6;
+}
+
+.faqList {
+  margin: 0;
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.faqQuestion {
+  font-weight: 700;
+  margin: 0 0 var(--sp-2);
+}
+
+.faqAnswer {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: var(--measure);
+}

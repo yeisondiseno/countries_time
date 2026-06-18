@@ -1,10 +1,10 @@
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-
 import { CountryPageView } from "@/components";
 import { routing } from "@/i18n/routing";
 import { findCountry, listCountryCodesSorted } from "@/lib/data/countries";
+import { getCountryEditorial } from "@/lib/data/country-editorial";
 import type { Locale } from "@/lib/i18n/config";
 import { JsonLd } from "@/lib/seo/JsonLd";
 import {
@@ -92,15 +92,37 @@ export default async function CountryDetail(props: Readonly<Props>) {
     { name: pretty, path },
   ]);
 
+  const localeCode = locale as Locale;
+  const editorial = getCountryEditorial(hit.code, localeCode);
+  const relatedCountries = (editorial?.relatedCodes ?? []).flatMap(
+    (relatedCode) => {
+      const related = findCountry(relatedCode);
+      if (!related) {
+        return [];
+      }
+      return [
+        {
+          code: related.code,
+          name: formatCountryRegion(related.code, localeCode),
+          href: countryPath(related.code),
+        },
+      ];
+    },
+  );
+
   return (
     <>
       <JsonLd data={[webPageJsonLd, breadcrumbJsonLd, faqJsonLd]} />
       <CountryPageView
-        locale={locale as Locale}
+        locale={localeCode}
         code={hit.code}
         capital={hit.capital}
         defaultZone={hit.defaultZone}
         zones={hit.zones}
+        editorialOverview={editorial?.overview}
+        editorialDstNotes={editorial?.dstNotes}
+        editorialPracticalTip={editorial?.practicalTip}
+        relatedCountries={relatedCountries}
       />
     </>
   );

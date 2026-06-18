@@ -8,6 +8,8 @@ const baseRoutes = [
   { path: "", changefreq: "weekly" as const, priority: 1 },
   { path: "/countries", changefreq: "weekly" as const, priority: 0.9 },
   { path: "/compare", changefreq: "weekly" as const, priority: 0.9 },
+  { path: "/about", changefreq: "monthly" as const, priority: 0.5 },
+  { path: "/contact", changefreq: "monthly" as const, priority: 0.5 },
   { path: "/privacy", changefreq: "monthly" as const, priority: 0.3 },
   { path: "/terms", changefreq: "monthly" as const, priority: 0.3 },
 ];

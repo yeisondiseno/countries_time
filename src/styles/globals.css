@@ -39,6 +39,10 @@
   --radius: 14px;
   --radius-lg: 22px;
 
+  --transition-base: 200ms ease;
+
+  --border-subtle: var(--border);
+
   --ad-h-mobile: 90px;
   --ad-h-tablet: 250px;
 
