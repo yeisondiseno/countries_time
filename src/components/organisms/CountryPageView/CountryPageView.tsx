@@ -1,21 +1,21 @@
 "use client";
 
 import { useState } from "react";
-
 import { useTranslations } from "next-intl";
-
 import { FiArrowRight } from "react-icons/fi";
-
-import { AdSlot, MultiZoneNotice, TimeDisplay } from "@/components/molecules";
+import { MultiZoneNotice, TimeDisplay } from "@/components/molecules";
 import { Link } from "@/i18n/navigation";
-
 import { flagEmoji } from "@/lib/display/flags";
 import type { Locale } from "@/lib/i18n/config";
 import { formatCountryRegion } from "@/lib/time/display";
-
 import shared from "@/styles/shared.module.css";
-
 import styles from "./CountryPageView.module.css";
+
+type RelatedCountry = Readonly<{
+  code: string;
+  name: string;
+  href: string;
+}>;
 
 type Props = Readonly<{
   locale: Locale;
@@ -23,6 +23,10 @@ type Props = Readonly<{
   capital: string;
   defaultZone: string;
   zones: string[];
+  editorialOverview?: string | null;
+  editorialDstNotes?: string | null;
+  editorialPracticalTip?: string | null;
+  relatedCountries?: readonly RelatedCountry[];
 }>;
 
 export function CountryPageView({
@@ -31,6 +35,10 @@ export function CountryPageView({
   capital,
   defaultZone,
   zones,
+  editorialOverview,
+  editorialDstNotes,
+  editorialPracticalTip,
+  relatedCountries = [],
 }: Props) {
   const t = useTranslations("Country");
   const tCommon = useTranslations("Common");
@@ -61,9 +69,39 @@ export function CountryPageView({
         <div className={styles.main}>
           <div className={styles.prose}>
             <h2>{t("aboutHeading")}</h2>
-            <p>{t("capitalIntro", { country: pretty, capital })}</p>
+            {editorialOverview ? (
+              <p>{editorialOverview}</p>
+            ) : (
+              <p>{t("capitalIntro", { country: pretty, capital })}</p>
+            )}
             <p>{t("zoneExplain", { country: pretty, zone })}</p>
+            {editorialDstNotes ? (
+              <>
+                <h3>{t("dstNotesHeading")}</h3>
+                <p>{editorialDstNotes}</p>
+              </>
+            ) : null}
+            {editorialPracticalTip ? (
+              <>
+                <h3>{t("practicalTipHeading")}</h3>
+                <p>{editorialPracticalTip}</p>
+              </>
+            ) : null}
           </div>
+          {relatedCountries.length > 0 ? (
+            <div className={styles.prose}>
+              <h2>{t("relatedCountriesTitle")}</h2>
+              <ul className={styles.relatedList}>
+                {relatedCountries.map((item) => (
+                  <li key={item.code}>
+                    <Link href={item.href}>
+                      {flagEmoji(item.code)} {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           <div className={styles.prose}>
             <h2 id="faq">{t("faqHeading")}</h2>
             <div className={styles.faq}>
@@ -95,7 +133,6 @@ export function CountryPageView({
               {t("promoCta")}
             </Link>
           </div>
-          <AdSlot variant="inContent" />
         </aside>
       </section>
     </article>

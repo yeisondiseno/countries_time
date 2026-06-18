@@ -144,3 +144,43 @@
   background: var(--surface-sunk);
   text-decoration: none;
 }
+
+.useCaseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--sp-3);
+  margin: var(--sp-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.useCaseCard {
+  padding: var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-elev);
+}
+
+.useCaseTitle {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.useCaseBody {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: var(--step--1);
+}
+
+.stepsList {
+  margin: 0;
+  padding-left: var(--sp-4);
+  display: grid;
+  gap: var(--sp-2);
+  color: var(--text-muted);
+  max-width: var(--measure);
+  line-height: 1.6;
+}

@@ -73,7 +73,23 @@
     "tableCountry": "Land",
     "tableZone": "Genutzte IANA‑Zone",
     "tableEquivalent": "Lokales Äquivalent",
-    "disclaimer": "MVP‑Bootstrap: vier kuratierte Länder und ein interner UTC‑Moment je IANA‑Zeile."
+    "disclaimer": "MVP‑Bootstrap: vier kuratierte Länder und ein interner UTC‑Moment je IANA‑Zeile.",
+    "editorialTitle": "About the time zone comparator",
+    "editorialIntro": "The comparator answers a precise question: if it is a given date and time in one country, what is the exact same instant elsewhere? Unlike adding fixed hour offsets in your head, we apply IANA rules so daylight saving and regional exceptions stay correct.",
+    "tutorialTitle": "How to compare time zones",
+    "tutorialStep1": "Add at least two countries using the search control.",
+    "tutorialStep2": "Choose a reference country and set its local date and time (or enable live mode).",
+    "tutorialStep3": "Review equivalent local times in every row, including date rollovers.",
+    "tutorialStep4": "Adjust the reference or swap countries until you find a workable meeting window.",
+    "exampleTitle": "Example: Madrid and Tokyo",
+    "exampleBody": "Suppose you want a call when it is 10:00 in Madrid. Add Spain and Japan, set Spain as reference with 10:00 on your chosen date, and read the matching time in Tokyo—often late afternoon or evening. Always confirm on the actual meeting date because DST may differ.",
+    "editorialFaqTitle": "Comparator FAQ",
+    "editorialFaqQ1": "Why do dates sometimes differ between countries?",
+    "editorialFaqA1": "When the reference instant crosses midnight in another zone, we show the correct local calendar date there. That is expected—not an error.",
+    "editorialFaqQ2": "Which country should be the reference?",
+    "editorialFaqA2": "Pick whichever side owns the meeting invite. The math is symmetric: the tool converts one absolute instant to every selected zone.",
+    "editorialFaqQ3": "Does live mode follow my device clock?",
+    "editorialFaqA3": "Live mode anchors on the current UTC instant and projects it using each country's zone rules. Your device clock supplies the starting instant."
   },
   "Country": {
     "heroEyebrow": "Aktuelle Uhrzeit in",
@@ -93,7 +109,10 @@
     "promoTitle": "Zeitvergleich",
     "promoBody": "Koordinieren Sie Termine über Länder hinweg sofort. Legen Sie eine Referenz fest und sehen Sie die Ergebnisse.",
     "promoCta": "Vergleich öffnen",
-    "backToDirectory": "← {title}"
+    "backToDirectory": "← {title}",
+    "dstNotesHeading": "Daylight saving and seasonal changes",
+    "practicalTipHeading": "Practical tip",
+    "relatedCountriesTitle": "Related countries"
   },
   "Ads": {
     "leader": "Werbefläche reserviert (CLS) · Leaderboard",
@@ -106,7 +125,8 @@
     "termsLink": "Nutzungsbedingungen",
     "contactLink": "Kontakt",
     "note": "Weltuhr mit Echtzeit-Zeitzonendaten.",
-    "disclaimer": "Die Zeiten werden in Echtzeit nach den aktuellen Zoneinfo-Regeln berechnet. Kurzzeitige Abweichungen können bei Sommer-/Winterzeitumstellungen auftreten."
+    "disclaimer": "Die Zeiten werden in Echtzeit nach den aktuellen Zoneinfo-Regeln berechnet. Kurzzeitige Abweichungen können bei Sommer-/Winterzeitumstellungen auftreten.",
+    "aboutLink": "About"
   },
   "Home": {
     "eyebrow": "Weltuhr",
@@ -126,7 +146,26 @@
     "seoFaqA2": "Öffnen Sie den Vergleich, wählen Sie bis zu vier Länder und setzen Sie eine Referenzzeit, um denselben Moment in jeder Zone zu sehen.",
     "seoFaqQ3": "Warum kann sich die angezeigte Zeit im Jahresverlauf ändern?",
     "seoFaqA3": "Viele Regionen verschieben ihren UTC-Offset zweimal jährlich. Wir wenden offizielle zoneinfo-Regeln bei jeder Umstellung an.",
-    "ogImageAlt": "Countries Time — Weltuhr"
+    "ogImageAlt": "Countries Time — Weltuhr",
+    "seoFaqQ4": "Where does the time data come from?",
+    "seoFaqA4": "We convert a single UTC instant using IANA time zone identifiers (zoneinfo). Rules include historical and future daylight saving transitions published in the tz database.",
+    "seoFaqQ5": "Does Countries Time replace official government time?",
+    "seoFaqA5": "No. We provide an independent reference for everyday scheduling. For legally binding timestamps, rely on official sources in each jurisdiction.",
+    "seoFaqQ6": "Can I compare more than four countries?",
+    "seoFaqA6": "The comparator supports two to four countries at once to keep results readable. You can run multiple comparisons or browse individual country pages for additional zones.",
+    "seoUseCasesTitle": "When to use a world clock",
+    "seoUseCasesIntro": "Countries Time helps whenever you need trustworthy local time without installing an app or creating an account.",
+    "seoUseCaseTravelTitle": "Travel and layovers",
+    "seoUseCaseTravelBody": "Check whether it is morning or night at your destination before calling home, booking a taxi, or planning a same-day connection.",
+    "seoUseCaseRemoteTitle": "Remote teams",
+    "seoUseCaseRemoteBody": "Find overlap windows for stand-ups and reviews when colleagues sit in different continents. Set a reference time and see everyone's local equivalent instantly.",
+    "seoUseCaseCallsTitle": "International calls",
+    "seoUseCaseCallsBody": "Avoid ringing someone at dinner time. Open a country page, confirm DST, then use the comparator to test a proposed meeting hour across zones.",
+    "seoHowTitle": "How it works",
+    "seoHowStep1": "Pick a country from the directory or a featured clock below.",
+    "seoHowStep2": "Read the live local time, IANA zone label, and editorial notes about DST.",
+    "seoHowStep3": "Open the comparator to project one reference date and time onto up to four countries.",
+    "seoFeaturedClocksTitle": "Live clocks — frequently viewed"
   },
   "LiveClock": {
     "heading": "Live‑Standortzeit",
@@ -160,5 +199,37 @@
     "contactIntro": "Bei Fragen zu Datenschutz, Bedingungen oder Zeitzonendaten schreiben Sie uns.",
     "contactEmailLabel": "E-Mail",
     "contactEmail": "hello@countries-time.com"
+  },
+  "About": {
+    "metaTitle": "About Countries Time",
+    "metaDescription": "Learn how Countries Time calculates live world clocks from IANA zoneinfo data, who it is for, and how to contact us.",
+    "title": "About Countries Time",
+    "intro": "Countries Time is an independent world clock and time zone comparator built for travelers, remote teams, and anyone who coordinates schedules across borders. We focus on clarity: one correct instant, shown in every relevant local time.",
+    "missionTitle": "Our mission",
+    "missionBody": "We want checking the time in another country to take seconds, not mental arithmetic. The site combines live clocks, searchable country pages, and a synchronized comparator so you can move from curiosity to a concrete meeting time without friction.",
+    "audienceTitle": "Who it is for",
+    "audienceBody": "Freelancers scheduling client calls abroad, families staying in touch across continents, recruiters coordinating interviews, and frequent travelers checking layover windows—all without sign-up or installed software.",
+    "dataTitle": "Data sources",
+    "dataBody": "Time conversions rely on IANA time zone identifiers and the zoneinfo rule set (tz database). Country metadata such as capitals and default zones is curated in our repository and updated as administrative boundaries or offsets change.",
+    "methodTitle": "How we calculate time",
+    "methodBody": "Internally we hold an absolute UTC instant and project it to each selected zone using the rules valid at that moment. That includes daylight saving transitions, multi-zone countries, and regional exceptions such as zones that never observe DST.",
+    "limitsTitle": "Limitations",
+    "limitsBody": "We do not provide legally certified timestamps. During the exact hour when a region changes clocks, brief discrepancies can appear until all systems apply the new offset. For aviation, billing, or compliance, confirm with official sources.",
+    "exploreTitle": "Explore the site",
+    "exploreBody": "Browse the full country directory, open the comparator, or write to us if you spot outdated zone data.",
+    "exploreCountries": "Country directory",
+    "exploreCompare": "Time comparator",
+    "exploreContact": "Contact"
+  },
+  "Contact": {
+    "metaTitle": "Contact",
+    "metaDescription": "Contact Countries Time for privacy questions, terms, or corrections to time zone data.",
+    "title": "Contact",
+    "intro": "We read every message. Use the address below for privacy requests, terms questions, partnership ideas, or corrections to country time data.",
+    "responseTitle": "Response time",
+    "responseBody": "We aim to reply within three business days. Complex data corrections may take longer while we verify against official IANA updates.",
+    "privacyTitle": "Privacy",
+    "privacyBody": "For data protection requests, include enough detail for us to locate relevant logs. See also our",
+    "privacyLink": "privacy policy"
   }
 }

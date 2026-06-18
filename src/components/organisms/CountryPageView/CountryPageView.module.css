@@ -50,7 +50,11 @@
 }
 
 .countryName {
-  background: linear-gradient(180deg, var(--text-primary) 60%, var(--accent) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--text-primary) 60%,
+    var(--accent) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -119,6 +123,39 @@
   margin: var(--sp-6) 0 var(--sp-3);
   font-weight: 700;
   text-wrap: balance;
+}
+
+.prose h3 {
+  font-size: var(--step-1);
+  letter-spacing: -0.01em;
+  margin: var(--sp-4) 0 var(--sp-2);
+  font-weight: 700;
+}
+
+.relatedList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relatedList a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.relatedList a:hover {
+  background: var(--surface-sunk);
+  text-decoration: none;
 }
 
 .prose p {

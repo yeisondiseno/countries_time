@@ -1,9 +1,8 @@
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-
 import { FiArrowRight } from "react-icons/fi";
-
+import { FeaturedCountryClocks } from "@/components";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { findCountry } from "@/lib/data/countries";
@@ -13,9 +12,7 @@ import { buildFaqPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/json-ld";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { countryPath } from "@/lib/seo/paths";
 import { formatCountryRegion } from "@/lib/time/display";
-
 import shared from "@/styles/shared.module.css";
-
 import styles from "./page.module.css";
 
 const FEATURED_COUNTRY_CODES = ["US", "ES", "MX", "GB", "DE", "JP"] as const;
@@ -67,6 +64,8 @@ export default async function LocaleHome(props: Props) {
       {
         code: hit.code,
         name: formatCountryRegion(hit.code, localeCode),
+        zone: hit.defaultZone,
+        href: countryPath(hit.code),
       },
     ];
   });
@@ -75,7 +74,18 @@ export default async function LocaleHome(props: Props) {
     { question: t("seoFaqQ1"), answer: t("seoFaqA1") },
     { question: t("seoFaqQ2"), answer: t("seoFaqA2") },
     { question: t("seoFaqQ3"), answer: t("seoFaqA3") },
+    { question: t("seoFaqQ4"), answer: t("seoFaqA4") },
+    { question: t("seoFaqQ5"), answer: t("seoFaqA5") },
+    { question: t("seoFaqQ6"), answer: t("seoFaqA6") },
   ];
+
+  const useCases = [
+    { title: t("seoUseCaseTravelTitle"), body: t("seoUseCaseTravelBody") },
+    { title: t("seoUseCaseRemoteTitle"), body: t("seoUseCaseRemoteBody") },
+    { title: t("seoUseCaseCallsTitle"), body: t("seoUseCaseCallsBody") },
+  ];
+
+  const howSteps = [t("seoHowStep1"), t("seoHowStep2"), t("seoHowStep3")];
 
   const webPageJsonLd = buildWebPageJsonLd({
     locale: localeCode,
@@ -117,6 +127,48 @@ export default async function LocaleHome(props: Props) {
             {t("seoAboutTitle")}
           </h2>
           <p className={styles.seoBody}>{t("seoAboutBody")}</p>
+        </section>
+
+        <section
+          className={`${shared.container} ${styles.seoBlock}`}
+          aria-labelledby="home-use-cases"
+        >
+          <h2 id="home-use-cases" className={styles.seoTitle}>
+            {t("seoUseCasesTitle")}
+          </h2>
+          <p className={styles.seoBody}>{t("seoUseCasesIntro")}</p>
+          <ul className={styles.useCaseGrid}>
+            {useCases.map((item) => (
+              <li key={item.title} className={styles.useCaseCard}>
+                <h3 className={styles.useCaseTitle}>{item.title}</h3>
+                <p className={styles.useCaseBody}>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          className={`${shared.container} ${styles.seoBlock}`}
+          aria-labelledby="home-how"
+        >
+          <h2 id="home-how" className={styles.seoTitle}>
+            {t("seoHowTitle")}
+          </h2>
+          <ol className={styles.stepsList}>
+            {howSteps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+        </section>
+
+        <section
+          className={`${shared.container} ${styles.seoBlock}`}
+          aria-labelledby="home-clocks"
+        >
+          <h2 id="home-clocks" className={styles.seoTitle}>
+            {t("seoFeaturedClocksTitle")}
+          </h2>
+          <FeaturedCountryClocks countries={featuredCountries} />
         </section>
 
         <section

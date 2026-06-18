@@ -67,7 +67,23 @@
     "validationError": "Esa fecha y hora no son válidas en el huso de referencia elegido.",
     "searchCountry": "Buscar país…",
     "noResults": "Sin coincidencias.",
-    "closePicker": "Cerrar"
+    "closePicker": "Cerrar",
+    "editorialTitle": "Sobre el comparador horario",
+    "editorialIntro": "El comparador responde a una pregunta precisa: si en un país es una fecha y hora concretas, ¿cuál es el mismo instante en otro lugar? En lugar de sumar horas mentalmente, aplicamos reglas IANA para respetar el horario de verano y las excepciones regionales.",
+    "tutorialTitle": "Cómo comparar husos horarios",
+    "tutorialStep1": "Añade al menos dos países con el buscador.",
+    "tutorialStep2": "Elige un país de referencia y fija su fecha y hora local (o activa el modo en vivo).",
+    "tutorialStep3": "Revisa la hora equivalente en cada fila, incluidos los cambios de fecha.",
+    "tutorialStep4": "Ajusta la referencia o cambia países hasta encontrar una franja viable.",
+    "exampleTitle": "Ejemplo: Madrid y Tokio",
+    "exampleBody": "Supón que quieres una llamada cuando sean las 10:00 en Madrid. Añade España y Japón, marca España como referencia con las 10:00 en tu fecha, y lee la hora correspondiente en Tokio—suele ser tarde. Confirma siempre en la fecha real de la reunión porque el verano puede diferir.",
+    "editorialFaqTitle": "Preguntas sobre el comparador",
+    "editorialFaqQ1": "¿Por qué a veces cambia la fecha entre países?",
+    "editorialFaqA1": "Cuando el instante de referencia cruza medianoche en otra zona, mostramos la fecha local correcta allí. Es normal, no un error.",
+    "editorialFaqQ2": "¿Qué país debe ser la referencia?",
+    "editorialFaqA2": "El que organice la reunión. El cálculo es simétrico: convertimos un instante absoluto a cada zona seleccionada.",
+    "editorialFaqQ3": "¿El modo en vivo usa el reloj de mi dispositivo?",
+    "editorialFaqA3": "El modo en vivo ancla el instante UTC actual y lo proyecta con las reglas de cada país. Tu dispositivo aporta el instante inicial."
   },
   "Country": {
     "heroEyebrow": "Hora actual en",
@@ -87,7 +103,10 @@
     "promoTitle": "Comparador horario",
     "promoBody": "Coordina reuniones en varios países al instante. Define una referencia y observa los resultados.",
     "promoCta": "Abrir comparador",
-    "backToDirectory": "← {title}"
+    "backToDirectory": "← {title}",
+    "dstNotesHeading": "Horario de verano y cambios estacionales",
+    "practicalTipHeading": "Consejo práctico",
+    "relatedCountriesTitle": "Países relacionados"
   },
   "Ads": {
     "leader": "Espacio para anuncios (CLS) · leaderboard",
@@ -96,6 +115,7 @@
   },
   "Footer": {
     "legalNavLabel": "Enlaces legales",
+    "aboutLink": "Acerca de",
     "privacyLink": "Privacidad",
     "termsLink": "Términos",
     "contactLink": "Contacto",
@@ -120,6 +140,25 @@
     "seoFaqA2": "Abre el comparador, elige hasta cuatro países y define una hora de referencia. Verás cómo cae ese instante en cada zona al mismo tiempo.",
     "seoFaqQ3": "¿Por qué la hora puede cambiar durante el año?",
     "seoFaqA3": "Muchas regiones ajustan el offset dos veces al año por el horario de verano e invierno. Usamos las reglas oficiales de zoneinfo para cada transición.",
+    "seoFaqQ4": "¿De dónde provienen los datos horarios?",
+    "seoFaqA4": "Convertimos un instante UTC con identificadores IANA (zoneinfo), incluidas transiciones históricas y futuras del horario de verano publicadas en la base tz.",
+    "seoFaqQ5": "¿Countries Time sustituye la hora oficial de mi país?",
+    "seoFaqA5": "No. Ofrecemos una referencia independiente para el día a día. Para marcas de tiempo legalmente vinculantes, usa fuentes oficiales.",
+    "seoFaqQ6": "¿Puedo comparar más de cuatro países?",
+    "seoFaqA6": "El comparador admite de dos a cuatro países para mantener la lectura clara. Puedes hacer varias comparaciones o consultar páginas individuales.",
+    "seoUseCasesTitle": "Cuándo usar un reloj mundial",
+    "seoUseCasesIntro": "Countries Time ayuda cuando necesitas una hora local fiable sin instalar apps ni crear cuenta.",
+    "seoUseCaseTravelTitle": "Viajes y escalas",
+    "seoUseCaseTravelBody": "Comprueba si en tu destino es de día o de noche antes de llamar a casa, reservar un taxi o planificar una conexión el mismo día.",
+    "seoUseCaseRemoteTitle": "Equipos remotos",
+    "seoUseCaseRemoteBody": "Encuentra franjas para daily o revisiones cuando tus compañeros están en otros continentes. Fija una referencia y ve al instante la hora local de cada uno.",
+    "seoUseCaseCallsTitle": "Llamadas internacionales",
+    "seoUseCaseCallsBody": "Evita llamar a la hora de la cena. Abre la página del país, confirma el horario de verano y prueba en el comparador la hora propuesta.",
+    "seoHowTitle": "Cómo funciona",
+    "seoHowStep1": "Elige un país en el directorio o en los relojes destacados.",
+    "seoHowStep2": "Lee la hora en vivo, la zona IANA y las notas sobre horario de verano.",
+    "seoHowStep3": "Abre el comparador para proyectar una fecha y hora de referencia en hasta cuatro países.",
+    "seoFeaturedClocksTitle": "Relojes en vivo — consultados con frecuencia",
     "ogImageAlt": "Countries Time — reloj mundial"
   },
   "NotFound": {
@@ -150,5 +189,37 @@
     "contactIntro": "Para consultas sobre privacidad, términos o correcciones de datos horarios, escríbenos.",
     "contactEmailLabel": "Correo electrónico",
     "contactEmail": "hello@countries-time.com"
+  },
+  "About": {
+    "metaTitle": "Acerca de Countries Time",
+    "metaDescription": "Conoce cómo Countries Time calcula relojes mundiales en vivo con datos IANA zoneinfo, para quién es y cómo contactarnos.",
+    "title": "Acerca de Countries Time",
+    "intro": "Countries Time es un reloj mundial y comparador horario independiente pensado para viajeros, equipos remotos y quien coordina agendas internacionales. Priorizamos claridad: un instante correcto, mostrado en cada hora local relevante.",
+    "missionTitle": "Nuestra misión",
+    "missionBody": "Queremos que consultar la hora en otro país tarde segundos, no cálculos mentales. Combinamos relojes en vivo, páginas por país y un comparador sincronizado para pasar de la curiosidad a una hora de reunión concreta.",
+    "audienceTitle": "Para quién es",
+    "audienceBody": "Freelancers con clientes en el extranjero, familias en distintos continentes, recruiters que coordinan entrevistas y viajeros frecuentes—sin registro ni software instalado.",
+    "dataTitle": "Fuentes de datos",
+    "dataBody": "Las conversiones usan identificadores IANA y la base zoneinfo (tz). Metadatos como capitales y zonas por defecto están curados en el repositorio y se actualizan cuando cambian offsets o fronteras administrativas.",
+    "methodTitle": "Cómo calculamos la hora",
+    "methodBody": "Internamente fijamos un instante UTC absoluto y lo proyectamos a cada zona con las reglas válidas en ese momento: horario de verano, países multi-zona y excepciones regionales.",
+    "limitsTitle": "Limitaciones",
+    "limitsBody": "No emitimos marcas de tiempo legalmente certificadas. En la hora exacta del cambio de reloj pueden aparecer desfases breves. Para aviación, facturación o cumplimiento normativo, verifica con fuentes oficiales.",
+    "exploreTitle": "Explora el sitio",
+    "exploreBody": "Navega el directorio completo, abre el comparador o escríbenos si detectas datos desactualizados.",
+    "exploreCountries": "Directorio de países",
+    "exploreCompare": "Comparador horario",
+    "exploreContact": "Contacto"
+  },
+  "Contact": {
+    "metaTitle": "Contacto",
+    "metaDescription": "Contacta con Countries Time para privacidad, términos o correcciones de datos horarios.",
+    "title": "Contacto",
+    "intro": "Leemos todos los mensajes. Usa la dirección inferior para privacidad, términos, colaboraciones o correcciones de husos horarios.",
+    "responseTitle": "Tiempo de respuesta",
+    "responseBody": "Intentamos responder en tres días laborables. Correcciones complejas de datos pueden tardar más mientras verificamos actualizaciones IANA.",
+    "privacyTitle": "Privacidad",
+    "privacyBody": "Para solicitudes de protección de datos, incluye detalle suficiente. Consulta también nuestra",
+    "privacyLink": "política de privacidad"
   }
 }

@@ -38,6 +38,8 @@ export async function AppShell({ children }: Props) {
             className={styles.legalNav}
             aria-label={tFooter("legalNavLabel")}
           >
+            <Link href="/about">{tFooter("aboutLink")}</Link>
+            <Link href="/contact">{tFooter("contactLink")}</Link>
             <Link href="/privacy">{tFooter("privacyLink")}</Link>
             <Link href="/terms">{tFooter("termsLink")}</Link>
           </nav>
