@@ -2,96 +2,192 @@
 alwaysApply: true
 ---
 
-## Functions — prefer arrow functions
+# Frontend code patterns (enforcement)
 
-Use arrow functions for **everything**: components, hooks, helpers, callbacks, and event handlers. Never use `function` declarations or `function` expressions.
+Concise rules for Next.js / React / TypeScript. **Apply on every frontend change.**
 
-```ts
-// ✅
-export const MyComponent = () => { … }
-export const useMyHook = () => { … }
-const handleClick = () => { … }
+| Need | Where |
+|------|--------|
+| What to enforce (this file) | Rules below — tables and bullets only |
+| Full examples + rationale | [front-dev-patterns](../skills/front-dev-patterns/SKILL.md) |
 
-// ❌
-export default function MyComponent() { … }
-function handleClick() { … }
+---
+
+## Atomic design — mandatory structure
+
+Organize **all** UI under `src/components/` using atomic design layers:
+
+| Layer | Folder | Contains |
+|-------|--------|----------|
+| Atoms | `atoms/` | Single-purpose UI (Button, Input, Badge, Text, …) |
+| Molecules | `molecules/` | Combinations of atoms (FormField, SearchBar, …) |
+| Organisms | `organisms/` | Sections (Header, Hero, CardList, …) |
+| Templates | `templates/` | Page shells / layout scaffolds (no route-specific data) |
+
+**Rules:**
+
+- Place every new UI piece in the **lowest** layer that fits; do not skip layers (e.g. do not put a bare `button` wrapper in `organisms/`).
+- **Dependency direction:** templates → organisms → molecules → atoms. Lower layers **must not** import from higher layers.
+- **Pages** live in `src/app/` (App Router); they compose templates/organisms, not duplicate UI primitives.
+- Co-locate per component: `ComponentName/ComponentName.tsx`, `ComponentName.scss`, optional `ComponentName.types.ts` inside the layer folder.
+
+---
+
+## Centralized barrel exports — mandatory
+
+Every global module group exposes a **single public API** via `index.ts` (or `index.scss` for global styles). Consumers import **only** from that barrel — never from deep implementation paths.
+
+| Group | Barrel | Import from (alias examples) |
+|-------|--------|------------------------------|
+| Components | `src/components/index.ts` | `@components/index` or `@/components` |
+| Icons | `src/components/Icons/index.ts` | `@icons/index` |
+| Hooks | `src/hooks/index.ts` | `@hooks/index` |
+| Utils | `src/utils/index.ts` | `@utils/index` |
+| Constants | `src/constants/index.ts` | `@constants/index` |
+| Services — actions | `src/services/actions/index.ts` | `@services/actions/index` |
+| Services — fetchers | `src/services/fetchers/index.ts` | `@services/fetchers/index` |
+| Services — DTO / types | `src/services/dto/index.ts` | `@services/dto/index` |
+| Global types (if separate) | `src/types/index.ts` | `@types/index` |
+| Global styles entry | `src/styles/index.scss` | App/layout imports this entry only |
+
+**Rules:**
+
+- **Export:** each new public symbol is re-exported from the group’s `index` (same change / PR).
+- **Import:** use the barrel path only — e.g. `import { Button } from "@components/index"`, not `from "@components/atoms/Button/Button"`.
+- **Exception:** imports **within** the same component folder (sibling `./Button.scss`, `./Button.types.ts`) or **within** the same atomic layer subfolder when extracting a private sub-piece not meant for the public API.
+- **No default exports** in barrels unless the target project already standardizes on one; prefer named re-exports.
+- Sub-barrels (e.g. `services/actions/index.ts`) are allowed; the app still does not import past the documented public `index`.
+
+---
+
+## Functions — arrow functions
+
+Use arrow functions for components, hooks, helpers, callbacks, and event handlers. No `function` declarations or expressions.
+
+**Exception:** Next.js file-convention exports that require `function` (`generateMetadata`, `generateStaticParams`, etc.) — `export async function` only there.
+
+---
+
+## React imports — named only
+
+Import types and hooks by name from `react`. No `React.ReactNode`, `React.useState`, etc. Default import from `react` only when genuinely required.
+
+---
+
+## Import order — mandatory for every file
+
+**Scope:** every `.ts` / `.tsx` frontend file (components, hooks, pages, utils, services, etc.).
+
+**Rules:**
+
+- Use the **fixed group order** below — never reorder groups.
+- Each **used** group starts with **exactly one** comment line (`// React`, `// Next`, …). Labels are case-sensitive and must match.
+- **Skip** groups with no imports (do not leave empty comment blocks).
+- Imports within a group: one statement per line; barrel paths only (see § Centralized barrel exports).
+- **Styles** is always the **last** import group (co-located `*.scss` for that file).
+- After the import block, file-level sections use `// Constants` then `// Types (module-local)` when needed.
+
+### Fixed group order (canonical)
+
+| # | Comment | Sources |
+|---|---------|---------|
+| 1 | `// React` | `react`, `react-dom` |
+| 2 | `// Next` | `next/*` |
+| 3 | `// Libraries` | third-party (`next-intl`, `@tanstack/*`, …) |
+| 4 | `// Hooks` | `@hooks/index` |
+| 5 | `// Components` | `@components/index` |
+| 6 | `// Icons` | `@icons/index` |
+| 7 | `// Utils` | `@utils/index` |
+| 8 | `// Constants` | `@constants/index` |
+| 9 | `// Services` | `@services/actions/index`, `@services/fetchers/index` |
+| 10 | `// Types` | `@services/dto/index`, then `@types/index` if used |
+| 11 | `// Styles` | co-located `./Component.scss` only |
+
+### Canonical import block (reference)
+
+```typescript
+// React
+import { useCallback, useMemo, useState } from "react";
+// Next
+import Link from "next/link";
+// Libraries
+import { useTranslations } from "next-intl";
+import { useQuery } from "@tanstack/react-query";
+// Hooks
+import { useMyCustomHook } from "@hooks/index";
+// Components
+import { Avatar } from "@components/index";
+// Icons
+import { MoreHorizonIcon } from "@icons/index";
+// Utils
+import { encryptPostUrl } from "@utils/index";
+// Constants
+import { FEED_LIMIT } from "@constants/index";
+// Services
+import { getFeedAction } from "@services/actions/index";
+import { getFeedFetcher } from "@services/fetchers/index";
+// Types
+import type { UserDTO } from "@services/dto/index";
+// Styles
+import "./Card.scss";
+
+// Constants
+const DEFAULT_TAB = "home";
+
+// Types (module-local)
+type CardProps = { id: string };
 ```
 
-Exceptions: Next.js file-convention **default exports** that Next.js itself requires as `function` (e.g. `generateMetadata`, `generateStaticParams`) — use `export async function` only there.
+Full walkthrough: [front-dev-patterns § Import order](../skills/front-dev-patterns/SKILL.md#import-order).
 
 ---
 
-## React imports — named types and hooks
+## File length
 
-Import from `react` by name (`ReactNode`, `useState`, `useMemo`, etc.). Do **not** use `React.ReactNode`, `React.useState`, etc. Only combine default + named imports when the default is genuinely required.
-
----
-
-## Import order (top of file)
-
-Order import blocks with a short comment per group. Skip unused groups.
-
-1. `// React` — `react`, `react-dom`
-2. `// Next` — `next/*`
-3. `// Libraries` — third-party (`@tanstack/*`, `next-intl`, `react-hook-form`, …)
-4. `// Hooks` — `@hooks/*` or local `use*` modules
-5. `// Components` — `@components/*` or relative UI components
-6. `// Icons` — `@icons/*`
-7. `// Utils` — `@utils/*`
-8. `// Constants` — `@constants/*` or `*.constants`
-9. `// Services` — `@services/actions`, `@services/fetchers`
-10. `// Types` — `import type …` from `@services/dto`, `*.types`
-11. `// Styles` — `*.scss`, `*.module.scss`
-
-After imports, label file-level sections: `// Constants` (literals / mapping objects), `// Types (module-local)`.
-
----
-
-## File length — split when a module grows
-
-| Length            | Action                                                                      |
-| ----------------- | --------------------------------------------------------------------------- |
-| ≤ ~200 lines      | No action needed.                                                           |
-| > ~200 and ≤ ~250 | Optional: extract subcomponents, local hooks, helpers, constants, or types. |
-| > ~250            | **Required to split** before merging.                                       |
+| Lines | Action |
+|-------|--------|
+| ≤ ~200 | No action |
+| > ~200 and ≤ ~250 | Optional split (subcomponent, hook, `*.utils.ts`, `*.constants.ts`, `*.types.ts`) |
+| > ~250 | **Required split** before merge |
 
 ---
 
 ## Component body order
 
-Inside each component function, add a comment per section:
+Comment each section inside the component:
 
-1. `// Props` — destructured props
+1. `// Props`
 2. `// Params` — URL/search params, refs
 3. `// Queries` — derived from params or external data
-4. `// State` — `useState` and similar
-5. `// Hooks` — `useMemo`, `useTranslations`, `useForm`, custom hooks
-6. `// Values` — derived values (`watch()`, computed)
-7. `// Actions` — callbacks, handlers, `useCallback`
-8. `useEffect` — always before `return`
+4. `// State`
+5. `// Hooks` — `useMemo`, `useTranslations`, custom hooks; JSX-in-`const` `useMemo` lives here
+6. `// Values` — computed / `watch()`
+7. `// Actions` — handlers, `useCallback`
+8. `useEffect` — before `return`; external sync only
+9. `return`
 
 ---
 
-## No switch-case — use mapping objects
+## No `switch` — mapping objects
 
-Replace `switch` with a lookup object + `??` fallback. Valid exceptions: cases with complex multi-line logic, fall-through behavior, or non-mappable logic.
-
----
-
-## Multiple equality checks — use `includes`
-
-Replace `a === x || a === y || …` with a typed constant array and `.includes(value)`. Define the array next to the related union or above the component.
+Use lookup object + `??` fallback. Exceptions: complex multi-line cases, fall-through, non-mappable logic.
 
 ---
 
-## JSX stored in a variable — use `useMemo`
+## Multiple equalities — `includes`
 
-Wrap React elements assigned to a `const` in `useMemo` with a complete dependency array. Place in the **Hooks** step. Structure the callback with early returns for guards first; the happy path is the final `return`.
+Replace `a === x \|\| a === y` with a typed constant array and `.includes(value)`.
+
+---
+
+## JSX in a variable — `useMemo`
+
+Wrap assigned JSX in `useMemo` with full deps. Guards first (early `return null`), happy path last. Place in **Hooks**.
 
 ---
 
 ## State management
 
-- **No `useEffect` for data sync or prop derivation.**
-- Prefer: derived values during render, event handlers for user actions, React Query / SWR for API calls, `useMemo` for expensive computations.
-- Use `useEffect` only to sync with external systems outside React (WebSockets, third-party DOM APIs, timers). Justify each `useEffect` if introduced.
+- No `useEffect` for data sync or prop derivation.
+- Prefer: derived values in render · event handlers · React Query / SWR · `useMemo` when expensive.
+- `useEffect` only for external systems (WebSocket, third-party DOM, timers). Justify each one.

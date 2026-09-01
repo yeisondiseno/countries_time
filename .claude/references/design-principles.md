@@ -1,149 +1,133 @@
-# Referencia: Principios de Diseño y Leyes UX
+# Reference: Design principles and UX laws
 
-Documento de consulta para todos los agentes. Estas leyes y principios
-gobiernan las decisiones de diseño en cada fase del proceso.
+Consultation document for all agents. These laws and principles govern design decisions at each phase of the process.
 
-## Principios Gestalt de percepción visual
+## System links
 
-### 1. Proximidad
-Los elementos cercanos se perciben como grupo, sin importar su forma o color.
-**Aplicación UI**: Labels pegados a sus inputs. Grupos de botones relacionados
-juntos. Espacio mayor entre secciones que entre elementos de la misma sección.
-**Anti-pattern**: Label equidistante entre dos inputs — el usuario no sabe a cuál pertenece.
-
-### 2. Similitud
-Elementos con el mismo color, forma, tamaño o textura se perciben como del mismo tipo.
-**Aplicación UI**: Todos los links del mismo color. Todos los botones primarios
-iguales. Íconos del mismo set.
-**Anti-pattern**: Botones con diferentes estilos para la misma función.
-
-### 3. Cierre (Closure)
-El cerebro completa formas incompletas o información faltante.
-**Aplicación UI**: Cards cortadas al borde para indicar scroll horizontal.
-Íconos estilizados que no necesitan ser literal para ser reconocidos.
-Logos como NBC, FedEx.
-
-### 4. Continuidad
-El ojo sigue líneas, curvas y secuencias naturalmente.
-**Aplicación UI**: Flujos paso a paso en línea horizontal. Timelines.
-Progress bars. Breadcrumbs. Scroll vertical natural.
-
-### 5. Figura y fondo (Figure-Ground)
-El cerebro separa un elemento focal (figura) de su contexto (fondo).
-**Aplicación UI**: Modales con overlay oscuro. Dropdowns sobre contenido.
-Cards elevadas sobre el fondo. Focus rings.
-**Anti-pattern**: Falta de contraste entre elemento y fondo — el usuario no sabe qué es clickeable.
-
-### 6. Región común (Common Region)
-Elementos dentro de un mismo contenedor se perciben como grupo.
-**Aplicación UI**: Cards. Secciones con fondo distinto. Forms agrupados
-en fieldsets. Barras de herramientas.
-
-### 7. Simetría y orden (Prägnanz)
-El cerebro prefiere interpretar formas como simples, regulares y ordenadas.
-**Aplicación UI**: Grids consistentes. Alineación. Balance visual.
-Evitar layouts caóticos sin propósito.
-
-### 8. Destino común (Common Fate)
-Elementos que se mueven juntos se perciben como grupo.
-**Aplicación UI**: Animaciones coordinadas. Slide transitions de paneles.
-Parallax agrupado.
-
-### 9. Conectividad (Uniform Connectedness)
-Elementos conectados visualmente (líneas, flechas) se ven como relacionados.
-**Aplicación UI**: Líneas de conexión en workflows. Dividers.
-Progress steppers con línea conectora.
+| Resource | Link |
+|----------|------|
+| Orchestrator | [brand-design-system](../skills/brand-design-system/SKILL.md) |
+| Checklist | [checklist.md](checklist.md) |
+| Agents | [05](../agents/05-brand-strategist.md) · [06](../agents/06-identity-logo.md) · [07](../agents/07-color-system.md) · [08](../agents/08-typography.md) · [09](../agents/09-ui-ux.md) · [10](../agents/10-spacing-layout.md) · [11](../agents/11-layout-build.md) |
 
 ---
 
-## Leyes de UX
+## Gestalt principles of visual perception
 
-### Ley de Fitts
-T = a + b × log₂(1 + D/W)
-El tiempo para alcanzar un target aumenta con la distancia y disminuye con el tamaño.
-**Regla**: Hacer CTAs grandes. Colocar acciones frecuentes en zonas accesibles.
-Touch targets ≥ 44px. Bordes y esquinas de pantalla son "infinitamente" accesibles.
+### 1. Proximity
+Elements that are close together are perceived as a group, regardless of shape or color.
+**UI application**: Labels tight to their inputs. Related button groups clustered together. Greater space between sections than between elements within the same section.
+**Anti-pattern**: A label equidistant between two inputs — the user cannot tell which it belongs to.
 
-### Ley de Hick-Hyman
-T = b × log₂(n + 1)
-El tiempo de decisión aumenta con el número de opciones.
-**Regla**: Limitar opciones. Progressive disclosure. Menús ≤ 7 items.
-Defaults inteligentes. Búsqueda para catálogos grandes.
+### 2. Similarity
+Elements with the same color, shape, size, or texture are perceived as the same kind.
+**UI application**: All links the same color. All primary buttons identical. Icons from the same set.
+**Anti-pattern**: Buttons with different styles for the same action.
 
-### Ley de Jakob
-Los usuarios esperan que tu sitio funcione como los otros que ya conocen.
-**Regla**: Usar patrones establecidos. Logo top-left. Search top-right.
-Nav horizontal o hamburger. Close button top-right.
-NO innovar en navegación básica.
+### 3. Closure
+The brain completes incomplete shapes or missing information.
+**UI application**: Cards cut off at the edge to suggest horizontal scroll. Stylized icons that need not be literal to be recognizable. Logos such as NBC, FedEx.
 
-### Ley de Miller
-7 ± 2 chunks de información en memoria de trabajo.
-**Regla**: Agrupar info en chunks de 3-5. Números de teléfono en grupos.
-Formularios en pasos. Listas categorizadas.
+### 4. Continuity
+The eye naturally follows lines, curves, and sequences.
+**UI application**: Step flows in a horizontal line. Timelines. Progress bars. Breadcrumbs. Natural vertical scroll.
 
-### Ley de Prägnanz
-El cerebro interpreta imágenes ambiguas de la forma más simple posible.
-**Regla**: Simplicidad en diseño. Íconos legibles. Un solo mensaje por sección.
-Si necesitas explicar el UI, el UI está mal.
+### 5. Figure–ground
+The brain separates a focal element (figure) from its context (ground).
+**UI application**: Modals with dark overlay. Dropdowns over content. Elevated cards over the background. Focus rings.
+**Anti-pattern**: Insufficient contrast between element and background — the user cannot tell what is clickable.
 
-### Efecto Von Restorff (Isolation Effect)
-Lo que es diferente se recuerda más.
-**Regla**: Un solo CTA primario destacado. Uso estratégico del color acento.
-Romper el patrón solo con propósito.
+### 6. Common region
+Elements inside the same container are perceived as a group.
+**UI application**: Cards. Sections with distinct background. Forms grouped in fieldsets. Toolbars.
 
-### Efecto de posición serial
-Se recuerdan mejor el primer y último elemento de una serie.
-**Regla**: Acciones más importantes al inicio y final de la nav.
-"Start" y "Help" en las posiciones más memorables.
+### 7. Symmetry and order (Prägnanz)
+The brain prefers to interpret shapes as simple, regular, and ordered.
+**UI application**: Consistent grids. Alignment. Visual balance. Avoid chaotic layouts without purpose.
 
-### Ley de la región común
-Elementos encerrados en un borde o fondo se ven como grupo.
-**Regla**: Cards para agrupar. Fondos alternados en filas.
-Fieldsets en formularios.
+### 8. Common fate
+Elements that move together are perceived as a group.
+**UI application**: Coordinated animations. Panel slide transitions. Grouped parallax.
 
-### Ley de Tesler (Conservation of Complexity)
-Toda aplicación tiene un nivel irreducible de complejidad.
-**Regla**: Absorber complejidad en el sistema, no pasarla al usuario.
-Defaults inteligentes. Auto-fill. Validación en tiempo real.
-
-### Efecto Zeigarnik
-Las personas recuerdan tareas incompletas mejor que las completadas.
-**Regla**: Progress indicators. Onboarding con checklist.
-"Tu perfil está 80% completo."
-
-### Umbral de Doherty
-La productividad se dispara cuando el sistema responde en < 400ms.
-**Regla**: Loading states instantáneos. Skeleton screens.
-Optimistic UI. Debounce en búsquedas.
+### 9. Uniform connectedness (connectivity)
+Elements connected visually (lines, arrows) are seen as related.
+**UI application**: Connector lines in workflows. Dividers. Progress steppers with a connecting line.
 
 ---
 
-## Principios de diseño visual
+## UX laws
 
-### Contraste
-La diferencia entre elementos crea jerarquía y foco.
-- Contraste de tamaño: grande vs pequeño
-- Contraste de peso: bold vs light
-- Contraste de color: oscuro vs claro, saturado vs neutro
-- Contraste de espacio: denso vs aireado
+### Fitts’s law
+T = a + b × log₂(1 + D/W)  
+Time to reach a target increases with distance and decreases with size.
+**Rule**: Make CTAs large. Place frequent actions in easy-to-reach areas. Touch targets ≥ 44px. Screen edges and corners are “infinitely” reachable.
+
+### Hick–Hyman law
+T = b × log₂(n + 1)  
+Decision time grows with the number of options.
+**Rule**: Limit options. Progressive disclosure. Menus ≤ 7 items. Smart defaults. Search for large catalogs.
+
+### Jakob’s law
+Users expect your site to work like others they already know.
+**Rule**: Use established patterns. Logo top-left. Search top-right. Horizontal nav or hamburger. Close control top-right. Do NOT innovate on basic navigation.
+
+### Miller’s law
+7 ± 2 chunks of information in working memory.
+**Rule**: Group information into 3–5 chunks. Phone numbers in groups. Multi-step forms. Categorized lists.
+
+### Law of Prägnanz
+The brain interprets ambiguous images in the simplest way possible.
+**Rule**: Simplicity in design. Legible icons. One message per section. If you need to explain the UI, the UI is wrong.
+
+### Von Restorff effect (isolation effect)
+What is different is remembered more.
+**Rule**: One prominent primary CTA. Strategic use of accent color. Break the pattern only on purpose.
+
+### Serial position effect
+The first and last items in a series are remembered best.
+**Rule**: Most important actions at the start and end of nav. “Start” and “Help” in the most memorable positions.
+
+### Common region law
+Elements enclosed by a border or background are seen as a group.
+**Rule**: Cards to group content. Alternating row backgrounds. Fieldsets in forms.
+
+### Tesler’s law (conservation of complexity)
+Every application has an irreducible level of complexity.
+**Rule**: Absorb complexity in the system; do not push it onto the user. Smart defaults. Auto-fill. Real-time validation.
+
+### Zeigarnik effect
+People remember incomplete tasks better than completed ones.
+**Rule**: Progress indicators. Onboarding with checklists. “Your profile is 80% complete.”
+
+### Doherty threshold
+Productivity spikes when the system responds in < 400ms.
+**Rule**: Instant loading states. Skeleton screens. Optimistic UI. Debounce on search.
+
+---
+
+## Visual design principles
+
+### Contrast
+Differences between elements create hierarchy and focus.
+- Size contrast: large vs small
+- Weight contrast: bold vs light
+- Color contrast: dark vs light, saturated vs neutral
+- Space contrast: dense vs airy
 
 ### Balance
-Distribución visual del peso en la composición.
-- Simétrico: formal, estable, tradicional
-- Asimétrico: dinámico, moderno, interesante
-- Radial: centrado, focal
+Visual distribution of weight in the composition.
+- Symmetric: formal, stable, traditional
+- Asymmetric: dynamic, modern, engaging
+- Radial: centered, focal
 
-### Alineación
-Todo elemento debe tener conexión visual con otro.
-**Regla**: Nada al azar. Cada elemento alineado a un grid o a otro elemento.
-La alineación invisible (grid subyacente) crea orden.
+### Alignment
+Every element should have a visual connection to another.
+**Rule**: Nothing arbitrary. Each element aligned to a grid or to another element. Invisible alignment (underlying grid) creates order.
 
-### Repetición
-Elementos visuales recurrentes crean cohesión.
-**Regla**: Mismo estilo de íconos. Misma paleta. Mismo radio de bordes.
-Mismo peso tipográfico para el mismo nivel jerárquico.
+### Repetition
+Recurring visual elements create cohesion.
+**Rule**: Same icon style. Same palette. Same border radius. Same typographic weight for the same hierarchical level.
 
-### Escala
-El tamaño relativo de los elementos comunica importancia.
-**Regla**: Lo más importante = lo más grande.
-Ratio mínimo entre heading y body: 1.5:1 (preferible 2:1+).
+### Scale
+Relative size communicates importance.
+**Rule**: Most important = largest. Minimum ratio between heading and body: 1.5:1 (preferably 2:1+).

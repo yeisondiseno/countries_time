@@ -1,0 +1,32 @@
+---
+description: Product Factory global rules — English output and mandatory security review on every frontend/backend change.
+alwaysApply: true
+---
+
+# Product Factory — Global Rules
+
+Read the full orchestrator: [.claude/skills/product-factory/SKILL.md](../.claude/skills/product-factory/SKILL.md)
+
+## Language
+
+- All artifacts, code comments, commit messages, and agent outputs: **English** unless the user explicitly requests another language.
+- End-user product copy may use the market language documented in the PRD.
+
+## Mandatory security review (non-negotiable)
+
+Do **not** mark frontend or backend work as complete until security agents have reviewed the change:
+
+| After changes from | Invoke |
+| ------------------ | ------ |
+| Agent 11 (Layout Build) or 12 (React Frontend) | **Agent 16** — [.claude/agents/16-frontend-security.md](../.claude/agents/16-frontend-security.md) or Cursor subagent `frontend-security` |
+| Agent 13 (Database) or 14 (Backend) | **Agent 17** — [.claude/agents/17-backend-security.md](../.claude/agents/17-backend-security.md) or Cursor subagent `backend-security` |
+
+- **Block merge/release** on open Critical/High findings.
+- Full-stack changes require **both** 16 and 17.
+- Policy: [.claude/references/product-gates.md](../.claude/references/product-gates.md#security-on-change)
+
+## Agent source of truth
+
+- Definitions: `.claude/agents/`
+- Skills: `.claude/skills/`
+- Gates: `.claude/references/product-gates.md`
