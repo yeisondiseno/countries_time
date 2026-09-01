@@ -189,6 +189,34 @@ export default async function LocaleHome(props: Props) {
 
         <section
           className={`${shared.container} ${styles.seoBlock}`}
+          aria-labelledby="home-guides"
+        >
+          <h2 id="home-guides" className={styles.seoTitle}>
+            {t("seoGuidesTitle")}
+          </h2>
+          <p className={styles.seoBody}>{t("seoGuidesIntro")}</p>
+          <ul className={styles.popularList}>
+            <li>
+              <Link href="/guides/como-programar-reuniones-internacionales">
+                {t("seoGuideFeatured1")}
+              </Link>
+            </li>
+            <li>
+              <Link href="/guides/diferencia-horaria-espana-mexico">
+                {t("seoGuideFeatured2")}
+              </Link>
+            </li>
+            <li>
+              <Link href="/guides/que-es-horario-verano">{t("seoGuideFeatured3")}</Link>
+            </li>
+          </ul>
+          <p className={styles.seoBody}>
+            <Link href="/guides">{t("seoGuidesLink")}</Link>
+          </p>
+        </section>
+
+        <section
+          className={`${shared.container} ${styles.seoBlock}`}
           aria-labelledby="home-faq"
         >
           <h2 id="home-faq" className={styles.seoTitle}>

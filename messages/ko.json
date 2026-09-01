@@ -110,9 +110,10 @@
     "promoBody": "국가 간 회의를 즉시 조율하세요. 기준을 설정하고 결과를 확인하세요.",
     "promoCta": "비교기 열기",
     "backToDirectory": "← {title}",
-    "dstNotesHeading": "Daylight saving and seasonal changes",
-    "practicalTipHeading": "Practical tip",
-    "relatedCountriesTitle": "Related countries"
+    "dstNotesHeading": "서머타임 및 계절 변화",
+    "practicalTipHeading": "실용 팁",
+    "relatedCountriesTitle": "관련 국가",
+    "compareWithTitle": "비교"
   },
   "Ads": {
     "leader": "광고 슬롯 예약(CLS) · 리더보드",
@@ -126,7 +127,8 @@
     "contactLink": "문의",
     "note": "실시간 세계 시계 서비스.",
     "disclaimer": "시간은 현재 zoneinfo 규칙에 따라 실시간으로 계산됩니다. 서머타임 전환 시에는 일시적인 차이가 발생할 수 있습니다.",
-    "aboutLink": "About"
+    "aboutLink": "소개",
+    "guidesLink": "가이드"
   },
   "Home": {
     "eyebrow": "세계 시계",
@@ -147,12 +149,12 @@
     "seoFaqQ3": "표시 시간이 연중에 바뀌는 이유는 무엇인가요?",
     "seoFaqA3": "많은 지역은 연 2회 UTC 오프셋을 조정합니다. 각 전환 시 공식 zoneinfo 규칙을 적용합니다.",
     "ogImageAlt": "Countries Time — 세계 시계",
-    "seoFaqQ4": "Where does the time data come from?",
-    "seoFaqA4": "We convert a single UTC instant using IANA time zone identifiers (zoneinfo). Rules include historical and future daylight saving transitions published in the tz database.",
-    "seoFaqQ5": "Does Countries Time replace official government time?",
-    "seoFaqA5": "No. We provide an independent reference for everyday scheduling. For legally binding timestamps, rely on official sources in each jurisdiction.",
-    "seoFaqQ6": "Can I compare more than four countries?",
-    "seoFaqA6": "The comparator supports two to four countries at once to keep results readable. You can run multiple comparisons or browse individual country pages for additional zones.",
+    "seoFaqQ4": "시간 데이터 출처는?",
+    "seoFaqA4": "IANA 시간대로 UTC를 변환합니다.",
+    "seoFaqQ5": "공식 시간 대체인가요?",
+    "seoFaqA5": "아니요. 일상용 독립 참고입니다.",
+    "seoFaqQ6": "4개 이상 비교 가능?",
+    "seoFaqA6": "비교 도구는 2~4개 국가까지입니다.",
     "seoUseCasesTitle": "When to use a world clock",
     "seoUseCasesIntro": "Countries Time helps whenever you need trustworthy local time without installing an app or creating an account.",
     "seoUseCaseTravelTitle": "Travel and layovers",
@@ -165,7 +167,13 @@
     "seoHowStep1": "Pick a country from the directory or a featured clock below.",
     "seoHowStep2": "Read the live local time, IANA zone label, and editorial notes about DST.",
     "seoHowStep3": "Open the comparator to project one reference date and time onto up to four countries.",
-    "seoFeaturedClocksTitle": "Live clocks — frequently viewed"
+    "seoFeaturedClocksTitle": "라이브 시계",
+    "seoGuidesTitle": "시간대 가이드",
+    "seoGuidesIntro": "서머타임과 국제 회의 글.",
+    "seoGuidesLink": "모든 가이드",
+    "seoGuideFeatured1": "국제 회의",
+    "seoGuideFeatured2": "스페인–멕시코",
+    "seoGuideFeatured3": "서머타임"
   },
   "LiveClock": {
     "heading": "현지 라이브 시계",
@@ -219,7 +227,12 @@
     "exploreBody": "Browse the full country directory, open the comparator, or write to us if you spot outdated zone data.",
     "exploreCountries": "Country directory",
     "exploreCompare": "Time comparator",
-    "exploreContact": "Contact"
+    "exploreContact": "Contact",
+    "exploreGuides": "시간대 가이드",
+    "maintainerTitle": "운영 주체",
+    "maintainerBody": "독립 팀 운영. 수정은 문의로.",
+    "dataUpdatedTitle": "데이터 최신성",
+    "dataUpdatedBody": "IANA tz 데이터베이스 준수."
   },
   "Contact": {
     "metaTitle": "Contact",
@@ -231,5 +244,25 @@
     "privacyTitle": "Privacy",
     "privacyBody": "For data protection requests, include enough detail for us to locate relevant logs. See also our",
     "privacyLink": "privacy policy"
+  },
+  "Guides": {
+    "indexMetaTitle": "가이드 · Countries Time",
+    "indexMetaDescription": "시간대 실용 가이드.",
+    "indexTitle": "시간대 가이드",
+    "indexIntro": "국제 일정 조율 글.",
+    "badgeGuide": "가이드",
+    "badgeComparison": "비교",
+    "updatedLabel": "최종 업데이트",
+    "faqTitle": "자주 묻는 질문",
+    "relatedLinksLabel": "관련 링크",
+    "openComparator": "비교 열기",
+    "backToGuides": "모든 가이드",
+    "relatedCountriesTitle": "관련 국가"
+  },
+  "CookieConsent": {
+    "message": "필수 쿠키 사용. 비필수는 EU/영국에서 동의 후 로드.",
+    "accept": "동의",
+    "reject": "필수만",
+    "ariaLabel": "쿠키 동의"
   }
 }

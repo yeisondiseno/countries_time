@@ -108,7 +108,8 @@
     "backToDirectory": "← {title}",
     "dstNotesHeading": "Daylight saving and seasonal changes",
     "practicalTipHeading": "Practical tip",
-    "relatedCountriesTitle": "Related countries"
+    "relatedCountriesTitle": "Related countries",
+    "compareWithTitle": "Compare with"
   },
   "Ads": {
     "leader": "Ad slot reserved (CLS) · leaderboard",
@@ -121,6 +122,7 @@
     "privacyLink": "Privacy",
     "termsLink": "Terms",
     "contactLink": "Contact",
+    "guidesLink": "Guides",
     "note": "World clock with real-time time zone data.",
     "disclaimer": "Times are calculated in real time with current zoneinfo rules. Brief mismatches may occur during daylight saving transitions."
   },
@@ -161,6 +163,12 @@
     "seoHowStep2": "Read the live local time, IANA zone label, and editorial notes about DST.",
     "seoHowStep3": "Open the comparator to project one reference date and time onto up to four countries.",
     "seoFeaturedClocksTitle": "Live clocks — frequently viewed",
+    "seoGuidesTitle": "Time zone guides",
+    "seoGuidesIntro": "In-depth articles on daylight saving, international meetings, and country-pair time differences.",
+    "seoGuidesLink": "Browse all guides",
+    "seoGuideFeatured1": "How to schedule international meetings",
+    "seoGuideFeatured2": "Spain–Mexico time difference",
+    "seoGuideFeatured3": "What is daylight saving time?",
     "ogImageAlt": "Countries Time — world clock"
   },
   "NotFound": {
@@ -211,7 +219,32 @@
     "exploreBody": "Browse the full country directory, open the comparator, or write to us if you spot outdated zone data.",
     "exploreCountries": "Country directory",
     "exploreCompare": "Time comparator",
-    "exploreContact": "Contact"
+    "exploreContact": "Contact",
+    "exploreGuides": "Time zone guides",
+    "maintainerTitle": "Who maintains this site",
+    "maintainerBody": "Countries Time is built and maintained by an independent team focused on accurate world clocks and scheduling tools. We are not affiliated with governments or telecom providers. Corrections and feedback are welcome via the contact page.",
+    "dataUpdatedTitle": "Data freshness",
+    "dataUpdatedBody": "Country zones and DST rules follow the IANA tz database. We review zone data when IANA publishes updates—typically several times per year."
+  },
+  "Guides": {
+    "indexMetaTitle": "Time zone guides · Countries Time",
+    "indexMetaDescription": "Practical guides on daylight saving, international meetings, and time differences between countries.",
+    "indexTitle": "Time zone guides",
+    "indexIntro": "Editorial articles to help you schedule across borders without mistakes. Each guide links to live country clocks and the comparator.",
+    "badgeGuide": "Guide",
+    "badgeComparison": "Comparison",
+    "updatedLabel": "Last updated",
+    "faqTitle": "Frequently asked questions",
+    "relatedLinksLabel": "Related links",
+    "openComparator": "Open comparator",
+    "backToGuides": "All guides",
+    "relatedCountriesTitle": "Related countries"
+  },
+  "CookieConsent": {
+    "message": "We use essential cookies for site operation. Non-essential cookies (e.g. for advertising) will only load after your consent in the EU/UK.",
+    "accept": "Accept",
+    "reject": "Essential only",
+    "ariaLabel": "Cookie consent"
   },
   "Contact": {
     "metaTitle": "Contact",

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 
 import { AdSlot } from "@/components/molecules";
+import { CookieConsentBanner } from "@/components/molecules/CookieConsentBanner";
 import { SiteHeader } from "@/components/organisms";
 import { Link } from "@/i18n/navigation";
 
@@ -39,6 +40,7 @@ export async function AppShell({ children }: Props) {
             aria-label={tFooter("legalNavLabel")}
           >
             <Link href="/about">{tFooter("aboutLink")}</Link>
+            <Link href="/guides">{tFooter("guidesLink")}</Link>
             <Link href="/contact">{tFooter("contactLink")}</Link>
             <Link href="/privacy">{tFooter("privacyLink")}</Link>
             <Link href="/terms">{tFooter("termsLink")}</Link>
@@ -46,6 +48,7 @@ export async function AppShell({ children }: Props) {
           <p className={styles.note}>{tFooter("note")}</p>
         </div>
       </footer>
+      <CookieConsentBanner />
     </div>
   );
 }

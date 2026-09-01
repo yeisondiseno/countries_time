@@ -1,4 +1,5 @@
 export { AdSlot } from "./AdSlot";
+export { CookieConsentBanner } from "./CookieConsentBanner";
 export { LocaleSwitcher } from "./LocaleSwitcher";
 export { MultiZoneNotice } from "./MultiZoneNotice";
 export { NotFoundContent } from "./NotFoundContent";

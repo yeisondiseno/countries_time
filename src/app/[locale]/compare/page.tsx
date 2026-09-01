@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { WorldComparator } from "@/components";
 import { routing } from "@/i18n/routing";
+import { findCountry } from "@/lib/data/countries";
 import type { Locale } from "@/lib/i18n/config";
 import { JsonLd } from "@/lib/seo/JsonLd";
 import {
@@ -14,7 +15,22 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 import shared from "@/styles/shared.module.css";
 import styles from "./page.module.css";
 
-type Props = { params: Promise<{ locale: string }> };
+type Props = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ a?: string; b?: string }>;
+};
+
+function resolveInitialCodes(
+  a?: string,
+  b?: string,
+): readonly [string, string] | undefined {
+  const first = a ? findCountry(a) : null;
+  const second = b ? findCountry(b) : null;
+  if (!first || !second) {
+    return undefined;
+  }
+  return [first.code, second.code];
+}
 
 export async function generateMetadata(props: Props) {
   const { locale } = await props.params;
@@ -33,10 +49,13 @@ export async function generateMetadata(props: Props) {
 
 export default async function ComparatorPage(props: Props) {
   const { locale } = await props.params;
+  const { a, b } = await props.searchParams;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
   setRequestLocale(locale);
+
+  const initialCodes = resolveInitialCodes(a, b);
 
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const tc = await getTranslations({ locale, namespace: "Compare" });
@@ -72,7 +91,7 @@ export default async function ComparatorPage(props: Props) {
   return (
     <>
       <JsonLd data={[webPageJsonLd, breadcrumbJsonLd, faqJsonLd]} />
-      <WorldComparator />
+      <WorldComparator initialCodes={initialCodes} />
       <div className={`${shared.container} ${styles.compareEditorial}`}>
         <section
           className={styles.editorialBlock}

@@ -57,6 +57,8 @@ export default async function AboutPage(props: Props) {
     { title: t("audienceTitle"), body: t("audienceBody") },
     { title: t("dataTitle"), body: t("dataBody") },
     { title: t("methodTitle"), body: t("methodBody") },
+    { title: t("maintainerTitle"), body: t("maintainerBody") },
+    { title: t("dataUpdatedTitle"), body: t("dataUpdatedBody") },
     { title: t("limitsTitle"), body: t("limitsBody") },
   ] as const;
 
@@ -79,6 +81,8 @@ export default async function AboutPage(props: Props) {
             <Link href="/countries">{t("exploreCountries")}</Link>
             {" · "}
             <Link href="/compare">{t("exploreCompare")}</Link>
+            {" · "}
+            <Link href="/guides">{t("exploreGuides")}</Link>
             {" · "}
             <Link href="/contact">{t("exploreContact")}</Link>
           </p>

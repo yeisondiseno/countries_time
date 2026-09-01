@@ -1,10 +1,12 @@
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { CountryPageView } from "@/components";
+
+import { CountryPageEditorial, CountryPageHero } from "@/components";
 import { routing } from "@/i18n/routing";
 import { findCountry, listCountryCodesSorted } from "@/lib/data/countries";
 import { getCountryEditorial } from "@/lib/data/country-editorial";
+import { getCountryTier } from "@/lib/data/country-tiers";
 import type { Locale } from "@/lib/i18n/config";
 import { JsonLd } from "@/lib/seo/JsonLd";
 import {
@@ -35,20 +37,36 @@ export async function generateMetadata(props: Props) {
   if (!hit) {
     return { title: "Countries Time" };
   }
+  const localeCode = locale as Locale;
   const tc = await getTranslations({ locale, namespace: "Country" });
-  const pretty = formatCountryRegion(hit.code, locale as Locale);
+  const pretty = formatCountryRegion(hit.code, localeCode);
   const path = countryPath(hit.code);
+  const editorial = getCountryEditorial(hit.code, localeCode);
+  const tier = getCountryTier(hit.code);
 
-  return buildPageMetadata({
-    locale: locale as Locale,
+  const description = editorial
+    ? editorial.overview.slice(0, 155)
+    : tc("metaDescription", {
+        country: pretty,
+        capital: hit.capital,
+        zone: hit.defaultZone,
+      });
+
+  const base = buildPageMetadata({
+    locale: localeCode,
     title: tc("metaTitle", { country: pretty }),
-    description: tc("metaDescription", {
-      country: pretty,
-      capital: hit.capital,
-      zone: hit.defaultZone,
-    }),
+    description,
     pathWithoutLocale: path,
   });
+
+  if (tier === 3) {
+    return {
+      ...base,
+      robots: { index: false, follow: true },
+    };
+  }
+
+  return base;
 }
 
 export default async function CountryDetail(props: Readonly<Props>) {
@@ -56,22 +74,26 @@ export default async function CountryDetail(props: Readonly<Props>) {
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-  setRequestLocale(locale);
   const hit = findCountry(countryCode);
   if (!hit) {
     notFound();
   }
 
+  setRequestLocale(locale);
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const tc = await getTranslations({ locale, namespace: "Country" });
-  const pretty = formatCountryRegion(hit.code, locale as Locale);
+  const localeCode = locale as Locale;
+  const pretty = formatCountryRegion(hit.code, localeCode);
   const path = countryPath(hit.code);
   const metaTitle = tc("metaTitle", { country: pretty });
-  const metaDescription = tc("metaDescription", {
-    country: pretty,
-    capital: hit.capital,
-    zone: hit.defaultZone,
-  });
+  const editorial = getCountryEditorial(hit.code, localeCode);
+  const metaDescription = editorial
+    ? editorial.overview.slice(0, 155)
+    : tc("metaDescription", {
+        country: pretty,
+        capital: hit.capital,
+        zone: hit.defaultZone,
+      });
 
   const faqJsonLd = buildFaqPageJsonLd([
     { question: tCommon("faqTimeTitle"), answer: tCommon("faqDstBody") },
@@ -80,20 +102,18 @@ export default async function CountryDetail(props: Readonly<Props>) {
   ]);
 
   const webPageJsonLd = buildWebPageJsonLd({
-    locale: locale as Locale,
+    locale: localeCode,
     pathWithoutLocale: path,
     name: metaTitle,
     description: metaDescription,
   });
 
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd(locale as Locale, [
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd(localeCode, [
     { name: tCommon("siteName"), path: "/" },
     { name: tCommon("countriesTitle"), path: "/countries" },
     { name: pretty, path },
   ]);
 
-  const localeCode = locale as Locale;
-  const editorial = getCountryEditorial(hit.code, localeCode);
   const relatedCountries = (editorial?.relatedCodes ?? []).flatMap(
     (relatedCode) => {
       const related = findCountry(relatedCode);
@@ -110,20 +130,44 @@ export default async function CountryDetail(props: Readonly<Props>) {
     },
   );
 
+  const compareLinks = (editorial?.relatedCodes ?? []).slice(0, 3).flatMap(
+    (relatedCode) => {
+      const related = findCountry(relatedCode);
+      if (!related) {
+        return [];
+      }
+      return [
+        {
+          code: related.code,
+          name: formatCountryRegion(related.code, localeCode),
+          href: `/compare?a=${hit.code.toLowerCase()}&b=${related.code.toLowerCase()}`,
+        },
+      ];
+    },
+  );
+
   return (
     <>
       <JsonLd data={[webPageJsonLd, breadcrumbJsonLd, faqJsonLd]} />
-      <CountryPageView
-        locale={localeCode}
-        code={hit.code}
-        capital={hit.capital}
-        defaultZone={hit.defaultZone}
-        zones={hit.zones}
-        editorialOverview={editorial?.overview}
-        editorialDstNotes={editorial?.dstNotes}
-        editorialPracticalTip={editorial?.practicalTip}
-        relatedCountries={relatedCountries}
-      />
+      <article>
+        <CountryPageHero
+          locale={localeCode}
+          code={hit.code}
+          defaultZone={hit.defaultZone}
+          zones={hit.zones}
+        />
+        <CountryPageEditorial
+          locale={localeCode}
+          code={hit.code}
+          capital={hit.capital}
+          zone={hit.defaultZone}
+          editorialOverview={editorial?.overview}
+          editorialDstNotes={editorial?.dstNotes}
+          editorialPracticalTip={editorial?.practicalTip}
+          relatedCountries={relatedCountries}
+          compareLinks={compareLinks}
+        />
+      </article>
     </>
   );
 }

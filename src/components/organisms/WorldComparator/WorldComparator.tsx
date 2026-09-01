@@ -15,6 +15,7 @@ import type { WorldComparatorFormValues } from "./WorldComparator.types";
 import {
   WORLD_COMPARATOR_FORM_STORAGE_KEY,
   buildFormDefaults,
+  buildFormDefaultsFromCodes,
   parseStoredWorldComparatorForm,
 } from "./WorldComparator.utils";
 import { useWorldComparator } from "./useWorldComparator";
@@ -27,8 +28,18 @@ const PERSISTED_FORM_OMIT_KEYS = ["pickerSearch"] as const satisfies ReadonlyArr
   keyof WorldComparatorFormValues
 >;
 
-export function WorldComparator() {
-  const defaultValues = useMemo(() => buildFormDefaults(), []);
+type Props = Readonly<{
+  initialCodes?: readonly [string, string];
+}>;
+
+export function WorldComparator({ initialCodes }: Props = {}) {
+  const defaultValues = useMemo(
+    () =>
+      initialCodes
+        ? buildFormDefaultsFromCodes(initialCodes)
+        : buildFormDefaults(),
+    [initialCodes],
+  );
 
   const formMethods = usePersistedForm<WorldComparatorFormValues>({
     storageKey: WORLD_COMPARATOR_FORM_STORAGE_KEY,

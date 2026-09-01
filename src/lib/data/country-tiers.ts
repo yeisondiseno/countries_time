@@ -1,7 +1,30 @@
-import { TIER1_COUNTRY_CODES } from "@/lib/data/country-editorial";
-
-/** Tier 1 — hand-written editorial in all 8 locales. */
-export const TIER1_CODES = TIER1_COUNTRY_CODES;
+/**
+ * Tier 1 — hand-written editorial in country-editorial.ts (all 8 locales).
+ * Tier 2 — semi-automated unique editorial (~50 countries).
+ * Tier 3 — noindex, excluded from sitemap.
+ */
+export const TIER1_CODES = [
+  "US",
+  "ES",
+  "MX",
+  "GB",
+  "DE",
+  "JP",
+  "FR",
+  "AR",
+  "CO",
+  "IT",
+  "PT",
+  "BR",
+  "IN",
+  "AU",
+  "CA",
+  "CN",
+  "KR",
+  "NL",
+  "CH",
+  "AE",
+] as const;
 
 /**
  * Tier 2 — semi-automated unique editorial (~50 countries).

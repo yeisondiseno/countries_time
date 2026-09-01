@@ -53,8 +53,10 @@ export function ComparatorCountryCard({
   const instant = DateTime.fromMillis(utcMillis, {
     zone: zoneForRow,
   }).setLocale(locale);
-  const refInstant = DateTime.fromMillis(utcMillis, { zone: form.anchorZone });
-  const deltaMin = Math.round(instant.diff(refInstant, "minutes").minutes);
+  const anchorOffset = DateTime.fromMillis(utcMillis, {
+    zone: form.anchorZone,
+  }).offset;
+  const deltaMin = instant.offset - anchorOffset;
   const countryLabel = formatCountryRegion(code, locale);
   const zoneLabel = formatTimeZoneLabel(zoneForRow);
 

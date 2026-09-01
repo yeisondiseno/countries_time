@@ -110,9 +110,10 @@
     "promoBody": "Koordinieren Sie Termine über Länder hinweg sofort. Legen Sie eine Referenz fest und sehen Sie die Ergebnisse.",
     "promoCta": "Vergleich öffnen",
     "backToDirectory": "← {title}",
-    "dstNotesHeading": "Daylight saving and seasonal changes",
-    "practicalTipHeading": "Practical tip",
-    "relatedCountriesTitle": "Related countries"
+    "dstNotesHeading": "Sommerzeit und saisonale Änderungen",
+    "practicalTipHeading": "Praktischer Tipp",
+    "relatedCountriesTitle": "Verwandte Länder",
+    "compareWithTitle": "Vergleichen mit"
   },
   "Ads": {
     "leader": "Werbefläche reserviert (CLS) · Leaderboard",
@@ -126,7 +127,8 @@
     "contactLink": "Kontakt",
     "note": "Weltuhr mit Echtzeit-Zeitzonendaten.",
     "disclaimer": "Die Zeiten werden in Echtzeit nach den aktuellen Zoneinfo-Regeln berechnet. Kurzzeitige Abweichungen können bei Sommer-/Winterzeitumstellungen auftreten.",
-    "aboutLink": "About"
+    "aboutLink": "Über uns",
+    "guidesLink": "Ratgeber"
   },
   "Home": {
     "eyebrow": "Weltuhr",
@@ -147,12 +149,12 @@
     "seoFaqQ3": "Warum kann sich die angezeigte Zeit im Jahresverlauf ändern?",
     "seoFaqA3": "Viele Regionen verschieben ihren UTC-Offset zweimal jährlich. Wir wenden offizielle zoneinfo-Regeln bei jeder Umstellung an.",
     "ogImageAlt": "Countries Time — Weltuhr",
-    "seoFaqQ4": "Where does the time data come from?",
-    "seoFaqA4": "We convert a single UTC instant using IANA time zone identifiers (zoneinfo). Rules include historical and future daylight saving transitions published in the tz database.",
-    "seoFaqQ5": "Does Countries Time replace official government time?",
-    "seoFaqA5": "No. We provide an independent reference for everyday scheduling. For legally binding timestamps, rely on official sources in each jurisdiction.",
-    "seoFaqQ6": "Can I compare more than four countries?",
-    "seoFaqA6": "The comparator supports two to four countries at once to keep results readable. You can run multiple comparisons or browse individual country pages for additional zones.",
+    "seoFaqQ4": "Woher stammen die Zeitdaten?",
+    "seoFaqA4": "Wir rechnen einen UTC-Zeitpunkt mit IANA-Zonen (zoneinfo) um, einschließlich Sommerzeitregeln aus der tz-Datenbank.",
+    "seoFaqQ5": "Ersetzt Countries Time die amtliche Zeit?",
+    "seoFaqA5": "Nein. Wir bieten eine unabhängige Referenz für den Alltag. Für rechtsverbindliche Zeitstempel nutzen Sie offizielle Quellen.",
+    "seoFaqQ6": "Kann ich mehr als vier Länder vergleichen?",
+    "seoFaqA6": "Der Vergleich unterstützt zwei bis vier Länder gleichzeitig. Starten Sie einen zweiten Vergleich oder nutzen Sie Einzelländerseiten.",
     "seoUseCasesTitle": "When to use a world clock",
     "seoUseCasesIntro": "Countries Time helps whenever you need trustworthy local time without installing an app or creating an account.",
     "seoUseCaseTravelTitle": "Travel and layovers",
@@ -165,7 +167,13 @@
     "seoHowStep1": "Pick a country from the directory or a featured clock below.",
     "seoHowStep2": "Read the live local time, IANA zone label, and editorial notes about DST.",
     "seoHowStep3": "Open the comparator to project one reference date and time onto up to four countries.",
-    "seoFeaturedClocksTitle": "Live clocks — frequently viewed"
+    "seoFeaturedClocksTitle": "Live-Uhren — häufig aufgerufen",
+    "seoGuidesTitle": "Zeitzonen-Ratgeber",
+    "seoGuidesIntro": "Artikel zu Sommerzeit, internationalen Meetings und Zeitunterschieden zwischen Ländern.",
+    "seoGuidesLink": "Alle Ratgeber ansehen",
+    "seoGuideFeatured1": "Internationale Meetings planen",
+    "seoGuideFeatured2": "Zeitunterschied Spanien–Mexiko",
+    "seoGuideFeatured3": "Was ist Sommerzeit?"
   },
   "LiveClock": {
     "heading": "Live‑Standortzeit",
@@ -219,7 +227,12 @@
     "exploreBody": "Browse the full country directory, open the comparator, or write to us if you spot outdated zone data.",
     "exploreCountries": "Country directory",
     "exploreCompare": "Time comparator",
-    "exploreContact": "Contact"
+    "exploreContact": "Contact",
+    "exploreGuides": "Zeitzonen-Ratgeber",
+    "maintainerTitle": "Wer betreibt diese Seite",
+    "maintainerBody": "Countries Time wird von einem unabhängigen Team betrieben. Korrekturen sind über die Kontaktseite willkommen.",
+    "dataUpdatedTitle": "Aktualität der Daten",
+    "dataUpdatedBody": "Zonen und Sommerzeitregeln folgen der IANA-tz-Datenbank und werden bei offiziellen Updates geprüft."
   },
   "Contact": {
     "metaTitle": "Contact",
@@ -231,5 +244,25 @@
     "privacyTitle": "Privacy",
     "privacyBody": "For data protection requests, include enough detail for us to locate relevant logs. See also our",
     "privacyLink": "privacy policy"
+  },
+  "Guides": {
+    "indexMetaTitle": "Zeitzonen-Ratgeber · Countries Time",
+    "indexMetaDescription": "Praktische Ratgeber zu Sommerzeit, internationalen Meetings und Zeitunterschieden.",
+    "indexTitle": "Zeitzonen-Ratgeber",
+    "indexIntro": "Redaktionelle Artikel für fehlerfreie internationale Terminplanung.",
+    "badgeGuide": "Ratgeber",
+    "badgeComparison": "Vergleich",
+    "updatedLabel": "Zuletzt aktualisiert",
+    "faqTitle": "Häufig gestellte Fragen",
+    "relatedLinksLabel": "Verwandte Links",
+    "openComparator": "Vergleich öffnen",
+    "backToGuides": "Alle Ratgeber",
+    "relatedCountriesTitle": "Verwandte Länder"
+  },
+  "CookieConsent": {
+    "message": "Wir nutzen essenzielle Cookies. Nicht essenzielle Cookies laden wir in der EU/UK nur mit Ihrer Einwilligung.",
+    "accept": "Akzeptieren",
+    "reject": "Nur essenziell",
+    "ariaLabel": "Cookie-Einwilligung"
   }
 }

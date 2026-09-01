@@ -106,7 +106,8 @@
     "backToDirectory": "← {title}",
     "dstNotesHeading": "Horario de verano y cambios estacionales",
     "practicalTipHeading": "Consejo práctico",
-    "relatedCountriesTitle": "Países relacionados"
+    "relatedCountriesTitle": "Países relacionados",
+    "compareWithTitle": "Comparar con"
   },
   "Ads": {
     "leader": "Espacio para anuncios (CLS) · leaderboard",
@@ -119,6 +120,7 @@
     "privacyLink": "Privacidad",
     "termsLink": "Términos",
     "contactLink": "Contacto",
+    "guidesLink": "Guías",
     "note": "Reloj mundial con datos horarios en tiempo real.",
     "disclaimer": "Las horas se calculan en tiempo real con las reglas zoneinfo vigentes. Pueden existir desfases puntuales durante transiciones de horario de verano."
   },
@@ -159,6 +161,12 @@
     "seoHowStep2": "Lee la hora en vivo, la zona IANA y las notas sobre horario de verano.",
     "seoHowStep3": "Abre el comparador para proyectar una fecha y hora de referencia en hasta cuatro países.",
     "seoFeaturedClocksTitle": "Relojes en vivo — consultados con frecuencia",
+    "seoGuidesTitle": "Guías de husos horarios",
+    "seoGuidesIntro": "Artículos sobre horario de verano, reuniones internacionales y diferencias horarias entre países.",
+    "seoGuidesLink": "Ver todas las guías",
+    "seoGuideFeatured1": "Cómo programar reuniones internacionales",
+    "seoGuideFeatured2": "Diferencia horaria España–México",
+    "seoGuideFeatured3": "Qué es el horario de verano",
     "ogImageAlt": "Countries Time — reloj mundial"
   },
   "NotFound": {
@@ -209,7 +217,32 @@
     "exploreBody": "Navega el directorio completo, abre el comparador o escríbenos si detectas datos desactualizados.",
     "exploreCountries": "Directorio de países",
     "exploreCompare": "Comparador horario",
-    "exploreContact": "Contacto"
+    "exploreContact": "Contacto",
+    "exploreGuides": "Guías de husos horarios",
+    "maintainerTitle": "Quién mantiene este sitio",
+    "maintainerBody": "Countries Time lo construye y mantiene un equipo independiente centrado en relojes mundiales y herramientas de agenda. No estamos afiliados a gobiernos ni operadores. Aceptamos correcciones y comentarios por la página de contacto.",
+    "dataUpdatedTitle": "Actualización de datos",
+    "dataUpdatedBody": "Las zonas y reglas de horario de verano siguen la base de datos IANA tz. Revisamos los datos cuando IANA publica actualizaciones—varias veces al año."
+  },
+  "Guides": {
+    "indexMetaTitle": "Guías de husos horarios · Countries Time",
+    "indexMetaDescription": "Guías prácticas sobre horario de verano, reuniones internacionales y diferencias horarias entre países.",
+    "indexTitle": "Guías de husos horarios",
+    "indexIntro": "Artículos editoriales para coordinar agendas internacionales sin errores. Cada guía enlaza a relojes de país y al comparador.",
+    "badgeGuide": "Guía",
+    "badgeComparison": "Comparación",
+    "updatedLabel": "Última actualización",
+    "faqTitle": "Preguntas frecuentes",
+    "relatedLinksLabel": "Enlaces relacionados",
+    "openComparator": "Abrir comparador",
+    "backToGuides": "Todas las guías",
+    "relatedCountriesTitle": "Países relacionados"
+  },
+  "CookieConsent": {
+    "message": "Usamos cookies esenciales para el funcionamiento del sitio. Las cookies no esenciales (p. ej. publicidad) solo se cargarán con tu consentimiento en la UE/Reino Unido.",
+    "accept": "Aceptar",
+    "reject": "Solo esenciales",
+    "ariaLabel": "Consentimiento de cookies"
   },
   "Contact": {
     "metaTitle": "Contacto",

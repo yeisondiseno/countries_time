@@ -48,6 +48,24 @@ export function buildFormDefaults(code = "DE"): WorldComparatorFormValues {
   };
 }
 
+export function buildFormDefaultsFromCodes(
+  codes: readonly [string, string],
+): WorldComparatorFormValues {
+  const [first, second] = codes.map((c) => c.toUpperCase());
+  if (!countriesZones.countries[first] || !countriesZones.countries[second]) {
+    return buildFormDefaults(first in countriesZones.countries ? first : "DE");
+  }
+
+  const slots: (string | null)[] = [first, second, null, null];
+  return {
+    ...buildDefaults(first),
+    followNow: true,
+    pickerSearch: "",
+    slots,
+    anchorIdx: 0,
+  };
+}
+
 function isValidSlotCode(code: unknown): code is string {
   return typeof code === "string" && Boolean(countriesZones.countries[code]);
 }

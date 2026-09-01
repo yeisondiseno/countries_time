@@ -82,3 +82,30 @@ export function buildWebSiteJsonLd(locale: Locale) {
     inLanguage: locale,
   };
 }
+
+export function buildArticleJsonLd(input: {
+  locale: Locale;
+  pathWithoutLocale: `/${string}`;
+  headline: string;
+  description: string;
+  dateModified: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.headline,
+    description: input.description,
+    dateModified: input.dateModified,
+    url: pageUrl(input.locale, input.pathWithoutLocale),
+    inLanguage: input.locale,
+    author: {
+      "@type": "Organization",
+      name: "Countries Time",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Countries Time",
+      url: getSiteOrigin().href,
+    },
+  };
+}

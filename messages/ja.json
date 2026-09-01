@@ -110,9 +110,10 @@
     "promoBody": "国をまたいだ会議をすぐに調整。基準を設定して結果を確認できます。",
     "promoCta": "コンパレーターを開く",
     "backToDirectory": "← {title}",
-    "dstNotesHeading": "Daylight saving and seasonal changes",
-    "practicalTipHeading": "Practical tip",
-    "relatedCountriesTitle": "Related countries"
+    "dstNotesHeading": "夏時間と季節の変化",
+    "practicalTipHeading": "実用的なヒント",
+    "relatedCountriesTitle": "関連国",
+    "compareWithTitle": "比較"
   },
   "Ads": {
     "leader": "広告枠（CLS）・リーダーボード",
@@ -126,7 +127,8 @@
     "contactLink": "お問い合わせ",
     "note": "リアルタイムの世界時計サービス。",
     "disclaimer": "時刻は現行の zoneinfo ルールに基づきリアルタイムで計算されます。夏時間・冬時間の切り替え時には一時的なずれが生じる場合があります。",
-    "aboutLink": "About"
+    "aboutLink": "概要",
+    "guidesLink": "ガイド"
   },
   "Home": {
     "eyebrow": "世界時計",
@@ -147,12 +149,12 @@
     "seoFaqQ3": "表示時刻が年間を通して変わるのはなぜですか？",
     "seoFaqA3": "多くの地域では年2回UTCオフセットが変わります。公式zoneinfoルールを各移行時に適用しています。",
     "ogImageAlt": "Countries Time — 世界時計",
-    "seoFaqQ4": "Where does the time data come from?",
-    "seoFaqA4": "We convert a single UTC instant using IANA time zone identifiers (zoneinfo). Rules include historical and future daylight saving transitions published in the tz database.",
-    "seoFaqQ5": "Does Countries Time replace official government time?",
-    "seoFaqA5": "No. We provide an independent reference for everyday scheduling. For legally binding timestamps, rely on official sources in each jurisdiction.",
-    "seoFaqQ6": "Can I compare more than four countries?",
-    "seoFaqA6": "The comparator supports two to four countries at once to keep results readable. You can run multiple comparisons or browse individual country pages for additional zones.",
+    "seoFaqQ4": "時刻データの出所は？",
+    "seoFaqA4": "IANA タイムゾーンで UTC を変換します。",
+    "seoFaqQ5": "公式時刻の代替ですか？",
+    "seoFaqA5": "いいえ。日常用の独立参照です。",
+    "seoFaqQ6": "4か国以上比較できますか？",
+    "seoFaqA6": "比較ツールは2〜4か国までです。",
     "seoUseCasesTitle": "When to use a world clock",
     "seoUseCasesIntro": "Countries Time helps whenever you need trustworthy local time without installing an app or creating an account.",
     "seoUseCaseTravelTitle": "Travel and layovers",
@@ -165,7 +167,13 @@
     "seoHowStep1": "Pick a country from the directory or a featured clock below.",
     "seoHowStep2": "Read the live local time, IANA zone label, and editorial notes about DST.",
     "seoHowStep3": "Open the comparator to project one reference date and time onto up to four countries.",
-    "seoFeaturedClocksTitle": "Live clocks — frequently viewed"
+    "seoFeaturedClocksTitle": "ライブ時計",
+    "seoGuidesTitle": "タイムゾーンガイド",
+    "seoGuidesIntro": "夏時間と国際会議の記事。",
+    "seoGuidesLink": "すべてのガイド",
+    "seoGuideFeatured1": "国際会議",
+    "seoGuideFeatured2": "スペインとメキシコ",
+    "seoGuideFeatured3": "夏時間"
   },
   "LiveClock": {
     "heading": "現地ライブクロック",
@@ -219,7 +227,12 @@
     "exploreBody": "Browse the full country directory, open the comparator, or write to us if you spot outdated zone data.",
     "exploreCountries": "Country directory",
     "exploreCompare": "Time comparator",
-    "exploreContact": "Contact"
+    "exploreContact": "Contact",
+    "exploreGuides": "タイムゾーンガイド",
+    "maintainerTitle": "運営者",
+    "maintainerBody": "独立チームが運営。修正はお問い合わせへ。",
+    "dataUpdatedTitle": "データ更新",
+    "dataUpdatedBody": "IANA tz データベースに準拠。"
   },
   "Contact": {
     "metaTitle": "Contact",
@@ -231,5 +244,25 @@
     "privacyTitle": "Privacy",
     "privacyBody": "For data protection requests, include enough detail for us to locate relevant logs. See also our",
     "privacyLink": "privacy policy"
+  },
+  "Guides": {
+    "indexMetaTitle": "ガイド · Countries Time",
+    "indexMetaDescription": "タイムゾーンの実用ガイド。",
+    "indexTitle": "タイムゾーンガイド",
+    "indexIntro": "国際予定のための記事。",
+    "badgeGuide": "ガイド",
+    "badgeComparison": "比較",
+    "updatedLabel": "最終更新",
+    "faqTitle": "よくある質問",
+    "relatedLinksLabel": "関連リンク",
+    "openComparator": "比較を開く",
+    "backToGuides": "すべてのガイド",
+    "relatedCountriesTitle": "関連国"
+  },
+  "CookieConsent": {
+    "message": "必須 Cookie を使用。非必須は EU/英国で同意後に読み込み。",
+    "accept": "同意する",
+    "reject": "必須のみ",
+    "ariaLabel": "Cookie 同意"
   }
 }

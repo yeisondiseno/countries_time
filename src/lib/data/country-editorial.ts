@@ -64,14 +64,32 @@ const TIER1_EDITORIAL: Record<string, CountryEditorial> = {
     overview: {
       en: "Mexico uses four time zones. Most of the population lives in Central Time (America/Mexico_City), aligned with US Central when DST rules match. Quintana Roo stays on Eastern Standard Time year-round; Sonora does not observe DST.",
       es: "México tiene cuatro husos. La mayor parte de la población está en hora central (America/Mexico_City), alineada con la central de EE. UU. cuando coinciden las reglas de verano. Quintana Roo permanece en hora estándar del Este; Sonora no usa horario de verano.",
+      fr: "Le Mexique compte quatre fuseaux. La majorité de la population est en heure centrale (America/Mexico_City). Quintana Roo reste à l'heure standard de l'Est ; le Sonora n'observe pas l'heure d'été.",
+      de: "Mexiko hat vier Zeitzonen. Der Großteil der Bevölkerung nutzt Central Time (America/Mexico_City). Quintana Roo bleibt ganzjährig auf Eastern Standard Time; Sonora stellt nicht auf Sommerzeit um.",
+      pt: "O México tem quatro fusos. A maior parte da população usa horário central (America/Mexico_City). Quintana Roo permanece no horário padrão do Leste; Sonora não observa horário de verão.",
+      it: "Il Messico ha quattro fusi. La maggior parte della popolazione usa l'ora centrale (America/Mexico_City). Quintana Roo resta sull'ora standard orientale; Sonora non osserva l'ora legale.",
+      ja: "メキシコは4つの時間帯があります。人口の多くは中部時間（America/Mexico_City）です。キンタナ・ローは通年東部標準時、ソノラは夏時間を採用しません。",
+      ko: "멕시코는 네 개 시간대가 있습니다. 대부분은 중부 시간(America/Mexico_City)을 씁니다. 킨타나로오는 연중 동부 표준시, 소노라는 서머타임을 쓰지 않습니다.",
     },
     dstNotes: {
       en: "Since 2022 many Mexican states no longer change clocks; border cities may follow US DST for commerce. Always verify the zone shown on this page.",
       es: "Desde 2022 muchos estados ya no cambian el reloj; ciudades fronterizas pueden seguir el verano de EE. UU. Verifica siempre la zona mostrada aquí.",
+      fr: "Depuis 2022, de nombreux États n'ajustent plus les horloges ; les villes frontalières peuvent suivre l'heure d'été des États-Unis.",
+      de: "Seit 2022 stellen viele Bundesstaaten nicht mehr um; Grenzstädte können der US-Sommerzeit folgen.",
+      pt: "Desde 2022 muitos estados não mudam o relógio; cidades fronteiriças podem seguir o horário de verão dos EUA.",
+      it: "Dal 2022 molti stati non cambiano più l'orologio; le città di confine possono seguire l'ora legale USA.",
+      ja: "2022年以降、多くの州で時計の変更が廃止されました。国境都市は米国の夏時間に合わせる場合があります。",
+      ko: "2022년 이후 많은 주가 시계 변경을 하지 않습니다. 국경 도시는 미국 서머타임을 따를 수 있습니다.",
     },
     practicalTip: {
       en: "A 10:00 meeting in Mexico City is typically 17:00 in Madrid (winter) or 18:00 (summer)—use the comparator for the exact date.",
       es: "Una reunión a las 10:00 en Ciudad de México suele ser 17:00 en Madrid (invierno) o 18:00 (verano); usa el comparador para la fecha exacta.",
+      fr: "Une réunion à 10h à Mexico correspond souvent à 17h à Madrid en hiver ou 18h en été—vérifiez la date exacte.",
+      de: "Ein 10:00-Termin in Mexiko-Stadt entspricht oft 17:00 in Madrid (Winter) oder 18:00 (Sommer).",
+      pt: "Uma reunião às 10:00 na Cidade do México costuma ser 17:00 em Madrid no inverno ou 18:00 no verão.",
+      it: "Un incontro alle 10:00 a Città del Messico è spesso le 17:00 a Madrid in inverno o le 18:00 in estate.",
+      ja: "メキシコシティ10:00の会議は、マドリードでは冬17:00・夏18:00になることが多いです。",
+      ko: "멕시코시티 10:00 회의는 마드리드에서 겨울 17:00, 여름 18:00인 경우가 많습니다.",
     },
     relatedCodes: ["US", "ES", "CO"],
   },
@@ -136,10 +154,22 @@ const TIER1_EDITORIAL: Record<string, CountryEditorial> = {
     overview: {
       en: "Argentina stays on UTC-3 year-round (America/Argentina/Buenos_Aires) without daylight saving time. Buenos Aires anchors finance, media, and regional coordination for the Southern Cone.",
       es: "Argentina permanece en UTC-3 todo el año (America/Argentina/Buenos_Aires) sin horario de verano. Buenos Aires concentra finanzas, medios y coordinación regional.",
+      fr: "L'Argentine reste à UTC-3 toute l'année (America/Argentina/Buenos_Aires) sans heure d'été. Buenos Aires concentre finance et médias.",
+      de: "Argentinien bleibt ganzjährig auf UTC-3 (America/Argentina/Buenos_Aires) ohne Sommerzeit. Buenos Aires ist Finanz- und Medienzentrum.",
+      pt: "A Argentina permanece em UTC-3 o ano todo (America/Argentina/Buenos_Aires) sem horário de verão. Buenos Aires concentra finanças e mídia.",
+      it: "L'Argentina resta su UTC-3 tutto l'anno (America/Argentina/Buenos_Aires) senza ora legale. Buenos Aires è hub finanziario e mediatico.",
+      ja: "アルゼンチンは通年UTC-3（America/Argentina/Buenos_Aires）で夏時間はありません。ブエノスアイレスが金融・メディアの中心です。",
+      ko: "아르헨티나는 연중 UTC-3(America/Argentina/Buenos_Aires)이며 서머타임이 없습니다. 부에노스아이레스가 금융·미디어 중심입니다.",
     },
     practicalTip: {
       en: "When calling Spain from Argentina, remember Spain is 4-5 hours ahead depending on European daylight saving.",
       es: "Si llamas a España desde Argentina, recuerda que España suele ir 4-5 horas por delante según el verano europeo.",
+      fr: "En appelant l'Espagne depuis l'Argentine, l'Espagne a 4 à 5 heures d'avance selon l'heure d'été européenne.",
+      de: "Bei Anrufen nach Spanien aus Argentinien liegt Spanien je nach europäischer Sommerzeit 4–5 Stunden voraus.",
+      pt: "Ao ligar para a Espanha a partir da Argentina, a Espanha vai 4–5 horas à frente conforme o verão europeu.",
+      it: "Chiamando la Spagna dall'Argentina, la Spagna è 4–5 ore avanti secondo l'ora legale europea.",
+      ja: "アルゼンチンからスペインに電話する場合、欧州の夏時間によりスペインは4〜5時間進んでいます。",
+      ko: "아르헨티나에서 스페인으로 전화할 때 유럽 서머타임에 따라 스페인이 4~5시간 앞섭니다.",
     },
     relatedCodes: ["BR", "CL", "ES", "MX"],
   },
@@ -148,10 +178,22 @@ const TIER1_EDITORIAL: Record<string, CountryEditorial> = {
     overview: {
       en: "Colombia uses America/Bogota (UTC-5) with no DST. Bogotá is the reference for business across the country and pairs well with US Eastern Time (same offset in winter).",
       es: "Colombia usa America/Bogota (UTC-5) sin cambio estacional. Bogotá es referencia empresarial y coincide con la hora del Este de EE. UU. en invierno.",
+      fr: "La Colombie utilise America/Bogota (UTC-5) sans heure d'été. Bogotá est la référence économique et coïncide avec l'heure de l'Est des États-Unis en hiver.",
+      de: "Kolumbien nutzt America/Bogota (UTC-5) ohne Sommerzeit. Bogotá ist Wirtschaftsreferenz und entspricht im Winter der US-Ostzeit.",
+      pt: "A Colômbia usa America/Bogota (UTC-5) sem horário de verão. Bogotá é referência comercial e coincide com o horário do Leste dos EUA no inverno.",
+      it: "La Colombia usa America/Bogota (UTC-5) senza ora legale. Bogotá è riferimento economico e coincide con l'ora orientale USA in inverno.",
+      ja: "コロンビアはAmerica/Bogota（UTC-5）で夏時間はありません。ボゴタがビジネスの基準で、冬は米国東部時間と一致します。",
+      ko: "콜롬비아는 America/Bogota(UTC-5)로 서머타임이 없습니다. 보고타가 업무 기준이며 겨울에는 미국 동부 시간과 같습니다.",
     },
     practicalTip: {
       en: "Colombia shares its offset with US Eastern Standard Time in winter—useful for Miami or New York calls without mental math.",
       es: "Colombia comparte desfase con la hora estándar del Este de EE. UU. en invierno, útil para llamadas a Miami o Nueva York.",
+      fr: "La Colombie partage le décalage de l'heure standard de l'Est des États-Unis en hiver—pratique pour Miami ou New York.",
+      de: "Kolumbien teilt im Winter den Offset der US-Oststandardzeit—praktisch für Anrufe nach Miami oder New York.",
+      pt: "A Colômbia compartilha o desfase do horário padrão do Leste dos EUA no inverno—útil para Miami ou Nova York.",
+      it: "La Colombia condivide l'offset dell'ora standard orientale USA in inverno—utile per Miami o New York.",
+      ja: "コロンビアは冬に米国東部標準時と同じオフセットで、マイアミやニューヨークへの電話に便利です。",
+      ko: "콜롬비아는 겨울에 미국 동부 표준시와 같은 오프셋으로 마이애미·뉴욕 통화에 유용합니다.",
     },
     relatedCodes: ["MX", "PE", "US", "ES"],
   },
@@ -289,17 +331,22 @@ const TIER1_EDITORIAL: Record<string, CountryEditorial> = {
   },
 };
 
-export const TIER1_COUNTRY_CODES = Object.keys(TIER1_EDITORIAL);
+export const TIER1_COUNTRY_CODES = [...TIER1_CODES];
 
-export function getCountryEditorial(
-  code: string,
-  locale: Locale,
-): {
+import { getGeneratedCountryEditorial } from "@/lib/data/country-editorial-generated";
+import { TIER1_CODES } from "@/lib/data/country-tiers";
+
+export type ResolvedCountryEditorial = Readonly<{
   overview: string;
   dstNotes: string | null;
   practicalTip: string;
   relatedCodes: readonly string[];
-} | null {
+}>;
+
+export function getTier1CountryEditorial(
+  code: string,
+  locale: Locale,
+): ResolvedCountryEditorial | null {
   const entry = TIER1_EDITORIAL[code.toUpperCase()];
   if (!entry) {
     return null;
@@ -311,4 +358,15 @@ export function getCountryEditorial(
     practicalTip: pickLocalized(entry.practicalTip, locale),
     relatedCodes: entry.relatedCodes,
   };
+}
+
+/** Tier 1 hand-written editorial, then Tier 2 generated content. */
+export function getCountryEditorial(
+  code: string,
+  locale: Locale,
+): ResolvedCountryEditorial | null {
+  return (
+    getTier1CountryEditorial(code, locale) ??
+    getGeneratedCountryEditorial(code, locale)
+  );
 }

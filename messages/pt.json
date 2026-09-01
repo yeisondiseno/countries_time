@@ -110,9 +110,10 @@
     "promoBody": "Coordene reuniões entre países instantaneamente. Defina uma referência e veja os resultados.",
     "promoCta": "Abrir comparador",
     "backToDirectory": "← {title}",
-    "dstNotesHeading": "Daylight saving and seasonal changes",
-    "practicalTipHeading": "Practical tip",
-    "relatedCountriesTitle": "Related countries"
+    "dstNotesHeading": "Horário de verão e mudanças sazonais",
+    "practicalTipHeading": "Dica prática",
+    "relatedCountriesTitle": "Países relacionados",
+    "compareWithTitle": "Comparar com"
   },
   "Ads": {
     "leader": "Espaço reservado para anúncios (CLS) · leaderboard",
@@ -126,7 +127,8 @@
     "contactLink": "Contacto",
     "note": "Relógio mundial com dados horários em tempo real.",
     "disclaimer": "Os horários são calculados em tempo real com as regras zoneinfo vigentes. Podem ocorrer diferenças momentâneas durante as transições de horário de verão.",
-    "aboutLink": "About"
+    "aboutLink": "Sobre",
+    "guidesLink": "Guias"
   },
   "Home": {
     "eyebrow": "Relógio mundial",
@@ -147,12 +149,12 @@
     "seoFaqQ3": "Por que a hora exibida pode mudar ao longo do ano?",
     "seoFaqA3": "Muitas regiões ajustam o desvio UTC duas vezes por ano. Aplicamos as regras zoneinfo oficiais em cada transição.",
     "ogImageAlt": "Countries Time — relógio mundial",
-    "seoFaqQ4": "Where does the time data come from?",
-    "seoFaqA4": "We convert a single UTC instant using IANA time zone identifiers (zoneinfo). Rules include historical and future daylight saving transitions published in the tz database.",
-    "seoFaqQ5": "Does Countries Time replace official government time?",
-    "seoFaqA5": "No. We provide an independent reference for everyday scheduling. For legally binding timestamps, rely on official sources in each jurisdiction.",
-    "seoFaqQ6": "Can I compare more than four countries?",
-    "seoFaqA6": "The comparator supports two to four countries at once to keep results readable. You can run multiple comparisons or browse individual country pages for additional zones.",
+    "seoFaqQ4": "De onde vêm os dados horários?",
+    "seoFaqA4": "Convertemos um instante UTC com identificadores IANA (zoneinfo), incluindo transições da base tz.",
+    "seoFaqQ5": "O Countries Time substitui a hora oficial?",
+    "seoFaqA5": "Não. Oferecemos uma referência independente. Para registos legais, use fontes oficiais.",
+    "seoFaqQ6": "Posso comparar mais de quatro países?",
+    "seoFaqA6": "O comparador aceita dois a quatro países. Faça uma segunda comparação ou visite páginas de país.",
     "seoUseCasesTitle": "When to use a world clock",
     "seoUseCasesIntro": "Countries Time helps whenever you need trustworthy local time without installing an app or creating an account.",
     "seoUseCaseTravelTitle": "Travel and layovers",
@@ -165,7 +167,13 @@
     "seoHowStep1": "Pick a country from the directory or a featured clock below.",
     "seoHowStep2": "Read the live local time, IANA zone label, and editorial notes about DST.",
     "seoHowStep3": "Open the comparator to project one reference date and time onto up to four countries.",
-    "seoFeaturedClocksTitle": "Live clocks — frequently viewed"
+    "seoFeaturedClocksTitle": "Relógios ao vivo — mais vistos",
+    "seoGuidesTitle": "Guias de fusos horários",
+    "seoGuidesIntro": "Artigos sobre horário de verão e diferenças horárias.",
+    "seoGuidesLink": "Ver todos os guias",
+    "seoGuideFeatured1": "Reuniões internacionais",
+    "seoGuideFeatured2": "Diferença Espanha–México",
+    "seoGuideFeatured3": "Horário de verão"
   },
   "LiveClock": {
     "heading": "Relógio local ao vivo",
@@ -219,7 +227,12 @@
     "exploreBody": "Browse the full country directory, open the comparator, or write to us if you spot outdated zone data.",
     "exploreCountries": "Country directory",
     "exploreCompare": "Time comparator",
-    "exploreContact": "Contact"
+    "exploreContact": "Contact",
+    "exploreGuides": "Guias de fusos horários",
+    "maintainerTitle": "Quem mantém este site",
+    "maintainerBody": "Equipa independente. Correções via contacto.",
+    "dataUpdatedTitle": "Atualização dos dados",
+    "dataUpdatedBody": "Dados IANA tz revistos nas publicações oficiais."
   },
   "Contact": {
     "metaTitle": "Contact",
@@ -231,5 +244,25 @@
     "privacyTitle": "Privacy",
     "privacyBody": "For data protection requests, include enough detail for us to locate relevant logs. See also our",
     "privacyLink": "privacy policy"
+  },
+  "Guides": {
+    "indexMetaTitle": "Guias · Countries Time",
+    "indexMetaDescription": "Guias práticos de fusos horários.",
+    "indexTitle": "Guias de fusos horários",
+    "indexIntro": "Artigos para coordenar agendas internacionais.",
+    "badgeGuide": "Guia",
+    "badgeComparison": "Comparação",
+    "updatedLabel": "Última atualização",
+    "faqTitle": "Perguntas frequentes",
+    "relatedLinksLabel": "Links relacionados",
+    "openComparator": "Abrir comparador",
+    "backToGuides": "Todos os guias",
+    "relatedCountriesTitle": "Países relacionados"
+  },
+  "CookieConsent": {
+    "message": "Cookies essenciais. Não essenciais só com consentimento na UE/Reino Unido.",
+    "accept": "Aceitar",
+    "reject": "Apenas essenciais",
+    "ariaLabel": "Consentimento de cookies"
   }
 }
