@@ -3,6 +3,8 @@
 **Scan date:** 2026-08-31  
 **Command:** `npm audit --audit-level=high`
 
+**Delta 2026-08-31 (GSC meta):** no `package.json` / lockfile change. Dependency posture unchanged; audit not re-run for this SEO-only diff.
+
 ## Summary
 
 | Severity | Count |

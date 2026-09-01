@@ -45,6 +45,14 @@
 | `ConsentAdSenseScript.tsx:25-30` | Dynamic `script` append | No (env + fixed Google URL) |
 | `AdSlot.tsx:49-56` | `<ins data-ad-*>` attrs | No (env only) |
 
+## SEO / ownership verification
+
+| Mechanism | Location | User-controlled? | Secret? |
+| --- | --- | --- | --- |
+| Google Search Console HTML tag (`metadata.verification.google`) | `src/app/layout.tsx` (site-wide) | No (compile-time literal) | No — public ownership proof |
+
+Emitted as `<meta name="google-site-verification" content="…">`. Does not load Google scripts.
+
 ## Environment (client-exposed)
 
 | Variable | Purpose | Secret? |

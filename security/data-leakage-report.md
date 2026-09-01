@@ -12,6 +12,14 @@
 
 **No secrets, API keys, or tokens found in `NEXT_PUBLIC_*` or client bundles.**
 
+## Public HTML verification (GSC)
+
+| Artifact | Location | In HTML? | Sensitive? | Verdict |
+| --- | --- | --- | --- | --- |
+| `verification.google` | `src/app/layout.tsx` | Yes (all pages) | No — Google Search Console HTML-tag ownership token | ✅ OK |
+
+Google requires this string in public HTML. It cannot authenticate APIs, sessions, or the GSC account. An attacker who copies the meta tag to another host cannot claim this production origin.
+
 ## localStorage / sessionStorage
 
 | Key | Sensitive data? | XSS exfiltration risk | Verdict |
