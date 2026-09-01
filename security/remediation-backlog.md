@@ -21,3 +21,4 @@
 - ✅ SEC-003 + SEC-004 closed before `NEXT_PUBLIC_ADS_ENABLED=true`
 - ✅ SEC-006/007/011/012 closed
 - CSP still Report-Only (`unsafe-inline` required for Next.js hydration)
+- ✅ **2026-08-31 GSC HTML verification** (`src/app/layout.tsx`): no new findings; Agent 16 sign-off for this delta

@@ -10,7 +10,7 @@
 | V5.3.3 | Output encoding | **Partial** | React text nodes OK; JsonLd gap (SEC-003) |
 | V7.4.1 | No stack traces to user | **Pass** | No verbose errors observed |
 | V8.2.2 | Consent for sensitive processing | **Fail** | Analytics without consent (SEC-004) |
-| V13.2.1 | No API keys in client | **Pass** | Only public env vars |
+| V13.2.1 | No API keys in client | **Pass** | Only public env vars; GSC HTML verification token in Metadata API is not an API key (2026-08-31 delta) |
 | V14.2.1 | Dependency patching | **Fail** | SEC-002 |
 | V14.4.1 | Security headers | **Fail** | SEC-001 |
 | V14.4.3 | CSP | **Fail** | SEC-001, SEC-006 |

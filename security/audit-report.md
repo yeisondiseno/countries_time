@@ -1,9 +1,65 @@
 # Informe de Auditoría Frontend — Countries Time
 
-**Fecha:** 2026-08-31  
+## Current engagement — GSC HTML verification (2026-08-31)
+
 **Auditor:** Agent 16 (Frontend Security)  
+**Diff:** uncommitted — `src/app/layout.tsx` only  
+**Scope:** Google Search Console HTML tag via Next.js Metadata API  
+**Conformance:** OWASP ASVS 4.0 Level 2 + Top 10 2021 (delta only)  
+**Verdict:** ✅ **SIGN-OFF** — 0 Critical, 0 High, 0 Medium, 0 Low in this change. Fast pass (no auth/data impact).
+
+### Change under review
+
+```tsx
+export const metadata: Metadata = {
+  metadataBase: getSiteOrigin(),
+  verification: {
+    google: "QITtAvbig7mPV9WpAzkPTSM8xsaa5YjXWOYZV-tMnpU",
+  },
+};
+```
+
+Next.js Metadata API emits:
+
+```html
+<meta name="google-site-verification" content="QITtAvbig7mPV9WpAzkPTSM8xsaa5YjXWOYZV-tMnpU" />
+```
+
+This is the documented `verification.google` mapping ([Next.js generateMetadata](https://github.com/vercel/next.js/blob/canary/docs/01-app/03-api-reference/04-functions/generate-metadata.mdx)). Ads stay disabled (`NEXT_PUBLIC_ADS_ENABLED` not `"true"`; this diff does not touch ad loaders).
+
+### Aggressive pass (delta)
+
+| Hunt | Result | Evidence |
+| --- | --- | --- |
+| A03 XSS / HTML breakout | ✅ PASS | Compile-time literal; charset `[A-Za-z0-9_-]`; React/Metadata API encodes `content`; no `dangerouslySetInnerHTML`; not user-controlled |
+| A02 / A07 secrets in client | ✅ PASS | GSC HTML verification token is a **public ownership proof**, not an API key, session, or Google account credential. Copying it to another origin cannot claim this domain. |
+| A01 / A04 access control | ✅ PASS | Token does not grant Search Console or site admin access |
+| A05 misconfiguration | ✅ PASS | Site-wide meta is Google's HTML-tag method; no debug flags, no new headers regression |
+| A08 integrity / third-party scripts | ✅ PASS | No new scripts, iframes, or AdSense enablement |
+| A06 dependencies | N/A | No lockfile / package change |
+| A09 analytics leakage | ✅ PASS | No new SDK; token not sent to analytics by this change |
+| A10 SSRF | N/A | No fetch / user-controlled URL |
+
+### Findings
+
+**None.** No Critical / High / Medium / Low issues introduced.
+
+Informational (not a finding): the token is committed in source. That is expected for HTML-tag verification. Forks emitting the same meta cannot steal `countries-time.info` ownership. Rotate in GSC and replace the string only if the property is removed or the token is revoked.
+
+### Release gate (this change)
+
+| ID | Severity | Status | Blocks this change |
+| --- | --- | --- | --- |
+| — | — | No new findings | No |
+
+Historical High items (SEC-001, SEC-002) are **out of scope** and already marked **done** in `remediation-backlog.md`. This engagement does not reopen them.
+
+---
+
+## Historical engagement — AdSense / full frontend (2026-08-31)
+
 **Alcance:** Remediation AdSense "low value content" + superficie completa del frontend  
-**Veredicto:** ⛔ **BLOQUEAR RELEASE** — 2 hallazgos High abiertos
+**Veredicto histórico:** ⛔ **BLOQUEAR RELEASE** — 2 hallazgos High (later closed; see backlog)
 
 ---
 

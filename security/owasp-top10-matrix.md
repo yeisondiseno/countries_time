@@ -14,3 +14,5 @@
 | A10 | SSRF | **N/A** | No client-initiated fetch to user URLs |
 
 **Overall:** 0 Fail, 4 Partial, 4 Pass, 2 N/A (post SEC-006/007 retest 2026-08-31)
+
+**Delta 2026-08-31 (GSC meta):** no category verdict change. A02/A05/A08 remain Pass/Partial as above; new public meta is not a secret and adds no scripts.

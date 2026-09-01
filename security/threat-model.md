@@ -4,12 +4,16 @@
 
 | Field | Value |
 | --- | --- |
-| **Target** | `c:\Users\USUARIO\Documents\side_proyects\countries_time` — remediation AdSense "low value content" |
-| **Stack** | Next.js 16.2.6, React 19.2.0, next-intl 4.12.0, Vercel Analytics, future AdSense |
-| **Data classes** | Public country/timezone metadata, editorial copy, contact email (public), theme/preference localStorage, comparator form state |
+| **Target** | `c:\Users\USUARIO\Documents\side_proyects\countries_time` — GSC HTML verification meta (uncommitted `src/app/layout.tsx`) |
+| **Stack** | Next.js App Router, React, next-intl, Vercel Analytics, AdSense gated off |
+| **Data classes** | Public country/timezone metadata, editorial copy, contact email (public), theme/preference localStorage, comparator form state, **public GSC ownership token** |
 | **Conformance** | OWASP ASVS 4.0 Level 2 + OWASP Top 10 2021 |
 | **Auth** | None — static informational site |
-| **Assumptions** | Production on Vercel; `NEXT_PUBLIC_SITE_URL` set in production builds |
+| **Assumptions** | Production on Vercel; `NEXT_PUBLIC_SITE_URL` set in production builds; ads remain disabled |
+
+### Delta (2026-08-31)
+
+Root layout Metadata API adds `verification.google`. Trust boundary: browser HTML `<head>` exposes a public Google Search Console HTML-tag token. Googlebot fetches the site to prove DNS/HTTP ownership. No new third-party script, no secrets, no auth.
 
 ## Trust Boundaries
 
@@ -44,3 +48,4 @@
 - Editorial/site reputation (no defacement via injection)
 - Visitor privacy (consent-gated third parties)
 - Build/deploy integrity (no secret leakage in client bundle)
+- Domain ownership proofs (GSC HTML token is public by design; do not treat as a credential)
