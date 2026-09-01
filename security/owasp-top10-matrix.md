@@ -4,13 +4,13 @@
 | --- | --- | --- | --- |
 | A01 | Broken Access Control | **Pass** | No auth; no admin UI; tier-3 noindex is SEO-only |
 | A02 | Cryptographic Failures | **Pass** | No tokens in storage; HTTPS enforced for prod site URL |
-| A03 | Injection | **Partial** | URL params safe; JsonLd sink unhardened (SEC-003) |
-| A04 | Insecure Design | **Partial** | Cookie banner not wired to script loading (SEC-004) |
-| A05 | Security Misconfiguration | **Fail** | No CSP/HSTS/headers (SEC-001); inline script (SEC-006) |
-| A06 | Vulnerable Components | **Fail** | next@16.2.6 + 6 High CVEs (SEC-002); sanitize-html (SEC-005) |
+| A03 | Injection | **Pass** | URL params safe; JsonLd hardened (SEC-003 closed) |
+| A04 | Insecure Design | **Partial** | Consent gates load; revoke path incomplete (SEC-011) |
+| A05 | Security Misconfiguration | **Partial** | Headers + CSP Report-Only (SEC-001); theme externalized (SEC-006) |
+| A06 | Vulnerable Components | **Pass** | next upgraded; `npm audit` 0 High (SEC-002, SEC-005 closed) |
 | A07 | Auth Failures | **N/A** | No authentication |
-| A08 | Integrity Failures | **Partial** | No SRI on third parties; AdSense not yet integrated (SEC-007) |
-| A09 | Logging & Monitoring | **Partial** | Analytics without consent gating (SEC-004) |
+| A08 | Integrity Failures | **Partial** | No SRI on Google scripts (accepted); first-party boot without SRI |
+| A09 | Logging & Monitoring | **Partial** | Analytics gated; AdSense revoke gap (SEC-011) |
 | A10 | SSRF | **N/A** | No client-initiated fetch to user URLs |
 
-**Overall:** 2 Fail, 4 Partial, 2 Pass, 2 N/A
+**Overall:** 0 Fail, 4 Partial, 4 Pass, 2 N/A (post SEC-006/007 retest 2026-08-31)
