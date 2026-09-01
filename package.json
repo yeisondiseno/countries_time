@@ -11,6 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "validate:zones": "bun run scripts/validate-zones.ts",
+    "verify:production": "bun run scripts/verify-production.ts",
     "generate:countries": "bun run scripts/generate-countries-zones.ts",
     "test": "bun test"
   },

@@ -229,3 +229,93 @@ O usar `<script type="application/ld+json">{JSON.stringify(data)}</script>` sin 
 | SEC-008–010 | Low | Informativo | No |
 
 **Recomendación final:** No desplegar a producción hasta cerrar SEC-001 y SEC-002. Planificar SEC-003 y SEC-004 antes de activar AdSense.
+
+---
+
+## Retest — SEC-006 / SEC-007 (2026-08-31, uncommitted diff)
+
+**Alcance:** `public/theme-boot.js`, `src/app/layout.tsx`, `ConsentAdSenseScript`, `AdSlot`, `next.config.ts` CSP, `adsense-config.ts`  
+**Veredicto focal:** ✅ **Sin bloqueadores Critical/High nuevos** en el alcance SEC-006/007. Un hallazgo Medium residual (SEC-011) antes de `NEXT_PUBLIC_ADS_ENABLED=true`.
+
+### SEC-006 — theme-boot.js external script
+
+| Control | Resultado | Evidencia |
+| --- | --- | --- |
+| XSS vía localStorage → `dataset` | ✅ PASS | Whitelist `light\|dark`, `12h\|24h` en `public/theme-boot.js:4-9` |
+| Eliminación de inline script | ✅ PASS | `layout.tsx:43` → `<script src="/theme-boot.js" />` |
+| CSP `script-src 'self'` | ✅ PASS | Archivo same-origin; ya no requiere `unsafe-inline` para boot |
+| SRI / integridad | ⚠️ Low | Sin `integrity=`; confianza en origen propio (A08) |
+| Nonce CSP estricta | ⚠️ Deferred | Migración futura cuando CSP pase de Report-Only a enforce |
+
+**Conclusión SEC-006:** Remediación **aceptada** para cierre Medium. Reduce superficie inline; mantiene validación anti-inyección DOM.
+
+---
+
+### SEC-007 — AdSense CSP + consent gating
+
+| Control | Resultado | Evidencia |
+| --- | --- | --- |
+| Script solo tras consentimiento | ✅ PASS | `ConsentAdSenseScript.tsx:14-16` — `isAdsEnabled && allowsAnalytics && clientId` |
+| Ad units solo tras consentimiento | ✅ PASS | `AdSlot.tsx:23` — `adsActive` incluye `allowsAnalytics` |
+| Inyección controlada de script | ✅ PASS | `createElement("script")` + URL fija Google + `encodeURIComponent(clientId)` |
+| XSS vía `clientId` / `slotId` | ✅ PASS | React escapa attrs; URL encoded; env estático (no input usuario) |
+| CSP allowlist AdSense | ⚠️ Partial | Dominios base añadidos; lista puede requerir ampliación en go-live |
+| CSP enforcement | ⚠️ Residual | Sigue `Content-Security-Policy-Report-Only` (SEC-001 nota aceptada) |
+| SRI en `adsbygoogle.js` | N/A | Google rota scripts; SRI no viable — riesgo aceptado documentado |
+| Revocación de consentimiento | ❌ FAIL | Ver SEC-011 |
+
+**Dominios CSP añadidos (`next.config.ts:8-13`):**
+- `script-src`: `pagead2.googlesyndication.com`, `www.googletagservices.com`
+- `connect-src`: `pagead2.googlesyndication.com`
+- `frame-src`: `googleads.g.doubleclick.net`, `tpc.googlesyndication.com`
+
+**Conclusión SEC-007:** Remediación **aceptada** para cierre Medium con condiciones: validar dominios CSP en staging con ads reales; cerrar SEC-011 antes de activar ads en producción.
+
+---
+
+### SEC-011 — AdSense persiste tras retirar consentimiento (Medium) — **NUEVO**
+
+**OWASP:** A04:2021 Insecure Design / A09:2021  
+**ASVS:** V8.2.2  
+**Ubicación:** `ConsentAdSenseScript.tsx:13-31`, `AdSlot.tsx:39-41`  
+**Evidencia:** `useEffect` inyecta `<script data-countries-time-adsense>` pero no hay cleanup cuando `allowsAnalytics` pasa a `false`. `AdSlot` deja de renderizar `<ins>`, pero el script y `window.adsbygoogle` permanecen activos en la sesión.
+
+**Impacto:** Si el usuario revoca consentimiento (p. ej. borra `countries-time:cookie-consent` y elige "Rechazar", o futura UI de preferencias), el script de Google sigue cargado hasta recarga completa — incumplimiento de expectativa de privacidad y posible tracking no autorizado.
+
+**PoC:**
+1. Aceptar cookies → DevTools confirma `adsbygoogle.js` en `<head>` (con env de ads activo).
+2. En Application → localStorage, poner `countries-time:cookie-consent` = `"essential"` y disparar `writeCookieConsent` vía consola o futura UI.
+3. Script AdSense sigue en DOM; requests a dominios Google pueden continuar.
+
+**Fix (Agent 12):**
+- En `ConsentAdSenseScript`, efecto con cleanup: eliminar script y limpiar slots si `!allowsAnalytics`.
+- Añadir UI de gestión de consentimiento o re-mostrar banner al cambiar preferencias.
+- Validar `getAdSenseClientId()` con `/^ca-pub-\d+$/` y slots con `/^\d+$/`.
+
+**Retest:** Revocar consentimiento sin reload → cero scripts AdSense en DOM y cero requests a `googlesyndication.com`.
+
+---
+
+### SEC-012 — Validación de formato AdSense env vars (Low) — **NUEVO**
+
+**OWASP:** A05:2021 Security Misconfiguration  
+**Ubicación:** `src/lib/ads/adsense-config.ts:2-18`  
+**Evidencia:** `clientId` y `slotId` solo comprueban longitud > 0, no formato `ca-pub-*` / numérico.  
+**Impacto:** Misconfiguración en Vercel env podría generar URLs inválidas o comportamiento inesperado; **no XSS** gracias a encoding React/URL.  
+**Fix:** Regex allowlist en `getAdSenseClientId` / `getAdSenseSlotId`.  
+**Retest:** Valores malformados retornan `null` → componentes no renderizan ads.
+
+---
+
+## Matriz de bloqueo actualizada (post-retest)
+
+| ID | Severidad | Estado retest | Bloquea |
+| --- | --- | --- | --- |
+| SEC-001 | High | Cerrado (Report-Only aceptado) | No |
+| SEC-002 | High | Cerrado (`npm audit` 0 High) | No |
+| SEC-006 | Medium | **Cerrado** | No |
+| SEC-007 | Medium | **Cerrado** (condicional) | No |
+| SEC-011 | Medium | **Abierto** | No* |
+| SEC-012 | Low | Abierto | No |
+
+\*Recomendado cerrar SEC-011 antes de `NEXT_PUBLIC_ADS_ENABLED=true`.

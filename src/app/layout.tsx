@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { JetBrains_Mono, Manrope } from "next/font/google";
 import { headers } from "next/headers";
 
+import { ConsentAdSenseScript } from "@/components/molecules/ConsentAdSenseScript";
 import { ConsentAnalytics } from "@/components/molecules/ConsentAnalytics";
 import { CookieConsentProvider, ThemeProvider, TimeFormatProvider } from "@/components";
 
@@ -39,11 +40,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("countries-time-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var h=localStorage.getItem("countries-time-hour-format");if(h==="12h"||h==="24h")document.documentElement.dataset.hourFormat=h;}catch(e){}})();`,
-          }}
-        />
+        <script src="/theme-boot.js" />
       </head>
       <body className={`${manrope.variable} ${jetbrains.variable}`}>
         <CookieConsentProvider>
@@ -51,6 +48,7 @@ export default async function RootLayout({
             <TimeFormatProvider>{children}</TimeFormatProvider>
           </ThemeProvider>
           <ConsentAnalytics />
+          <ConsentAdSenseScript />
         </CookieConsentProvider>
       </body>
     </html>

@@ -1,0 +1,1 @@
+export { ConsentAdSenseScript } from "./ConsentAdSenseScript";

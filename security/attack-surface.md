@@ -23,24 +23,27 @@
 
 | Key | Component | Data | Validation |
 | --- | --- | --- | --- |
-| `countries-time-theme` | ThemeProvider, inline script | `light` \| `dark` | Whitelist on read |
-| `countries-time-hour-format` | TimeFormatProvider, inline script | `12h` \| `24h` | Whitelist on read |
-| `countries-time:cookie-consent` | CookieConsentBanner | `all` \| `essential` | No downstream gating observed |
+| `countries-time-theme` | ThemeProvider, `theme-boot.js` | `light` \| `dark` | Whitelist on read |
+| `countries-time-hour-format` | TimeFormatProvider, `theme-boot.js` | `12h` \| `24h` | Whitelist on read |
+| `countries-time:cookie-consent` | CookieConsentBanner | `all` \| `essential` | Gates Analytics + AdSense load |
 | `countries-time:world-comparator-form` | WorldComparator | Form JSON | `parseStoredWorldComparatorForm` whitelist |
 
 ## Third-Party Scripts
 
 | Integration | File | Consent-gated | SRI |
 | --- | --- | --- | --- |
-| Vercel Analytics | `src/app/layout.tsx:53` | **No** | N/A (Next component) |
-| AdSense (future) | `src/lib/ads/config.ts`, `AdSlot` | **No** (banner exists, not wired) | Not implemented |
+| Vercel Analytics | `ConsentAnalytics.tsx` | **Yes** (`allowsAnalytics`) | N/A (Next component) |
+| AdSense loader | `ConsentAdSenseScript.tsx` | **Yes** (load) | No (Google rotates) |
+| AdSense units | `AdSlot.tsx` | **Yes** (render) | N/A |
+| Theme boot | `public/theme-boot.js` | N/A (first-party) | No |
 
 ## Dangerous DOM Sinks
 
 | Location | Pattern | User-controlled? |
 | --- | --- | --- |
-| `src/lib/seo/JsonLd.tsx:9` | `dangerouslySetInnerHTML` + `JSON.stringify` | Indirect (i18n/editorial static) |
-| `src/app/layout.tsx:43-45` | Inline boot script | No (fixed string) |
+| `src/lib/seo/JsonLd.tsx:11` | `dangerouslySetInnerHTML` + `serializeJsonLd` | Indirect (i18n/editorial static); hardened |
+| `ConsentAdSenseScript.tsx:25-30` | Dynamic `script` append | No (env + fixed Google URL) |
+| `AdSlot.tsx:49-56` | `<ins data-ad-*>` attrs | No (env only) |
 
 ## Environment (client-exposed)
 
@@ -48,6 +51,8 @@
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin | No (public) |
 | `NEXT_PUBLIC_ADS_ENABLED` | Ad feature flag | No |
+| `NEXT_PUBLIC_ADSENSE_CLIENT_ID` | Publisher ID (`ca-pub-*`) | No (public by design) |
+| `NEXT_PUBLIC_ADSENSE_SLOT_*` | Ad unit IDs | No (public by design) |
 
 ## Forms / Inputs
 
