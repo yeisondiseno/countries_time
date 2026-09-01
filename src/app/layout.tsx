@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 
 import { JetBrains_Mono, Manrope } from "next/font/google";
 import { headers } from "next/headers";
-import { Analytics } from "@vercel/analytics/next";
 
-import { ThemeProvider, TimeFormatProvider } from "@/components";
+import { ConsentAnalytics } from "@/components/molecules/ConsentAnalytics";
+import { CookieConsentProvider, ThemeProvider, TimeFormatProvider } from "@/components";
 
 import "@/styles/globals.css";
 
@@ -46,11 +46,12 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${manrope.variable} ${jetbrains.variable}`}>
-        <ThemeProvider>
-          <TimeFormatProvider>{children}</TimeFormatProvider>
-        </ThemeProvider>
-
-        <Analytics />
+        <CookieConsentProvider>
+          <ThemeProvider>
+            <TimeFormatProvider>{children}</TimeFormatProvider>
+          </ThemeProvider>
+          <ConsentAnalytics />
+        </CookieConsentProvider>
       </body>
     </html>
   );

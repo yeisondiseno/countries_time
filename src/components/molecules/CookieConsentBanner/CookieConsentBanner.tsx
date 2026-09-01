@@ -1,39 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+
+import { useCookieConsent } from "@/components/providers/CookieConsentProvider";
 
 import styles from "./CookieConsentBanner.module.css";
 
-const STORAGE_KEY = "countries-time:cookie-consent";
-
-type ConsentValue = "all" | "essential";
-
 export function CookieConsentBanner() {
   const t = useTranslations("CookieConsent");
-  const [visible, setVisible] = useState(false);
+  const { hasAnswered, setConsent } = useCookieConsent();
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) {
-        setVisible(true);
-      }
-    } catch {
-      setVisible(true);
-    }
-  }, []);
-
-  const save = (value: ConsentValue) => {
-    try {
-      localStorage.setItem(STORAGE_KEY, value);
-    } catch {
-      // ignore storage errors
-    }
-    setVisible(false);
-  };
-
-  if (!visible) {
+  if (hasAnswered) {
     return null;
   }
 
@@ -41,10 +18,10 @@ export function CookieConsentBanner() {
     <div className={styles.banner} role="dialog" aria-label={t("ariaLabel")}>
       <p className={styles.message}>{t("message")}</p>
       <div className={styles.actions}>
-        <button type="button" className={styles.reject} onClick={() => save("essential")}>
+        <button type="button" className={styles.reject} onClick={() => setConsent("essential")}>
           {t("reject")}
         </button>
-        <button type="button" className={styles.accept} onClick={() => save("all")}>
+        <button type="button" className={styles.accept} onClick={() => setConsent("all")}>
           {t("accept")}
         </button>
       </div>
